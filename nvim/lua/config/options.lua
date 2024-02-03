@@ -4,4 +4,5 @@
 
 local opt = vim.opt
 opt.spell = false
+opt.swapfile = false
 -- opt.shiftwidth = 4

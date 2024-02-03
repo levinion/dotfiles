@@ -577,7 +577,7 @@ save_to_clipboard = false
 semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
 
 [shell]
-program = "/bin/zsh"
+program = "/bin/fish"
 
 [window]
 decorations = "full"

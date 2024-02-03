@@ -10,6 +10,7 @@ dot_table = {
     "picom": "~/.config/picom",
     "alacritty": "~/.config/alacritty",
     "rofi": "~/.config/rofi",
+    "fish": "~/.config/fish",
 }
 
 
