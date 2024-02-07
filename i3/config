@@ -26,7 +26,9 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+set $bg "/home/maruka/Pictures/110821.png"
+
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --blur 5 --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -45,6 +47,7 @@ set $up k
 set $down j
 set $left h
 set $right l
+
 
 # use Mouse+$mod to drag floating windows to their wanted position
 set $mod Mod4
@@ -179,8 +182,8 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-bindsym Ctrl+Shift+Up exec pamixer --increase 5
-bindsym Ctrl+Shift+Down exec pamixer --decrease 5
+bindsym Ctrl+Shift+Up exec --no-startup-id "python $HOME/.config/i3/scripts/volume.py -i 5"
+bindsym Ctrl+Shift+Down exec --no-startup-id "python $HOME/.config/i3/scripts/volume.py -d 5"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -239,12 +242,13 @@ for_window [class="Clash-verge"] floating enable
 #######################################################################
 # exec i3-config-wizard
 
-exec --no-startup-id feh --bg-scale "/home/maruka/Pictures/110821.jpg"
+exec --no-startup-id feh --bg-scale $bg &
 exec --no-startup-id fcitx5 &
-exec_always --no-startup-id picom -f
+exec_always --no-startup-id picom -f &
 exec --no-startup-id clash-verge &
-exec --no-startup-id polybar
-exec_always --no-startup-id autotiling-rs
+exec --no-startup-id polybar &
+exec_always --no-startup-id autotiling-rs &
+exec --no-startup-id dunst &
 
 client.focused          #96CDFB #96CDFB #FFFFFF #ABE9B3 #96CDFB
 client.focused_inactive #6E6C7E #6E6C7E #FFFFFF #ABE9B3 #96CDFB

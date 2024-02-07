@@ -3,6 +3,18 @@
 import subprocess
 import argparse
 
+setup_list = [
+    "i3-gaps-rounded-git",
+    "polybar",
+    "neovim",
+    "picom",
+    "alacritty",
+    "rofi",
+    "fish",
+    "fisher",
+    "dunst",
+]
+
 dot_table = {
     "i3": "~/.config/i3",
     "polybar": "~/.config/polybar",
@@ -11,16 +23,19 @@ dot_table = {
     "alacritty": "~/.config/alacritty",
     "rofi": "~/.config/rofi",
     "fish": "~/.config/fish",
+    "dunst": "~/.config/dunst",
 }
 
 
 def main():
     parser = argparse.ArgumentParser()
     subparser = parser.add_subparsers(dest="command")
-    update_parser = subparser.add_parser(
-        "update", help="Get dotfiles from actual config file/dirs"
+
+    sync_parser = subparser.add_parser(
+        "sync", help="Get dotfiles from actual config file/dirs"
     )
-    update_parser.set_defaults(func=update)
+    sync_parser.set_defaults(func=sync)
+
     commit_parser = subparser.add_parser(
         "commit", help="Commit changes to config files"
     )
@@ -31,11 +46,17 @@ def main():
         type=str,
     )
     commit_parser.set_defaults(func=commit)
+
+    setup_parser = subparser.add_parser(
+        "setup", help="Setup packages and commit changes to config files"
+    )
+    setup_parser.set_defaults(func=setup)
+
     args = parser.parse_args()
     args.func(args)
 
 
-def update(_):
+def sync(_):
     for k, v in dot_table.items():
         print(f"sync {k}...")
         subprocess.call(f"rsync -a --delete {v} .", shell=True)
@@ -58,6 +79,12 @@ def commit(args):
                 print("success!")
             else:
                 print(f"{item} not found!")
+
+
+def setup(args):
+    cmds = ["paru", "-S", "--needed"] + setup_list
+    subprocess.call(" ".join(cmds), shell=True)
+    commit(args)
 
 
 def confirm(msg: str):
