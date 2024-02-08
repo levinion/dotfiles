@@ -24,6 +24,7 @@ dot_table = {
     "rofi": "~/.config/rofi",
     "fish": "~/.config/fish",
     "dunst": "~/.config/dunst",
+    "fontconfig": "~/.config/fontconfig",
 }
 
 
