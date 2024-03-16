@@ -6,7 +6,8 @@ return {
         -- Ensure mason installs the server
         typst_lsp = {
           settings = {
-            exportPdf = "onType",
+            -- onType,onSave,never
+            exportPdf = "never",
           },
         },
       },
@@ -16,13 +17,5 @@ return {
     "kaarmu/typst.vim",
     ft = "typst",
     lazy = false,
-  },
-  {
-    "chomosuke/typst-preview.nvim",
-    lazy = false, -- or ft = 'typst'
-    version = "0.1.*",
-    build = function()
-      require("typst-preview").update()
-    end,
   },
 }

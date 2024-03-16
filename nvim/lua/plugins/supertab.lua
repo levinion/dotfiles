@@ -32,7 +32,7 @@ return {
           elseif luasnip.expand_or_locally_jumpable() then
             luasnip.expand_or_jump()
             -- elseif has_words_before() then
-            --   cmp.complete()
+            -- cmp.complete()
           else
             fallback()
           end
@@ -46,6 +46,7 @@ return {
             fallback()
           end
         end, { "i", "s" }),
+        ["<CR>"] = cmp.config.disable,
       })
     end,
   },

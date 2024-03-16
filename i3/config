@@ -26,7 +26,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-set $bg "/home/maruka/Pictures/110821.png"
+set $bg "/home/maruka/Pictures/bg.png"
 
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --blur 5 --nofork
 
@@ -51,6 +51,7 @@ set $right l
 
 # use Mouse+$mod to drag floating windows to their wanted position
 set $mod Mod4
+set $alt Mod1
 floating_modifier $mod
 
 # move tiling windows via drag & drop by left-clicking into the title bar,
@@ -68,7 +69,7 @@ bindsym $mod+q kill
 # start dmenu (a program launcher):
 # bindsym $mod+d exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
-bindsym Mod1+space exec --no-startup-id "rofi -show drun"
+bindsym $alt+space exec --no-startup-id "rofi -show drun"
 bindsym $mod+space exec --no-startup-id "rofi -show window"
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
@@ -228,7 +229,8 @@ gaps outer 2
 # assign [class="Alacritty"] 1
 # assign [class="chrome"] 2
 
-for_window [class="Clash-verge"] floating enable
+focus_on_window_activation focus
+for_window [class="Clash-verge|nekoray|QQ"] floating enable
 
 #######################################################################
 # automatically start i3-config-wizard to offer the user to create a
@@ -242,10 +244,10 @@ for_window [class="Clash-verge"] floating enable
 #######################################################################
 # exec i3-config-wizard
 
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 exec --no-startup-id feh --bg-scale $bg &
 exec --no-startup-id fcitx5 &
 exec_always --no-startup-id picom -f &
-exec --no-startup-id clash-verge &
 exec --no-startup-id polybar &
 exec_always --no-startup-id autotiling-rs &
 exec --no-startup-id dunst &

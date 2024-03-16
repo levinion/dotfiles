@@ -26,7 +26,7 @@ return {
               },
             },
             diagnostics = {
-              disabled = { "unresolved-proc-macro" },
+              disabled = { "unresolved-proc-macro", "needless_return" },
             },
           },
         },

@@ -15,6 +15,9 @@ return {
           ".git",
           ".DS_Store",
         },
+        hide_by_pattern = {
+          "*.pdf",
+        },
       },
     },
   },
