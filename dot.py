@@ -13,6 +13,7 @@ setup_list = [
     "fish",
     "fisher",
     "dunst",
+    "fd",
 ]
 
 dot_table = {
@@ -25,6 +26,7 @@ dot_table = {
     "fish": "~/.config/fish",
     "dunst": "~/.config/dunst",
     "fontconfig": "~/.config/fontconfig",
+    "fd": "~/.config/fd",
 }
 
 

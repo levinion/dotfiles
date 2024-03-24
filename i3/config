@@ -26,7 +26,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-set $bg "/home/maruka/Pictures/bg.png"
+set $bg "/home/maruka/Pictures/bg.jpg"
 
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --blur 5 --nofork
 
@@ -213,6 +213,12 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+mode "raw" {
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+a mode "raw"
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 # bar {
@@ -251,6 +257,8 @@ exec_always --no-startup-id picom -f &
 exec --no-startup-id polybar &
 exec_always --no-startup-id autotiling-rs &
 exec --no-startup-id dunst &
+exec --no-startup-id nekoray &
+exec --no-startup-id "xset r rate 200 25"
 
 client.focused          #96CDFB #96CDFB #FFFFFF #ABE9B3 #96CDFB
 client.focused_inactive #6E6C7E #6E6C7E #FFFFFF #ABE9B3 #96CDFB

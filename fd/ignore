@@ -1,0 +1,10 @@
+!.config
+.config/*
+go/pkg
+__pycache__
+target
+node_modules
+Games/
+zig-cache/
+Cache
+CachedData

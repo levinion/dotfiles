@@ -3,7 +3,15 @@ function run
 end
 
 function fork
-    run alacritty --working-directory $(pwd)
+    if test (count $argv) -eq 1
+        if test -f $argv[1]
+            run alacritty --working-directory (dirname $argv[1])
+        else
+            run alacritty --working-directory $argv[1]
+        end
+    else
+        run alacritty --working-directory $(pwd)
+    end
 end
 
 function search
