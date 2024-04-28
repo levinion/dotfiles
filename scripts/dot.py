@@ -4,7 +4,7 @@ import subprocess
 import argparse
 
 setup_list = [
-    "i3-gaps-rounded-git",
+    "i3",
     "polybar",
     "neovim",
     "picom",

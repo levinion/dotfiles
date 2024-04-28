@@ -48,6 +48,8 @@ set $down j
 set $left h
 set $right l
 
+set $browser google-chrome-stable
+set $terminal alacritty
 
 # use Mouse+$mod to drag floating windows to their wanted position
 set $mod Mod4
@@ -60,8 +62,8 @@ tiling_drag modifier titlebar
 
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+t exec --no-startup-id alacritty
-bindsym $mod+w exec --no-startup-id google-chrome-stable
+bindsym $mod+t exec --no-startup-id $terminal
+bindsym $mod+w exec --no-startup-id $browser
 
 # kill focused window
 bindsym $mod+q kill
@@ -70,7 +72,7 @@ bindsym $mod+q kill
 # bindsym $mod+d exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
 bindsym $alt+space exec --no-startup-id "rofi -show drun"
-bindsym $mod+space exec --no-startup-id "rofi -show window"
+# bindsym $mod+space exec --no-startup-id "rofi -show window"
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
@@ -121,7 +123,7 @@ bindsym $mod+Shift+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+space floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+s focus mode_toggle
@@ -133,11 +135,11 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # move the currently focused window to the scratchpad
-bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+Shift+m move scratchpad
 
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
-bindsym $mod+minus scratchpad show
+bindsym $mod+m scratchpad show
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -258,7 +260,8 @@ exec --no-startup-id polybar &
 exec_always --no-startup-id autotiling-rs &
 exec --no-startup-id dunst &
 exec --no-startup-id nekoray &
-exec --no-startup-id "xset r rate 200 25"
+# exec_always --no-startup-id "xset r rate 300 25"
+exec --no-startup-id flameshot &
 
 client.focused          #96CDFB #96CDFB #FFFFFF #ABE9B3 #96CDFB
 client.focused_inactive #6E6C7E #6E6C7E #FFFFFF #ABE9B3 #96CDFB

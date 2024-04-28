@@ -14,6 +14,7 @@ return {
             -- Add clippy lints for Rust.
             checkOnSave = {
               allFeatures = true,
+              allTargets = false,
               command = "clippy",
               extraArgs = { "--no-deps" },
             },
