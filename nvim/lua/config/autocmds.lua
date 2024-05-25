@@ -43,6 +43,13 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "typst" },
+  callback = function()
+    vim.opt_local.wrap = true
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
   pattern = { "rust" },
   callback = function()
     require("mini.pairs").unmap("i", "'", "''")

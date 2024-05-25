@@ -4,6 +4,7 @@ alias la "ls -a"
 alias hx helix
 alias pc proxychains
 alias fd "fd --absolute-path"
+alias cat bat
 
 set -g fish_greeting
 set -gx EDITOR nvim
@@ -30,9 +31,8 @@ fish_add_path ~/.yarn/bin
 alias simplenote "simplenote --in-process-gpu"
 
 zoxide init fish | source
+thefuck --alias | source
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
-
-thefuck --alias | source
