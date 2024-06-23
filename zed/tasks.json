@@ -1,0 +1,10 @@
+// Static tasks configuration.
+[
+  {
+    "label": "Open terminal with current path",
+    "command": "alacritty --working-directory $ZED_DIRNAME",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": true,
+    "reveal": "never"
+  }
+]

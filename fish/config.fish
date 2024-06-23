@@ -5,6 +5,7 @@ alias hx helix
 alias pc proxychains
 alias fd "fd --absolute-path"
 alias cat bat
+alias zed zeditor
 
 set -g fish_greeting
 set -gx EDITOR nvim

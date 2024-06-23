@@ -1,0 +1,49 @@
+[
+  // Global keymap
+  {
+    "bindings": {
+      "ctrl-/": [
+        "task::Spawn",
+        { "task_name": "Open terminal with current path" }
+      ],
+      "ctrl-h": "project_panel::ToggleFocus"
+    }
+  },
+
+  // Normal mode keymap
+  {
+    "context": "Editor && vim_mode==normal",
+    "bindings": {
+      "space w w": "workspace::Save",
+      "space space": "file_finder::Toggle",
+      "space q q": "zed::Quit",
+      "K": "editor::Hover",
+      "H": "pane::ActivatePrevItem",
+      "L": "pane::ActivateNextItem"
+    }
+  },
+
+  // All modes besides insert keymap
+  {
+    "context": "Editor && vim_mode!=insert && not_editing",
+    "bindings": {
+      "g h": "vim::FirstNonWhitespace",
+      "g l": "vim::EndOfLine"
+    }
+  },
+
+  // Project browser panel keymap
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "r": "project_panel::Rename",
+      "d": "project_panel::Trash",
+      "a": "project_panel::NewFile",
+      "x": "project_panel::Cut",
+      "p": "project_panel::Paste",
+      "ctrl-l": "project_panel::ToggleFocus",
+      "space space": "file_finder::Toggle",
+      "space q q": "zed::Quit"
+    }
+  }
+]

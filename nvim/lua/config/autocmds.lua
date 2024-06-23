@@ -7,11 +7,11 @@ local function augroup(name)
 end
 
 -- Autosave while leave buf
-vim.api.nvim_create_autocmd({ "BufLeave" }, {
-  pattern = { "*" },
-  command = "silent! wall",
-  nested = true,
-})
+-- vim.api.nvim_create_autocmd({ "BufLeave" }, {
+--   pattern = { "*" },
+--   command = "silent! wa",
+--   nested = true,
+-- })
 
 -- Switch to English while esc pressed. (only for fcitx5)
 vim.api.nvim_create_autocmd({ "InsertLeave" }, {
