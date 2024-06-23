@@ -1,28 +1,32 @@
 return {
-  "neovim/nvim-lspconfig",
-  opts = {
-    setup = {
-      rust_analyzer = function()
-        return true
-      end,
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      setup = {
+        rust_analyzer = function()
+          return true
+        end,
+      },
     },
-    servers = {
-      -- Ensure mason installs the server
-      rust_analyzer = {
-        settings = {
+  },
+  {
+    "mrcjkb/rustaceanvim",
+    version = "^4", -- Recommended
+    ft = { "rust" },
+    opts = {
+      server = {
+        default_settings = {
+          -- rust-analyzer language server configuration
           ["rust-analyzer"] = {
             cargo = {
               allFeatures = true,
               loadOutDirsFromCheck = true,
-              runBuildScripts = true,
+              buildScripts = {
+                enable = true,
+              },
             },
             -- Add clippy lints for Rust.
-            checkOnSave = {
-              allFeatures = true,
-              allTargets = false,
-              command = "clippy",
-              extraArgs = { "--no-deps" },
-            },
+            checkOnSave = true,
             procMacro = {
               enable = true,
               ignored = {

@@ -4,12 +4,13 @@
     "bindings": {
       "ctrl-/": [
         "task::Spawn",
-        { "task_name": "Open terminal with current path" }
+        {
+          "task_name": "Open terminal with current path"
+        }
       ],
       "ctrl-h": "project_panel::ToggleFocus"
     }
   },
-
   // Normal mode keymap
   {
     "context": "Editor && vim_mode==normal",
@@ -17,21 +18,20 @@
       "space w w": "workspace::Save",
       "space space": "file_finder::Toggle",
       "space q q": "zed::Quit",
+      "space e": "workspace::ToggleLeftDock",
       "K": "editor::Hover",
       "H": "pane::ActivatePrevItem",
       "L": "pane::ActivateNextItem"
     }
   },
-
   // All modes besides insert keymap
   {
-    "context": "Editor && vim_mode!=insert && not_editing",
+    "context": "Editor && vim_mode!=insert",
     "bindings": {
       "g h": "vim::FirstNonWhitespace",
       "g l": "vim::EndOfLine"
     }
   },
-
   // Project browser panel keymap
   {
     "context": "ProjectPanel && not_editing",
