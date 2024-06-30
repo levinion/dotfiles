@@ -21,6 +21,7 @@ set -gx XMODIFIERS "@im=fcitx"
 set -gx XIM fcitx
 set -gx XIM_PROGRAM fcitx
 set -gx SDL_IM_MODULE fcitx
+set -gx INPUT_METHOD fcitx
 set -gx GLFW_IM_MODULE ibus
 
 fish_add_path ~/go/bin
