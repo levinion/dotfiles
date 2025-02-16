@@ -1,31 +1,13 @@
 # i3 config file (v4)
-#
-# Please see https://i3wm.org/docs/userguide.html for a complete reference!
-#
-# This config file uses keycodes (bindsym) and was written for the QWERTY
-# layout.
-#
-# To get a config file with the same key positions, but for your current
-# layout, use the i3-config-wizard
-#
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:consolas 10
 
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
-
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
-
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
 set $bg "/home/maruka/Pictures/bg.jpg"
 
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --blur 5 --nofork
@@ -36,21 +18,18 @@ exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id "python $HOME/.config/i3/scripts/volume.py -i 5"
+bindsym XF86AudioLowerVolume exec --no-startup-id "python $HOME/.config/i3/scripts/volume.py -d 5"
+bindsym XF86AudioMute exec --no-startup-id "python $HOME/.config/i3/scripts/volume.py -t"
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-# use these keys for focus, movement, and resize directions when reaching for
-# the arrows is not convenient
 set $up k
 set $down j
 set $left h
 set $right l
 
-set $browser google-chrome-stable
+set $browser firefox-developer-edition
 set $terminal alacritty
-set $file-manager thunar
 
 # use Mouse+$mod to drag floating windows to their wanted position
 set $mod Mod4
@@ -62,10 +41,9 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-# bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+t exec --no-startup-id $terminal
 bindsym $mod+w exec --no-startup-id $browser
-bindsym $mod+e exec --no-startup-id $file-manager
+bindsym $mod+e exec --no-startup-id "alacritty -e yazi"
 bindsym $alt+a exec --no-startup-id "flameshot gui"
 
 # kill focused window
@@ -74,11 +52,7 @@ bindsym $mod+q kill
 # start dmenu (a program launcher):
 # bindsym $mod+d exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
-bindsym $alt+space exec --no-startup-id "rofi -show drun"
-bindsym $mod+n exec --no-startup-id "rofi -show window"
-# There also is i3-dmenu-desktop which only displays applications shipping a
-# .desktop file. It is a wrapper around dmenu, so you need that installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+space exec --no-startup-id "python ~/.config/i3/scripts/fzfmenu.py"
 
 # change focus
 bindsym $mod+$left focus left
@@ -125,7 +99,7 @@ bindsym $mod+f fullscreen toggle
 # bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+space floating toggle
+bindsym $alt+space floating toggle
 
 # change focus between tiling / floating windows
 # bindsym $mod+s focus mode_toggle
@@ -190,14 +164,8 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym Ctrl+Shift+Up exec --no-startup-id "python $HOME/.config/i3/scripts/volume.py -i 5"
 bindsym Ctrl+Shift+Down exec --no-startup-id "python $HOME/.config/i3/scripts/volume.py -d 5"
 
-# resize window (you can also use the mouse for that)
+# resize window 
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
         bindsym $left       resize shrink width 10 px or 10 ppt
         bindsym $down       resize grow height 10 px or 10 ppt
         bindsym $up         resize shrink height 10 px or 10 ppt
@@ -222,14 +190,7 @@ mode "raw" {
 
 bindsym $mod+Shift+a mode "raw", exec "dunstify 'current mode: raw'"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-# bar {
-#         status_command i3status
-# }
-
 # i3 gaps
-for_window [class=".*"] border pixel 0
 gaps inner 10
 gaps outer 2
 # smart_gaps on
@@ -239,30 +200,23 @@ gaps outer 2
 # assign [class="chrome"] 2
 
 focus_on_window_activation focus
+for_window [class=".*"] border pixel 0
+for_window [class="scrcpy"] floating enable, resize set height 720, resize set width 1280
 for_window [class="Clash-verge|nekoray|QQ"] floating enable
-
-#######################################################################
-# automatically start i3-config-wizard to offer the user to create a
-# keysym-based config which used their favorite modifier (alt or windows)
-#
-# i3-config-wizard will not launch if there already is a config file
-# in ~/.config/i3/config (or $XDG_CONFIG_HOME/i3/config if set) or
-# ~/.i3/config.
-#
-# Please remove the following exec line:
-#######################################################################
-# exec i3-config-wizard
+for_window [class="fzfmenu"] floating enable, resize set height 400, resize set width 1200, move position center, focus
 
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 exec --no-startup-id feh --bg-scale $bg &
-exec --no-startup-id fcitx5 &
+exec --no-startup-id fcitx5 -d &
 exec_always --no-startup-id picom -f &
 exec --no-startup-id polybar &
 exec_always --no-startup-id autotiling-rs &
 exec --no-startup-id dunst &
-exec --no-startup-id nekoray &
 exec_always --no-startup-id otd-daemon &
-exec_always --no-startup-id xset r rate 300 25 &
+exec_always --no-startup-id "xset r rate 300 25 &"
+exec --no-startup-id "openrgb --startminimized -p default &"
+exec --no-startup-id "steam -nochatui -nofriendsui -silent &"
+exec --no-startup-id "sudo sing-box run -c $HOME/.config/sing-box/config.yaml -D $HOME/.config/sing-box &"
 
 client.focused          #96CDFB #96CDFB #FFFFFF #ABE9B3 #96CDFB
 client.focused_inactive #6E6C7E #6E6C7E #FFFFFF #ABE9B3 #96CDFB

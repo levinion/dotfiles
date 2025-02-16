@@ -1,0 +1,42 @@
+[dependencies]
+aur_helper = "paru"
+packages = [
+  "i3-wm",
+  "alacritty",
+  "fish",
+  "mpv",
+  "neovim",
+  "picom",
+  "polybar",
+  "rofi",
+  "fcitx5-im",
+  "fcitx5-rime",
+  "dex",
+  "feh",
+  "sing-box",
+  "autotiling-rs",
+  "steam",
+  "openrgb",
+  "npm",
+  "rust",
+  "go",
+  "firefox-developer-edition",
+  "yazi",
+  "flameshot",
+  "fzf",
+  "zoxide",
+]
+
+
+[softlink]
+alacritty = ""
+dunst = ""
+fish = ""
+fontconfig = ""
+i3 = ""
+mpv = ""
+nvim = ""
+picom = ""
+polybar = ""
+rofi = ""
+fcitx5 = "~/.local/share/"

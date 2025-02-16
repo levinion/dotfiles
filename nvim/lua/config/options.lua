@@ -5,4 +5,5 @@
 local opt = vim.opt
 opt.spell = false
 opt.swapfile = false
+vim.g.snacks_animate = false
 -- opt.shiftwidth = 4

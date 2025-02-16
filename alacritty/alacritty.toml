@@ -59,7 +59,7 @@ style = "Italic"
 family = "JetBrainsMono Nerd Font Mono"
 style = "Regular"
 
-[shell]
+[terminal.shell]
 program = "/bin/fish"
 
 [window]
@@ -76,3 +76,5 @@ instance = "Alacritty"
 [window.padding]
 x = 0
 y = 0
+
+[terminal]
