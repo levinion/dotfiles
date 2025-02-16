@@ -8,7 +8,7 @@ font pango:consolas 10
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
-set $bg "/home/maruka/Pictures/bg.jpg"
+set $bg "$HOME/.config/i3/assets/bg.jpg"
 
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --blur 5 --nofork
 
