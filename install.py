@@ -38,8 +38,8 @@ def setup_dependicies(config):
 
 def main():
     config = read_config()
-    setup_softlink(config)
     setup_dependicies(config)
+    setup_softlink(config)
 
 
 if __name__ == "__main__":
