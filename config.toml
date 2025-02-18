@@ -20,11 +20,15 @@ packages = [
   "npm",
   "rust",
   "go",
+  "uv",
   "firefox-developer-edition",
   "yazi",
   "flameshot",
   "fzf",
   "zoxide",
+  "fastfetch",
+  "ttf-jetbrains-mono-nerd",
+  "ttf-ms-win11-auto-zh_cn",
 ]
 
 

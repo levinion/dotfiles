@@ -204,6 +204,7 @@ for_window [class=".*"] border pixel 0
 for_window [class="scrcpy"] floating enable, resize set height 720, resize set width 1280
 for_window [class="Clash-verge|nekoray|QQ"] floating enable
 for_window [class="fzfmenu"] floating enable, resize set height 400, resize set width 1200, move position center, focus
+for_window [class="QtScrcpy"] floating enable, resize set height 400, resize set width 1200, move position center, focus
 
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 exec --no-startup-id feh --bg-scale $bg &
@@ -217,6 +218,7 @@ exec_always --no-startup-id "xset r rate 300 25 &"
 exec --no-startup-id "openrgb --startminimized -p default &"
 exec --no-startup-id "steam -nochatui -nofriendsui -silent &"
 exec --no-startup-id "sudo sing-box run -c $HOME/.config/sing-box/config.yaml -D $HOME/.config/sing-box &"
+exec --no-startup-id "mygo -p 4611 $HOME/Projects/html/catppuccin-homepage &"
 
 client.focused          #96CDFB #96CDFB #FFFFFF #ABE9B3 #96CDFB
 client.focused_inactive #6E6C7E #6E6C7E #FFFFFF #ABE9B3 #96CDFB
