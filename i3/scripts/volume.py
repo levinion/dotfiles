@@ -25,7 +25,7 @@ def get_volume():
 
 
 def notify_volume():
-    subprocess.call(f"dunstify Volume: {get_volume()*100}%", shell=True)
+    subprocess.call(f"dunstify Volume: {round(get_volume()*100)}%", shell=True)
 
 
 def main():

@@ -42,10 +42,10 @@ def run_plugins(output: str):
     elif output.startswith("hs "):
         history_runner(output)
     else:
-        open_applicaton_runner(output)
+        open_application_runner(output)
 
 
-def open_applicaton_runner(output: str):
+def open_application_runner(output: str):
     desktop = output.split(" ")[-1]
     if os.path.exists(desktop):
         subprocess.call(["fish", "-c", f"dex {desktop}"])
@@ -64,7 +64,7 @@ def run_plugins_picker(input: str):
     elif input.startswith("hs "):
         history_picker(input)
     else:
-        open_applicaton_picker(input)
+        open_application_picker(input)
 
 
 def window_jump_picker(_):
@@ -79,11 +79,9 @@ def walk_tree(tree: i3ipc.Con):
         print("wd " + str(tree.window_title) + " " + str(tree.ipc_data["id"]))
 
 
-def open_applicaton_picker(_):
+def open_application_picker_by_path(path: str):
     output = (
-        subprocess.check_output(
-            ["bash", "-c", "fd -a .desktop /usr/share/applications/"]
-        )
+        subprocess.check_output(["bash", "-c", f"fd -a .desktop {path}"])
         .strip()
         .decode()
     )
@@ -91,6 +89,11 @@ def open_applicaton_picker(_):
         name = get_name_by_path(line)
         if name is not None:
             print(name + " " + line)
+
+
+def open_application_picker(_):
+    open_application_picker_by_path("/usr/share/applications/")
+    open_application_picker_by_path(os.path.expanduser("~/Desktop/"))
 
 
 def get_name_by_path(path: str):

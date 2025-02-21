@@ -19,6 +19,7 @@ packages = [
   "openrgb",
   "npm",
   "rust",
+  "sccache",
   "go",
   "uv",
   "firefox-developer-edition",
@@ -29,8 +30,9 @@ packages = [
   "fastfetch",
   "ttf-jetbrains-mono-nerd",
   "ttf-ms-win11-auto-zh_cn",
+  "zellij",
+  "tealdeer",
 ]
-
 
 [softlink]
 alacritty = ""
@@ -42,5 +44,6 @@ mpv = ""
 nvim = ""
 picom = ""
 polybar = ""
-rofi = ""
+# rofi = "" # deprecated, replaced by ./i3/scripts/fzfmenu.py
 fcitx5 = "~/.local/share/"
+zellij = ""

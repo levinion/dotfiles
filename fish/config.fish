@@ -9,8 +9,10 @@ alias zed zeditor
 alias faster-whisper "whisper-ctranslate2 --model large-v3 --output_format srt --temperature 0.6"
 alias whisper "whisper --model large-v3 --output_format srt --temperature 0.6"
 alias run_weston "run weston -c $HOME/.config/weston/weston.ini"
-
 alias h 'eval $(history | fzf)'
+alias tldr 'set LANG zh;command tldr'
+alias e exit
+alias zk "zellij kill-all-sessions -y"
 
 set -g fish_greeting
 set -gx EDITOR nvim
@@ -32,6 +34,7 @@ set -gx XIM_PROGRAM fcitx5
 set -gx SDL_IM_MODULE fcitx5
 set -gx INPUT_METHOD fcitx5
 set -gx GLFW_IM_MODULE ibus
+
 set -Ux FZF_DEFAULT_OPTS "\
 --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
@@ -42,7 +45,6 @@ set -Ux FZF_DEFAULT_OPTS "\
 alias uv_shell "source .venv/bin/activate.fish"
 alias get_idf ". /opt/esp-idf/export.fish"
 alias fish_reload "source ~/.config/fish/config.fish && source ~/.config/fish/**/*.fish"
-
 alias run_reflector "sudo reflector --verbose --threads 16 -l 200 -p https --sort rate --save /etc/pacman.d/mirrorlist"
 
 fish_add_path ~/go/bin
@@ -59,7 +61,11 @@ zoxide init fish | source
 
 xset r rate 300 25
 
-
 if status is-interactive
-    # Commands to run in interactive sessions can go here
+    fish_vi_key_bindings
+    bind gl end-of-line
+    bind gh beginning-of-line
+    set ZELLIJ_AUTO_ATTACH true
+    set ZELLIJ_AUTO_EXIT true
+    eval (zellij setup --generate-auto-start fish | string collect)
 end
