@@ -10,9 +10,10 @@ alias faster-whisper "whisper-ctranslate2 --model large-v3 --output_format srt -
 alias whisper "whisper --model large-v3 --output_format srt --temperature 0.6"
 alias run_weston "run weston -c $HOME/.config/weston/weston.ini"
 alias h 'eval $(history | fzf)'
-alias tldr 'set LANG zh;command tldr'
 alias e exit
 alias zk "zellij kill-all-sessions -y"
+alias c clear
+alias man "man --locale zh_CN"
 
 set -g fish_greeting
 set -gx EDITOR nvim
@@ -62,10 +63,6 @@ zoxide init fish | source
 xset r rate 300 25
 
 if status is-interactive
-    fish_vi_key_bindings
-    bind gl end-of-line
-    bind gh beginning-of-line
-    set ZELLIJ_AUTO_ATTACH true
-    set ZELLIJ_AUTO_EXIT true
-    eval (zellij setup --generate-auto-start fish | string collect)
+    vim_key_binding
+    tmux_auto_start
 end

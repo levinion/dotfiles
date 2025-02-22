@@ -1,7 +1,7 @@
 keybinds clear-defaults=true {
     normal {
         bind "t" { NewTab; SwitchToMode "locked"; }
-        bind "x" { CloseTab; SwitchToMode "locked"; }
+        bind "x" { CloseTab;}
         bind "h" { GoToPreviousTab; }
         bind "l" { GoToNextTab; }
         bind "k" { ScrollUp; }
@@ -13,6 +13,7 @@ keybinds clear-defaults=true {
             }
             SwitchToMode "locked"
         }
+        bind "q" { Quit; }
         bind "r" { SwitchToMode "renametab"; TabNameInput 0; }
         bind "1" { GoToTab 1; SwitchToMode "locked"; }
         bind "2" { GoToTab 2; SwitchToMode "locked"; }
@@ -50,6 +51,7 @@ plugins {
 }
 
 load_plugins {
+  // file:~/.config/zellij/plugins/zellij-newtab_onstartup.wasm
 }
 
 theme "catppuccin-mocha"

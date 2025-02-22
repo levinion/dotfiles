@@ -4,6 +4,8 @@ import sys
 import i3ipc
 
 i3 = i3ipc.Connection()
+shell = os.environ["SHELL"]
+terminal = "alacritty"
 
 
 def main():
@@ -21,11 +23,11 @@ def call_fzf():
     path = os.path.realpath(__file__)
     subprocess.call(
         [
-            "fish",
+            shell,
             "-c",
-            f"alacritty \
+            f"{terminal} \
             --class fzfmenu \
-            -e fish -c \
+            -e {shell} -c \
             \"fzf \
             --bind 'start,change:reload:python {path} picker {{q}}' \
             --bind 'enter:become(nohup python {path} run {{}} > /dev/null 2>&1 &)'\" \
@@ -48,7 +50,7 @@ def run_plugins(output: str):
 def open_application_runner(output: str):
     desktop = output.split(" ")[-1]
     if os.path.exists(desktop):
-        subprocess.call(["fish", "-c", f"dex {desktop}"])
+        subprocess.call([shell, "-c", f"dex {desktop}"])
 
 
 def window_jump_runner(output: str):
@@ -81,7 +83,7 @@ def walk_tree(tree: i3ipc.Con):
 
 def open_application_picker_by_path(path: str):
     output = (
-        subprocess.check_output(["bash", "-c", f"fd -a .desktop {path}"])
+        subprocess.check_output([shell, "-c", f"fd -a .desktop {path}"])
         .strip()
         .decode()
     )
@@ -108,7 +110,7 @@ def killer_picker(input: str):
     if len(input) == 0:
         return
     output = (
-        subprocess.check_output(["bash", "-c", f"pgrep -fa {input}"]).strip().decode()
+        subprocess.check_output([shell, "-c", f"pgrep -fa {input}"]).strip().decode()
     )
     path = os.path.realpath(__file__)
     for line in output.splitlines():
@@ -119,18 +121,18 @@ def killer_picker(input: str):
 
 def killer_runner(output: str):
     pid = output.removeprefix("kl ").split(" ")[0]
-    subprocess.call(["bash", "-c", f"kill -9 {pid}"])
+    subprocess.call([shell, "-c", f"kill -9 {pid}"])
 
 
 def history_picker(_):
-    output = subprocess.check_output(["fish", "-c", "history"]).strip().decode()
-    for line in output.splitlines():
+    output = subprocess.check_output([shell, "-c", "history"]).strip().decode()
+    for line in set(output.splitlines()):
         print("hs " + line)
 
 
 def history_runner(output: str):
     cmd = output.removeprefix("hs ")
-    subprocess.call(["fish", "-c", f"nohup {cmd} > /dev/null 2>&1 &"])
+    subprocess.call([shell, "-c", f"nohup {cmd} > /dev/null 2>&1 &"])
 
 
 if __name__ == "__main__":

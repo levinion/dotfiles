@@ -18,7 +18,7 @@ packages = [
   "steam",
   "openrgb",
   "npm",
-  "rust",
+  "rustc",
   "sccache",
   "go",
   "uv",
@@ -30,8 +30,12 @@ packages = [
   "fastfetch",
   "ttf-jetbrains-mono-nerd",
   "ttf-ms-win11-auto-zh_cn",
-  "zellij",
+  # "zellij",
   "tealdeer",
+  "tmux",
+  "eza",
+  "ripgrep",
+  "fd",
 ]
 
 [softlink]
@@ -46,4 +50,5 @@ picom = ""
 polybar = ""
 # rofi = "" # deprecated, replaced by ./i3/scripts/fzfmenu.py
 fcitx5 = "~/.local/share/"
-zellij = ""
+# zellij = "" # deprecated, replaced by tmux
+tmux = ""
