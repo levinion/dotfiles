@@ -8,7 +8,7 @@ packages = [
   "neovim",
   "picom",
   "polybar",
-  "rofi",
+  # "rofi",
   "fcitx5-im",
   "fcitx5-rime",
   "dex",
