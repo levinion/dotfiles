@@ -36,6 +36,7 @@ packages = [
   "eza",
   "ripgrep",
   "fd",
+  "ueberzugpp",
 ]
 
 [softlink]
@@ -52,3 +53,4 @@ polybar = ""
 fcitx5 = "~/.local/share/"
 # zellij = "" # deprecated, replaced by tmux
 tmux = ""
+yazi = ""
