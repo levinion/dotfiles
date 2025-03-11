@@ -22,17 +22,14 @@ def main():
 def call_fzf():
     path = os.path.realpath(__file__)
     subprocess.call(
-        [
-            shell,
-            "-c",
-            f"{terminal} \
+        f"{terminal} \
             --class fzfmenu \
             -e {shell} -c \
             \"fzf \
             --bind 'start,change:reload:python {path} picker {{q}}' \
             --bind 'enter:become(nohup python {path} run {{}} > /dev/null 2>&1 &)'\" \
             ",
-        ]
+        shell=True,
     )
 
 
@@ -50,7 +47,7 @@ def run_plugins(output: str):
 def open_application_runner(output: str):
     desktop = output.split(" ")[-1]
     if os.path.exists(desktop):
-        subprocess.call([shell, "-c", f"dex {desktop}"])
+        subprocess.call(f"dex {desktop}", shell=True)
 
 
 def window_jump_runner(output: str):
@@ -83,9 +80,7 @@ def walk_tree(tree: i3ipc.Con):
 
 def open_application_picker_by_path(path: str):
     output = (
-        subprocess.check_output([shell, "-c", f"fd -a .desktop {path}"])
-        .strip()
-        .decode()
+        subprocess.check_output(f"fd -a .desktop {path}", shell=True).strip().decode()
     )
     for line in output.splitlines():
         name = get_name_by_path(line)
@@ -109,9 +104,7 @@ def killer_picker(input: str):
     input = input.removeprefix("kl ")
     if len(input) == 0:
         return
-    output = (
-        subprocess.check_output([shell, "-c", f"pgrep -fa {input}"]).strip().decode()
-    )
+    output = subprocess.check_output(f"pgrep -fa {input}", shell=True).strip().decode()
     path = os.path.realpath(__file__)
     for line in output.splitlines():
         if path in line:
@@ -132,7 +125,7 @@ def history_picker(_):
 
 def history_runner(output: str):
     cmd = output.removeprefix("hs ")
-    subprocess.call([shell, "-c", f"nohup {cmd} > /dev/null 2>&1 &"])
+    subprocess.call(f"nohup {cmd} > /dev/null 2>&1 &", shell=True)
 
 
 if __name__ == "__main__":

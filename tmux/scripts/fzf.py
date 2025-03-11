@@ -36,17 +36,16 @@ def fzf():
 
 
 def kill_plugin_menu():
-    # Only with single session, so this one is not needed
-    # session_index = (
-    #     subprocess.check_output(
-    #         "tmux list-sessions | awk -F':' '{print $1}'", shell=True
-    #     )
-    #     .strip()
-    #     .decode()
-    # )
-    # for index in session_index.splitlines():
-    #     print(f"tmux kill-session -t {index}")
-    #     print(f"tmux select-session -t {index}")
+    session_index = (
+        subprocess.check_output(
+            "tmux list-sessions | awk -F':' '{print $1}'", shell=True
+        )
+        .strip()
+        .decode()
+    )
+    for index in session_index.splitlines():
+        print(f"tmux kill-session -t {index}")
+        print(f"tmux select-session -t {index}")
 
     window_index = (
         subprocess.check_output(

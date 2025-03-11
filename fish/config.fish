@@ -1,4 +1,4 @@
-alias shut "shutdown -h now"
+alias shut "docker container stop redroid13;shutdown -h now"
 alias vim nvim
 alias ls eza
 alias la "eza -a"
@@ -14,6 +14,7 @@ alias e exit
 alias zk "zellij kill-all-sessions -y"
 alias c clear
 alias man "man --locale zh_CN"
+alias switch-sink "wpctl status | grep vol | head -n -1 | fzf | sed 's/\*/ /' | sed 's/ //g' | sed 's/│//g' | awk -F '.' '{print $1}' | xargs wpctl set-default"
 
 set -g fish_greeting
 set -gx EDITOR nvim
@@ -43,8 +44,9 @@ set -Ux FZF_DEFAULT_OPTS "\
 --color=selected-bg:#45475a \
 --multi"
 
-alias uv_shell "source .venv/bin/activate.fish"
-alias get_idf ". /opt/esp-idf/export.fish"
+alias uvlocal "source .venv/bin/activate.fish"
+alias uvglobal "source ~/.venv/bin/activate.fish"
+alias get_idf "source /opt/esp-idf/export.fish"
 alias fish_reload "source ~/.config/fish/config.fish && source ~/.config/fish/**/*.fish"
 alias run_reflector "sudo reflector --verbose --threads 16 -l 200 -p https --sort rate --save /etc/pacman.d/mirrorlist"
 
@@ -59,6 +61,7 @@ fish_add_path ~/docker/redroid
 alias simplenote "simplenote --in-process-gpu"
 
 zoxide init fish | source
+fzf --fish | source
 
 xset r rate 300 25
 

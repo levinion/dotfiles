@@ -219,8 +219,9 @@ exec --no-startup-id "openrgb --startminimized -p default &"
 exec --no-startup-id "steam -nochatui -nofriendsui -silent &"
 exec --no-startup-id "sudo sing-box run -c $HOME/.config/sing-box/config.yaml -D $HOME/.config/sing-box &"
 exec --no-startup-id "mygo -p 4611 $HOME/Projects/html/catppuccin-homepage &"
+exec --no-startup-id "obs --minimize-to-tray --disable-shutdown-check &"
 
-client.focused          #96CDFB #96CDFB #FFFFFF #ABE9B3 #96CDFB
-client.focused_inactive #6E6C7E #6E6C7E #FFFFFF #ABE9B3 #96CDFB
-client.unfocused        #1E1E2E #1E1E2E #FFFFFF #1E1E2E #1E1E2E
-client.urgent           #ABE9B3 #ABE9B3 #FFFFFF #96CDFB #B5E8E0
+client.focused          #96CDFB #96CDFB #FFFFFF #96CDFB #96CDFB
+client.focused_inactive #96CDFB #6E6C7E #FFFFFF #96CDFB #96CDFB
+client.unfocused        #96CDFB #1E1E2E #FFFFFF #96CDFB #96CDFB
+client.urgent           #96CDFB #ABE9B3 #FFFFFF #96CDFB #96CDFB

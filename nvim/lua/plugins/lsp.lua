@@ -4,6 +4,7 @@ return {
     opts = {
       servers = {
         -- Ensure mason installs the server
+        glsl_analyzer = {},
       },
     },
   },

@@ -1,0 +1,12 @@
+[manager]
+prepend_keymap = [
+  { on = [
+    "g",
+    "p",
+  ], run = 'cd ~/Pictures', desc = "Goto ~/Pictures" },
+
+  { on = [
+    "g",
+    "v",
+  ], run = 'cd ~/Video', desc = "Goto ~/Video" },
+]

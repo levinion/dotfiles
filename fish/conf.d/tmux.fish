@@ -10,7 +10,8 @@ end
 
 function tmux_auto_start
     if not set -q TMUX
-        tmux attach || _tmux_init
+        #tmux attach >/dev/null || _tmux_init
+        _tmux_init
         _tmux_cleanup
     end
 end

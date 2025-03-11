@@ -5,7 +5,7 @@ import argparse
 def get_id():
     return (
         subprocess.check_output(
-            r"wpctl status | grep '*' | awk '{print $3}' | sed 's/\.//'",
+            r"wpctl status | grep '*' | awk '{print $3}' | sed 's/\.//' | head -n 1",
             shell=True,
         )
         .strip()

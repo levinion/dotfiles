@@ -11,5 +11,6 @@ vim.keymap.set("n", "<leader>tf", "<cmd>!typstfmt %<CR>", { desc = "format typst
 -- vim.keymap.set("n", "<leader>tr", "<cmd>!nohup okular % > /dev/null 2>&1 &<CR>", { desc = "review pdf using okular" })
 vim.keymap.del("n", "<leader>ft", nil)
 vim.keymap.del("n", "<leader>fT", nil)
+vim.keymap.del("n", "<C-/>", nil)
 vim.keymap.set("n", "<C-/>", "<cmd>!fork<CR>", { desc = "fork pwd" })
 vim.keymap.set("n", "!", ":!", { desc = "run sh" })
