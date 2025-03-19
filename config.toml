@@ -30,6 +30,7 @@ packages = [
   "fastfetch",
   "ttf-jetbrains-mono-nerd",
   "ttf-ms-win11-auto-zh_cn",
+  "noto-fonts-emoji",
   # "zellij",
   "tealdeer",
   "tmux",
@@ -37,6 +38,8 @@ packages = [
   "ripgrep",
   "fd",
   "ueberzugpp",
+  "rust-analyzer",
+  "clang",
 ]
 
 [softlink]

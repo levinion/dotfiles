@@ -1,7 +1,9 @@
 alias shut "docker container stop redroid13;shutdown -h now"
 alias vim nvim
+alias v nvim
 alias ls eza
 alias la "eza -a"
+alias grep rg
 alias hx helix
 alias fd "fd --absolute-path"
 alias cat bat
@@ -9,12 +11,12 @@ alias zed zeditor
 alias faster-whisper "whisper-ctranslate2 --model large-v3 --output_format srt --temperature 0.6"
 alias whisper "whisper --model large-v3 --output_format srt --temperature 0.6"
 alias run_weston "run weston -c $HOME/.config/weston/weston.ini"
-alias h 'eval $(history | fzf)'
+alias h 'commandline -r $(history | fzf)'
 alias e exit
-alias zk "zellij kill-all-sessions -y"
 alias c clear
 alias man "man --locale zh_CN"
 alias switch-sink "wpctl status | grep vol | head -n -1 | fzf | sed 's/\*/ /' | sed 's/ //g' | sed 's/│//g' | awk -F '.' '{print $1}' | xargs wpctl set-default"
+alias docker "sudo podman"
 
 set -g fish_greeting
 set -gx EDITOR nvim
@@ -60,12 +62,10 @@ fish_add_path ~/docker/redroid
 # some application rules
 alias simplenote "simplenote --in-process-gpu"
 
-zoxide init fish | source
-fzf --fish | source
-
-xset r rate 300 25
-
 if status is-interactive
+    if set -q DISPLAY
+        xset r rate 300 25
+    end
     vim_key_binding
     tmux_auto_start
 end

@@ -82,15 +82,25 @@ def open_application_picker_by_path(path: str):
     output = (
         subprocess.check_output(f"fd -a .desktop {path}", shell=True).strip().decode()
     )
-    for line in output.splitlines():
-        name = get_name_by_path(line)
+    for path in output.splitlines():
+        if no_display_is_true(path):
+            continue
+        name = get_name_by_path(path)
         if name is not None:
-            print(name + " " + line)
+            print(name + " " + path)
 
 
 def open_application_picker(_):
     open_application_picker_by_path("/usr/share/applications/")
     open_application_picker_by_path(os.path.expanduser("~/Desktop/"))
+
+
+def no_display_is_true(path: str):
+    with open(path, "r") as f:
+        for line in f.readlines():
+            if line.startswith("NoDisplay=true"):
+                return True
+    return False
 
 
 def get_name_by_path(path: str):
