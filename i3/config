@@ -12,16 +12,12 @@ set $bg "$HOME/.config/i3/assets/bg.jpg"
 
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --blur 5 --nofork
 
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
-
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id "python $HOME/.config/i3/scripts/volume.py -i 5"
 bindsym XF86AudioLowerVolume exec --no-startup-id "python $HOME/.config/i3/scripts/volume.py -d 5"
 bindsym XF86AudioMute exec --no-startup-id "python $HOME/.config/i3/scripts/volume.py -t"
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+# bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 set $up k
 set $down j
@@ -202,10 +198,11 @@ gaps outer 2
 focus_on_window_activation focus
 for_window [class=".*"] border pixel 0
 for_window [class="scrcpy"] floating enable, resize set height 720, resize set width 1280
-for_window [class="Clash-verge|nekoray|QQ"] floating enable
+for_window [class="Clash-verge|nekoray|QQ|Io.ente.auth"] floating enable, move position center, focus
 for_window [class="fzfmenu"] floating enable, resize set height 400, resize set width 1200, move position center, focus
 for_window [class="QtScrcpy"] floating enable, resize set height 400, resize set width 1200, move position center, focus
 
+exec --no-startup-id nm-applet &
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 exec --no-startup-id feh --bg-scale $bg &
 exec --no-startup-id fcitx5 -d &
@@ -219,6 +216,7 @@ exec --no-startup-id "steam -nochatui -nofriendsui -silent &"
 exec --no-startup-id "sudo sing-box run -c $HOME/.config/sing-box/config.yaml -D $HOME/.config/sing-box &"
 exec --no-startup-id "mygo -p 4611 $HOME/Projects/html/catppuccin-homepage &"
 exec --no-startup-id "obs --minimize-to-tray --disable-shutdown-check &"
+exec --no-startup-id "flameshot &"
 
 client.focused          #96CDFB #96CDFB #FFFFFF #96CDFB #96CDFB
 client.focused_inactive #96CDFB #6E6C7E #FFFFFF #96CDFB #96CDFB

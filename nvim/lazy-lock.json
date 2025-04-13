@@ -46,6 +46,7 @@
   "typst-preview.nvim": { "branch": "master", "commit": "00ff6829030f302e8ff24d0e3a68625dd1a3ac40" },
   "venv-selector.nvim": { "branch": "regexp", "commit": "e82594274bf7b54387f9a2abe65f74909ac66e97" },
   "vim-just": { "branch": "main", "commit": "0eeb7b760ca603be517d4f34a9d1c08c73f93f3f" },
+  "vim-suda": { "branch": "master", "commit": "9adda7d195222d4e2854efb2a88005a120296c47" },
   "which-key.nvim": { "branch": "main", "commit": "370ec46f710e058c9c1646273e6b225acf47cbed" },
   "yazi.nvim": { "branch": "main", "commit": "0e4e699496a5ee1c37bdca2f216f8e956c04de56" }
 }

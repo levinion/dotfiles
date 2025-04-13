@@ -1,8 +1,8 @@
 local clangd = "clangd"
 
-if os.getenv("IDF_PATH") then
-  clangd = "/home/maruka/.espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/clangd"
-end
+-- if os.getenv("IDF_PATH") then
+--   clangd = vim.fn.expand("$HOME/.espressif/tools/esp-clang/esp-*/esp-clang/bin/clangd")
+-- end
 
 return {
   "neovim/nvim-lspconfig",
@@ -18,10 +18,14 @@ return {
           "--header-insertion=iwyu",
           "--pch-storage=disk",
           "--log=error",
-          "--j=5",
+          "--j=12",
           "--background-index",
           "--function-arg-placeholders",
           "--fallback-style=llvm",
+          "--query-driver=**",
+          "--suggest-missing-includes",
+          "--cross-file-rename",
+          "--header-insertion-decorators",
         },
         init_options = {
           compilationDatabasePath = "./build",
