@@ -21,6 +21,8 @@ alias_if mpv mpv "run mpv"
 alias_if git zb "cd (git rev-parse --show-toplevel)"
 alias_if gdb gdb "gdb -q"
 alias update-grub "sudo grub-mkconfig -o /boot/grub/grub.cfg"
+alias ".." "cd .."
+alias "..." "cd ../.."
 
 alias_if nvim v "python $HOME/.config/fish/scripts/v.py"
 

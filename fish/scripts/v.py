@@ -7,7 +7,8 @@ import sys
 
 def main():
     argv = sys.argv
-    target = os.getcwd() if len(argv) == 1 else os.path.abspath(argv[1])
+    _target = os.getcwd() if len(argv) == 1 else argv[1]
+    target = os.path.abspath(_target)
     if os.access(target, os.W_OK):
         subprocess.run(f"nvim {target}", shell=True)
     else:

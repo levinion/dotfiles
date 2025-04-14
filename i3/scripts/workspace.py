@@ -100,11 +100,12 @@ def fix_ordering(i3conn):
             print("least_number is none")
             return
         containers = list(filter(lambda x: x.num in disordered_workspaces, workspaces))
+        target = least_number
         for c in containers:
             for i in c.leaves():
                 i.command(f"move container to workspace {least_number}")
             least_number += 1
-        i3.command(f"workspace {least_number-1}")
+        i3.command(f"workspace {target}")
     return
 
 
