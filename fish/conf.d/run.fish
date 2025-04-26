@@ -15,5 +15,9 @@ function fork
 end
 
 function search
-    run xdg-open "https://www.google.com.hk/search?q=$argv"
+    run xdg-open "https://www.google.com/search?q=$argv"
+end
+
+function jump
+    cd (fd . --type d | fzf)
 end

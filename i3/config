@@ -41,6 +41,7 @@ bindsym $mod+t exec --no-startup-id $terminal
 bindsym $mod+w exec --no-startup-id $browser
 bindsym $mod+e exec --no-startup-id "alacritty -e yazi"
 bindsym $alt+a exec --no-startup-id "flameshot gui"
+bindsym $mod+p exec --no-startup-id "kaleido"
 
 # kill focused window
 bindsym $mod+q kill
@@ -201,6 +202,7 @@ for_window [class="scrcpy"] floating enable, resize set height 720, resize set w
 for_window [class="Clash-verge|nekoray|QQ|Io.ente.auth"] floating enable, move position center, focus
 for_window [class="fzfmenu"] floating enable, resize set height 400, resize set width 1200, move position center, focus
 for_window [class="QtScrcpy"] floating enable, resize set height 400, resize set width 1200, move position center, focus
+# for_window [class="kaleido"] floating enable, focus
 
 exec --no-startup-id nm-applet &
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
@@ -217,6 +219,7 @@ exec --no-startup-id "sudo sing-box run -c $HOME/.config/sing-box/config.yaml -D
 exec --no-startup-id "mygo -p 4611 $HOME/Projects/html/catppuccin-homepage &"
 exec --no-startup-id "obs --minimize-to-tray --disable-shutdown-check &"
 exec --no-startup-id "flameshot &"
+exec --no-startup-id "xautocfg -c $HOME/.config/xautocfg/xautocfg.cfg &"
 
 client.focused          #96CDFB #96CDFB #FFFFFF #96CDFB #96CDFB
 client.focused_inactive #96CDFB #6E6C7E #FFFFFF #96CDFB #96CDFB

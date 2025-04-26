@@ -31,6 +31,7 @@ packages = [
   "ttf-jetbrains-mono-nerd",
   "ttf-ms-win11-auto-zh_cn",
   "noto-fonts-emoji",
+  "ttf-pingfang-git",
   # "zellij",
   "tealdeer",
   "tmux",
@@ -40,6 +41,8 @@ packages = [
   "ueberzugpp",
   "rust-analyzer",
   "clang",
+  "gdb",
+  "xautocfg",
 ]
 
 [softlink]
@@ -57,3 +60,4 @@ fcitx5 = "~/.local/share/"
 # zellij = "" # deprecated, replaced by tmux
 tmux = ""
 yazi = ""
+xautocfg = ""

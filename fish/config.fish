@@ -17,12 +17,13 @@ alias c clear
 alias man "man --locale zh_CN"
 alias_if wpctl switch-sink "wpctl status | grep vol | head -n -1 | fzf | sed 's/\*/ /' | sed 's/ //g' | sed 's/│//g' | awk -F '.' '{print $1}' | xargs wpctl set-default"
 alias_if podman docker "sudo podman"
-alias_if mpv mpv "run mpv"
 alias_if git zb "cd (git rev-parse --show-toplevel)"
 alias_if gdb gdb "gdb -q"
 alias update-grub "sudo grub-mkconfig -o /boot/grub/grub.cfg"
+alias_if firefox-developer-edition firefox firefox-developer-edition
 alias ".." "cd .."
 alias "..." "cd ../.."
+alias_if trash tr trash
 
 alias_if nvim v "python $HOME/.config/fish/scripts/v.py"
 
@@ -44,13 +45,13 @@ set -gx QT_SCALE_FACTOR 2
 type -q kvantummanager && set -gx QT_STYLE_OVERRIDE kvantum
 
 # input method
-set -gx QT_IM_MODULE fcitx5
-set -gx GTK_IM_MODULE fcitx5
-set -gx XMODIFIERS "@im=fcitx5"
-set -gx XIM fcitx5
-set -gx XIM_PROGRAM fcitx5
-set -gx SDL_IM_MODULE fcitx5
-set -gx INPUT_METHOD fcitx5
+set -gx QT_IM_MODULE fcitx
+set -gx GTK_IM_MODULE fcitx
+set -gx XMODIFIERS "@im=fcitx"
+set -gx XIM fcitx
+set -gx XIM_PROGRAM fcitx
+set -gx SDL_IM_MODULE fcitx
+set -gx INPUT_METHOD fcitx
 set -gx GLFW_IM_MODULE ibus
 
 # firefox nvidia vaapi
@@ -79,7 +80,6 @@ fish_add_path ~/.config/fish/scripts
 fish_add_path ~/docker/redroid
 
 if status is-interactive
-    set -q DISPLAY && xset r rate 300 25
     vim_key_binding
     type -q tmux && tmux_auto_start
 end
