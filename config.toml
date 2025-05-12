@@ -50,6 +50,7 @@ packages = [
   "zsh-fast-syntax-highlighting",
   "zsh-history-substring-search",
   "zsh-theme-powerlevel10k-git",
+  "zsh-completions",
 ]
 
 [softlink]

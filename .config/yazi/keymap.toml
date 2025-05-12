@@ -1,0 +1,17 @@
+[manager]
+prepend_keymap = [
+  { on = [
+    "g",
+    "p",
+  ], run = 'cd ~/Pictures', desc = "Goto ~/Pictures" },
+
+  { on = [
+    "g",
+    "v",
+  ], run = 'cd ~/Video', desc = "Goto ~/Video" },
+
+  { on = [
+    "o",
+    "t",
+  ], run = "shell --confirm 'set -e TMUX;alacritty --working-directory .'" },
+]

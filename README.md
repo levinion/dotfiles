@@ -1,6 +1,4 @@
-# Dotfiles
-
-## How to use
+# How to use
 
 ```shell
 python install.py

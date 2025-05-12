@@ -24,10 +24,9 @@ def setup_softlink(config):
             if ask(f"{target} exists. Are you sure to remove it?"):
                 os.system(f"rm -rf {target}")
             else:
-                print(f"skip creating softlink for {target}")
-                continue
-        src = os.path.realpath(src)
-        os.system(f"ln -fs {src} {dst}")
+                print("skip creating softlink...")
+                return
+    os.system("stow .")
 
 
 def setup_dependicies(config):
