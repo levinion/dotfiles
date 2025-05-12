@@ -1,6 +1,7 @@
 [dependencies]
 aur_helper = "paru"
 packages = [
+  "stow",
   "i3-wm",
   "alacritty",
   # "fish",
