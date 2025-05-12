@@ -19,7 +19,7 @@ packages = [
   "steam",
   "openrgb",
   "npm",
-  "rustc",
+  "rustup",
   "sccache",
   "go",
   "uv",
