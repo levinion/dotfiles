@@ -60,7 +60,7 @@ family = "JetBrainsMono Nerd Font Mono"
 style = "Regular"
 
 [terminal.shell]
-program = "/bin/fish"
+program = "/bin/zsh"
 
 [window]
 decorations = "full"

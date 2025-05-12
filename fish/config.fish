@@ -1,4 +1,3 @@
-alias shut "sudo podman container stop redroid13;shutdown -h now"
 alias_if nvim vim nvim
 alias_if eza ls eza
 alias_if eza la "eza -a"
@@ -11,10 +10,9 @@ alias_if zeditor zed zeditor
 alias_if whisper-ctranslate2 faster-whisper "whisper-ctranslate2 --model large-v3 --output_format srt --temperature 0.6"
 alias_if whisper whisper "whisper --model large-v3 --output_format srt --temperature 0.6"
 alias_if weston run_weston "run weston -c $HOME/.config/weston/weston.ini"
-alias_if fzf h 'commandline -r (history | fzf)'
+alias_if atuin h "commandline -r (atuin search --cmd-only | fzf --height=30%)"
 alias e exit
 alias c clear
-alias man "man --locale zh_CN"
 alias_if wpctl switch-sink "wpctl status | grep vol | head -n -1 | fzf | sed 's/\*/ /' | sed 's/ //g' | sed 's/│//g' | awk -F '.' '{print $1}' | xargs wpctl set-default"
 alias_if podman docker "sudo podman"
 alias_if git zb "cd (git rev-parse --show-toplevel)"
@@ -81,5 +79,6 @@ fish_add_path ~/docker/redroid
 
 if status is-interactive
     vim_key_binding
+    type -q atuin && atuin init fish --disable-up-arrow | source
     type -q tmux && tmux_auto_start
 end

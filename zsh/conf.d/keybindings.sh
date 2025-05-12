@@ -1,0 +1,1 @@
+bindkey '^?' backward-delete-char

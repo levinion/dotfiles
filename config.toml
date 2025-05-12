@@ -3,7 +3,7 @@ aur_helper = "paru"
 packages = [
   "i3-wm",
   "alacritty",
-  "fish",
+  # "fish",
   "mpv",
   "neovim",
   "picom",
@@ -42,13 +42,20 @@ packages = [
   "rust-analyzer",
   "clang",
   "gdb",
-  "xautocfg",
+  # "xautocfg",
+  "atuin",
+
+  "zsh",
+  "zsh-autosuggestions",
+  "zsh-fast-syntax-highlighting",
+  "zsh-history-substring-search",
+  "zsh-theme-powerlevel10k-git",
 ]
 
 [softlink]
 alacritty = ""
 dunst = ""
-fish = ""
+# fish = "" # deprecated, replaced by zsh
 fontconfig = ""
 i3 = ""
 mpv = ""
@@ -60,4 +67,7 @@ fcitx5 = "~/.local/share/"
 # zellij = "" # deprecated, replaced by tmux
 tmux = ""
 yazi = ""
-xautocfg = ""
+# xautocfg = ""
+pipewire = ""
+paru = ""
+zsh = ""

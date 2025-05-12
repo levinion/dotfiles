@@ -37,11 +37,11 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+t exec --no-startup-id $terminal
+bindsym $mod+t exec --no-startup-id "$terminal -e tmux"
 bindsym $mod+w exec --no-startup-id $browser
 bindsym $mod+e exec --no-startup-id "alacritty -e yazi"
 bindsym $alt+a exec --no-startup-id "flameshot gui"
-bindsym $mod+p exec --no-startup-id "kaleido"
+bindsym $mod+p exec --no-startup-id "bash -c $HOME/.config/i3/scripts/kaleido.sh"
 
 # kill focused window
 bindsym $mod+q kill
@@ -163,16 +163,16 @@ bindsym Ctrl+Shift+Down exec --no-startup-id "python $HOME/.config/i3/scripts/vo
 
 # resize window 
 mode "resize" {
-        bindsym $left       resize shrink width 10 px or 10 ppt
-        bindsym $down       resize grow height 10 px or 10 ppt
-        bindsym $up         resize shrink height 10 px or 10 ppt
-        bindsym $right      resize grow width 10 px or 10 ppt
+        bindsym $left       resize shrink width 30 px or 30 ppt
+        bindsym $down       resize grow height 30 px or 30 ppt
+        bindsym $up         resize shrink height 30 px or 30 ppt
+        bindsym $right      resize grow width 30 px or 30 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left        resize shrink width 10 px or 10 ppt
-        bindsym Down        resize grow height 10 px or 10 ppt
-        bindsym Up          resize shrink height 10 px or 10 ppt
-        bindsym Right       resize grow width 10 px or 10 ppt
+        bindsym Left        resize shrink width 30 px or 30 ppt
+        bindsym Down        resize grow height 30 px or 30 ppt
+        bindsym Up          resize shrink height 30 px or 30 ppt
+        bindsym Right       resize grow width 30 px or 30 ppt
 
         # back to normal
         bindsym Escape mode "default", exec "dunstify 'current mode: normal'"
@@ -219,7 +219,7 @@ exec --no-startup-id "sudo sing-box run -c $HOME/.config/sing-box/config.yaml -D
 exec --no-startup-id "mygo -p 4611 $HOME/Projects/html/catppuccin-homepage &"
 exec --no-startup-id "obs --minimize-to-tray --disable-shutdown-check &"
 exec --no-startup-id "flameshot &"
-exec --no-startup-id "xautocfg -c $HOME/.config/xautocfg/xautocfg.cfg &"
+exec --no-startup-id "easyeffects --gapplication-service &"
 
 client.focused          #96CDFB #96CDFB #FFFFFF #96CDFB #96CDFB
 client.focused_inactive #96CDFB #6E6C7E #FFFFFF #96CDFB #96CDFB
