@@ -216,7 +216,7 @@ exec_always --no-startup-id otd-daemon &
 exec --no-startup-id "openrgb --startminimized -p default &"
 exec --no-startup-id "steam -nochatui -nofriendsui -silent &"
 exec --no-startup-id "sudo sing-box run -c $HOME/.config/sing-box/config.yaml -D $HOME/.config/sing-box &"
-exec --no-startup-id "mygo -p 4611 $HOME/Projects/html/catppuccin-homepage &"
+exec --no-startup-id "mygo -p 4611 $HOME/.config/i3/assets/catppuccin-homepage &"
 exec --no-startup-id "obs --minimize-to-tray --disable-shutdown-check &"
 exec --no-startup-id "flameshot &"
 exec --no-startup-id "easyeffects --gapplication-service &"
