@@ -1,5 +1,5 @@
 # How to use
 
 ```shell
-python install.py
+./install.sh help
 ```
