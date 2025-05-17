@@ -96,6 +96,7 @@ def open_application_picker_by_path(path: str):
 
 def open_application_picker(_):
     open_application_picker_by_path("/usr/share/applications/")
+    open_application_picker_by_path(os.path.expanduser("~/.local/share/applications/"))
     open_application_picker_by_path(os.path.expanduser("~/Desktop/"))
 
 
@@ -131,8 +132,28 @@ def killer_runner(output: str):
     subprocess.call([shell, "-c", f"kill -9 {pid}"])
 
 
-def history_picker(_):
-    output = subprocess.check_output([shell, "-c", "history"]).strip().decode()
+def history_picker(input):
+    input = input.removeprefix("hs ")
+    atuin_init_cmd = ""
+    if "zsh" in shell:
+        atuin_init_cmd = 'eval "$(atuin init zsh)"'
+    elif "bash" in shell:
+        atuin_init_cmd = 'eval "$(atuin init bash)"'
+    elif "fish" in shell:
+        atuin_init_cmd = "atuin init fish | source"
+
+    output = (
+        subprocess.check_output(
+            [
+                "zsh",
+                "-c",
+                f'{atuin_init_cmd} && atuin search "{input}" --cmd-only',
+            ]
+        )
+        .strip()
+        .decode()
+    )
+
     for line in set(output.splitlines()):
         print("hs " + line)
 

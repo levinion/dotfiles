@@ -1,7 +1,3 @@
-zsh_add_path() {
-  PATH=$1:$PATH
-}
-
 zsh_load_plugin() {
   source $ZDOTDIR/plugins/$1.sh
 }

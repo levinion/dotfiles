@@ -31,12 +31,6 @@ for file in $ZDOTDIR/conf.d/*; do
 done
 unset file
 
-zsh_add_path ~/go/bin
-zsh_add_path ~/.local/bin
-zsh_add_path ~/.cargo/bin
-zsh_add_path ~/.yarn/bin
-zsh_add_path ~/docker/redroid
-
 zsh_load_plugin p10k
 zsh_load_plugin autosuggestions
 zsh_load_plugin completion
