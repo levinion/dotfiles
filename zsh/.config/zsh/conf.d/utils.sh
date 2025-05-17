@@ -3,7 +3,9 @@ zsh_load_plugin() {
 }
 
 zsh_reload() {
+  source $ZDOTDIR/.zprofile
   source $ZDOTDIR/.zshrc
+  echo "soruce $ZDOTDIR/.zprofile"
   echo "source $ZDOTDIR/.zshrc"
 }
 

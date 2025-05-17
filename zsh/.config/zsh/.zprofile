@@ -1,4 +1,5 @@
 export EDITOR=nvim
+export BROWSER="firefox-developer-edition"
 export RUSTC_WRAPPER=sccache
 export GDK_DPI_SCALE=-1
 export GDK_SCALE=2
@@ -30,6 +31,7 @@ export FZF_DEFAULT_OPTS="\
 --color=selected-bg:#45475a \
 --multi"
 export FZF_DEFAULT_COMMAND="exa"
+
 
 zsh_add_path() {
   PATH=$1:$PATH
