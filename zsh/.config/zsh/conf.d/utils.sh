@@ -10,7 +10,7 @@ zsh_reload() {
 }
 
 shut() {
-  sudo pacman kill redroid13
+  sudo podman kill redroid13
   shutdown -h now
 }
 

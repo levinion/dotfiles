@@ -18,29 +18,39 @@ bindkey -a gl cursor-goto-right
 
 # set cursor shape based on current mode
 
-cursor-set-bar() {
+enter-insert-mode() {
   echo -en '\e[6 q'
 }
 
-zle -N cursor-set-bar
+zle -N enter-insert-mode
 
-cursor-set-block() {
+enter-normal-mode() {
   echo -en '\e[2 q'
+  fcitx5-remote -c
 }
 
-zle -N cursor-set-block
+zle -N enter-normal-mode
 
 zle-keymap-select() {
   if [[ ${KEYMAP} == vicmd ]] || [[ $1 = 'block' ]]; then
-    cursor-set-block
+    enter-normal-mode
   else
-    cursor-set-bar
+    enter-insert-mode
   fi
 }
 
 zle -N zle-keymap-select
 
 # before exec
-preexec_functions+=(cursor-set-block)
+preexec_functions+=(enter-normal-mode)
 # after exec and before print
-precmd_functions+=(cursor-set-bar)
+precmd_functions+=(enter-insert-mode)
+
+# vi-yank
+vi-yank-whole-line-to-clipboard() {
+  echo $BUFFER | xclip -sel clip
+}
+
+zle -N vi-yank-whole-line-to-clipboard
+bindkey -M vicmd yy vi-yank-whole-line-to-clipboard
+bindkey -M visual yy vi-yank-whole-line-to-clipboard

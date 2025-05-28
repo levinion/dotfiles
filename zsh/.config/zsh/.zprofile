@@ -41,4 +41,4 @@ zsh_add_path ~/go/bin
 zsh_add_path ~/.local/bin
 zsh_add_path ~/.cargo/bin
 zsh_add_path ~/.yarn/bin
-zsh_add_path ~/docker/redroid
+zsh_add_path $ZDOTDIR/scripts

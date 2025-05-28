@@ -17,7 +17,7 @@ install-dependencies() {
     "dex"
     "feh"
     "sing-box"
-    "autotiling-rs"
+    "autotiling"
     "steam"
     "openrgb"
     "npm"
@@ -32,7 +32,6 @@ install-dependencies() {
     "zoxide"
     "fastfetch"
     "ttf-jetbrains-mono-nerd"
-    "ttf-ms-win11-auto-zh_cn"
     "noto-fonts-emoji"
     "ttf-pingfang-git"
     # "zellij"
@@ -59,7 +58,7 @@ install-dependencies() {
 }
 
 dotfiles() {
-  stow -v $(exa -D) --simulate
+  stow -v */
 }
 
 install-all() {

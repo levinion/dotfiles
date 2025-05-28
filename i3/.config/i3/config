@@ -211,7 +211,6 @@ exec --no-startup-id fcitx5 -d &
 exec_always --no-startup-id picom -f &
 exec --no-startup-id polybar &
 exec_always --no-startup-id autotiling-rs &
-exec --no-startup-id dunst &
 exec_always --no-startup-id otd-daemon &
 exec --no-startup-id "openrgb --startminimized -p default &"
 exec --no-startup-id "steam -nochatui -nofriendsui -silent &"
