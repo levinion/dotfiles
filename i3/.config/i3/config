@@ -10,7 +10,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 set $bg "$HOME/.config/i3/assets/bg.jpg"
 
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --blur 5 --nofork
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --blur 5 --nofork
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -210,7 +210,7 @@ exec --no-startup-id feh --bg-scale $bg &
 exec --no-startup-id fcitx5 -d &
 exec_always --no-startup-id picom -f &
 exec --no-startup-id polybar &
-exec_always --no-startup-id autotiling-rs &
+exec_always --no-startup-id autotiling &
 exec_always --no-startup-id otd-daemon &
 exec --no-startup-id "openrgb --startminimized -p default &"
 exec --no-startup-id "steam -nochatui -nofriendsui -silent &"

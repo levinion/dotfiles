@@ -1,4 +1,6 @@
 export EDITOR=nvim
+export DIFFPROG='nvim -d'
+
 export BROWSER="firefox-developer-edition"
 export RUSTC_WRAPPER=sccache
 export GDK_DPI_SCALE=-1
@@ -30,12 +32,12 @@ export FZF_DEFAULT_OPTS="\
 --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
 --color=selected-bg:#45475a \
 --multi"
-export FZF_DEFAULT_COMMAND="exa"
+export FZF_DEFAULT_COMMAND="eza"
 
-
-zsh_add_path() {
-  PATH=$1:$PATH
-}
+for file in $ZDOTDIR/conf.d/profile/*; do
+  source $file
+done
+unset file
 
 zsh_add_path ~/go/bin
 zsh_add_path ~/.local/bin

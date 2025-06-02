@@ -28,7 +28,7 @@ def call_fzf():
         "-e",
         "fzf",
         f"--bind 'start,change:reload:python {path} picker {{q}}'",
-        f"--bind 'enter:execute(nohup python {path} run {{}} > /dev/null 2>&1 &)+abort'",
+        f"--bind 'enter:execute(setsid python {path} run {{}} > /dev/null 2>&1)+abort'",
     ]
 
     subprocess.call(
@@ -160,7 +160,7 @@ def history_picker(input):
 
 def history_runner(output: str):
     cmd = output.removeprefix("hs ")
-    subprocess.call(f"nohup {cmd} > /dev/null 2>&1 &", shell=True)
+    subprocess.call(f"setsid {cmd} > /dev/null 2>&1", shell=True)
 
 
 if __name__ == "__main__":

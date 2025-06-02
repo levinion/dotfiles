@@ -52,6 +52,7 @@ install-dependencies() {
     "zsh-history-substring-search"
     "zsh-theme-powerlevel10k-git"
     "zsh-completions"
+    "fzf-tab-git"
     "exa"
   )
   $AUR_HELPER -S --needed "${dependencies[@]}"
