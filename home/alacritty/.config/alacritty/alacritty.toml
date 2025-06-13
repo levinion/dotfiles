@@ -1,0 +1,80 @@
+[colors]
+draw_bold_text_with_bright_colors = false
+indexed_colors = []
+transparent_background_colors = false
+
+[colors.bright]
+black = "#282c34"
+blue = "#7cb7ff"
+cyan = "#00c1e4"
+green = "#cae7b9"
+magenta = "#d7bcc8"
+red = "#f67e7d"
+white = "#dcdfe4"
+yellow = "#e1dd8f"
+
+[colors.dim]
+black = "#282c34"
+blue = "#7cb7ff"
+cyan = "#00c1e4"
+green = "#cae7b9"
+magenta = "#d7bcc8"
+red = "#f67e7d"
+white = "#dcdfe4"
+yellow = "#e1dd8f"
+
+[colors.normal]
+black = "#282c34"
+blue = "#7cb7ff"
+cyan = "#00c1e4"
+green = "#cae7b9"
+magenta = "#d7bcc8"
+red = "#f67e7d"
+white = "#dcdfe4"
+yellow = "#e1dd8f"
+
+[colors.primary]
+bright_foreground = "#828997"
+dim_foreground = "#5c6370"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 12.0
+
+[font.bold]
+family = "JetBrainsMono Nerd Font Mono"
+style = "Bold"
+
+[font.bold_italic]
+family = "JetBrainsMono Nerd Font Mono"
+style = "Bold Italic"
+
+[font.italic]
+family = "JetBrainsMono Nerd Font Mono"
+style = "Italic"
+
+[font.normal]
+family = "JetBrainsMono Nerd Font Mono"
+style = "Regular"
+
+[terminal.shell]
+program = "/bin/zsh"
+
+[window]
+decorations = "full"
+dynamic_title = true
+opacity = 0.8
+startup_mode = "Windowed"
+title = "Alacritty"
+
+[window.class]
+general = "Alacritty"
+instance = "Alacritty"
+
+[window.padding]
+x = 10
+y = 10
+
+[terminal]

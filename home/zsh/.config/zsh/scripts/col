@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+[[ $# == 1 ]] && cut -d ' ' -f $1 || echo "col needs 1 argument"

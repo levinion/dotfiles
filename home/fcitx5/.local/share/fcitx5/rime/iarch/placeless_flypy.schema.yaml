@@ -1,0 +1,202 @@
+# Rime schema
+# encoding: utf-8
+
+schema:
+  schema_id: placeless_flypy
+  name: 小鹤双拼
+  version: "0.1"
+  author:
+    - double pinyin layout by 鶴
+    - Rime schema by 佛振 <chen.sst@gmail.com>
+    - Mod by placeless
+  description: |
+    小鹤双拼自定义方案。
+
+switches:
+  - name: full_shape
+    reset: 0
+    states: [ 半角, 全角 ]
+  - name: ascii_punct
+    states: [ 。，, ．， ]
+
+engine:
+  processors:
+    - recognizer
+    - key_binder
+    - speller
+    - lua_processor@select_character_processor
+    - selector
+    - punctuator
+    - navigator
+    - express_editor
+  segmentors:
+    - matcher
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - script_translator
+
+speller:
+  # alphabet: 'zyxwvutsrqponmlkjihgfedcba0987654321:,.!()/-=_+'
+  # initials: 'zyxwvutsrqponmlkjihgfedcba'
+  alphabet: 'zyxwvutsrqponmlkjihgfedcba'
+  algebra:
+    - erase/^xx$/
+    - derive/^([jqxy])u$/$1v/
+    - derive/^([aoe])([ioun])$/$1$1$2/
+
+    - abbrev/^([a-z]).+$/$1/
+    - abbrev/^([zcs]h).+$/$1/
+    - derive/^([zcs])h/$1/             # zh, ch, sh => z, c, s
+    - derive/^([zcs])([^h])/$1h$2/     # z, c, s => zh, ch, sh
+    - derive/([ei])n$/$1ng/            # en => eng, in => ing
+    - derive/([ei])ng$/$1n/            # eng => en, ing => in
+    
+    - xform/^([aoe])(ng)?$/$1$1$2/
+    - xform/iu$/Q/
+    - xform/(.)ei$/$1W/
+    - xform/uan$/R/
+    - xform/[uv]e$/T/
+    - xform/un$/Y/
+    - xform/^sh/U/
+    - xform/^ch/I/
+    - xform/^zh/V/
+    - xform/uo$/O/
+    - xform/ie$/P/
+    - xform/i?ong$/S/
+    - xform/ing$|uai$/K/
+    - xform/(.)ai$/$1D/
+    - xform/(.)en$/$1F/
+    - xform/(.)eng$/$1G/
+    - xform/[iu]ang$/L/
+    - xform/(.)ang$/$1H/
+    - xform/ian$/M/
+    - xform/(.)an$/$1J/
+    - xform/(.)ou$/$1Z/
+    - xform/[iu]a$/X/
+    - xform/iao$/N/
+    - xform/(.)ao$/$1C/
+    - xform/ui$/V/
+    - xform/in$/B/
+    - xlit/QWRTYUIOPSDFGHJKLZXCVBNM/qwrtyuiopsdfghjklzxcvbnm/
+  delimiter: " '"
+
+translator:
+  dictionary: extended
+  prism: placeless_flypy
+  contextual_suggestions: true
+  max_homophones: 7
+
+grammar:
+  language: zh-hans-t-essay-bgw
+
+punctuator:
+  import_preset: default
+  symbols:
+    "aq": [😂️, 😅️, 🎉, 🐂, 😱️, 👌, 😇️, 🙃️, 🤔️, 💊️, 💯️, 👍️, 🙈️, 💩️, 😈️ ]
+    "ab": [⌘, ⌥, ⇧, ⌃, ⎋, ⇪, , ⌫, ⌦, ↩︎, ⏎, ↑, ↓, ←, →, ↖, ↘, ⇟, ⇞]
+    "ae": ["levinion@163.com","levinion@126.com","levin@dlut.edu.cn","levinnion@gmail.com"]
+    "au": ["https://","https://levinion.github.io"]
+  full_shape:
+    " ": {commit: " "}
+    "!": {commit: "！"}
+    "\"": {pair: ["“", "”"]}
+    "#": "#"
+    "$": ["￥", "$"]
+    "%": "%"
+    "&": "&"
+    "'": {pair: ["‘", "’"]}
+    "(": "（"
+    ")": "）"
+    "*": ["·", "・", "×"]
+    "+": "+"
+    ",": {commit: "，"}
+    "-": "-"
+    .: {commit: "。"}
+    "/": ["／", "÷"]
+    ":": {commit: "："}
+    ";": {commit: "；"}
+    "<": "《"
+    "=": "="
+    ">": "》"
+    "?": {commit: "？"}
+    "@": "@"
+    "[": "「"
+    "\\": ["、", "＼"]
+    "]": "」"
+    "^": {commit: "……"}
+    _: "——"
+    "`": "｀"
+    "{": ["『", "【", "〖"]
+    "|": ["·", "｜", "¦"]
+    "}": ["』", "】", "〗"]
+    "~": "～"
+  half_shape:
+    " ": {commit: " "}
+    "!": {commit: "！"}
+    "\"": {pair: ["“", "”"]}
+    "#": "#"
+    "$": "¥"
+    "%": "%"
+    "&": "&"
+    "'": {pair: ["‘", "’"]}
+    "(": "（"
+    ")": "）"
+    "*": "*"
+    "+": "+"
+    ",": {commit: "，"}
+    "-": "-"
+    ".": {commit: "。"}
+    "/": "/"
+    ":": {commit: "："}
+    ";": {commit: "；"}
+    "<": "《"
+    "=": "="
+    ">": "》"
+    "?": {commit: "？"}
+    "@": "@"
+    "[": "["
+    "\\": "、"
+    "]": "]"
+    "^": {commit: "……"}
+    _: "——"
+    "`": "`"
+    "{": "{"
+    "|": "|"
+    "}": "}"
+    "~": "～"
+recognizer:
+  import_preset: default
+  patterns:
+    punct: "^(aq|ab|ae|au)$"
+
+menu:
+  page_size: 4
+  alternative_select_keys: "1234"
+  page_down_cycle: false
+
+key_binder:
+  bindings:
+    - {accept: "Control+p", send: Up, when: composing}
+    - {accept: "Control+n", send: Down, when: composing}
+    - {accept: "Control+b", send: Left, when: composing}
+    - {accept: "Control+f", send: Right, when: composing}
+    - {accept: "Control+a", send: Home, when: composing}
+    - {accept: "Control+e", send: End, when: composing}
+    - {accept: "Control+d", send: Delete, when: composing}
+    - {accept: "Control+k", send: "Shift+Delete", when: composing}
+    - {accept: "Control+h", send: BackSpace, when: composing}
+    - {accept: "Control+g", send: Escape, when: composing}
+    - {accept: "Control+bracketleft", send: Escape, when: composing}
+    - {accept: ISO_Left_Tab, send: "Shift+Left", when: composing}
+    - {accept: "equal", send: Page_Down, when: composing}
+    - {accept: "minus", send: Page_Up, when: composing}
+    - {accept: "Shift+Tab", send: Page_Up, when: composing}
+    - {accept: Tab, send: Page_Down, when: composing}
+    - {accept: bracketleft, send: Page_Up, when: paging}
+    - {accept: bracketright, send: Page_Down, when: has_menu}
+    - {accept: "Control+Shift+4", toggle: zh_simp, when: always}
+    - {accept: "Control+Shift+dollar", toggle: zh_simp, when: always}
+  import_preset: default

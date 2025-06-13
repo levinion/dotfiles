@@ -1,5 +1,6 @@
 # How to use
 
 ```shell
-./install.sh help
+sudo pacman -S just
+just
 ```
