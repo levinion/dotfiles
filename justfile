@@ -18,8 +18,7 @@ install-dependencies:
 
   dependencies=(
     # -- desktop environment --
-    # "stow"
-    "stor"
+    "stor" # an alternative of GNU/Stow
     "i3-wm"
     "firefox-developer-edition"
     "alacritty"
@@ -85,10 +84,10 @@ apply-home:
   just install-dotfiles
 
 install-dotfiles:
-  stor -v -d home -t $HOME $(ls home/ | xargs -n 1 basename)
+  stor home/*
 
 uninstall-dotfiles:
-  stor -D -v -d home -t $HOME $(ls home/ | xargs -n 1 basename)
+  stor -D home/*
 
 apply-system:
   just pacman-hooks
@@ -104,3 +103,9 @@ install-sysctl:
 
 install-sddm:
   sudo cp -r ./system/sddm/* /etc/
+
+[private]
+push:
+  git add .
+  git commit -m "update: $(date '+%Y%m%d')"
+  git push origin main
