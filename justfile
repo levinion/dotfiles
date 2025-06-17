@@ -1,6 +1,6 @@
 install:
   just install-dependencies
-  just apply-home
+  just apply-user
   # just apply-system
 
 # dependencies needed using
@@ -80,7 +80,7 @@ install-dependencies:
   )
   $AUR_HELPER -S --needed "${dependencies[@]}"
 
-apply-home:
+apply-user:
   just install-dotfiles
 
 install-dotfiles:
