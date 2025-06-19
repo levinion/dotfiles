@@ -20,7 +20,13 @@ exists trash && alias dl=trash
 exists whisper-ctranslate2 && alias faster-whisper="whisper-ctranslate2 --model large-v3 --output_format srt --temperature 0.6"
 exists whisper && alias whisper="whisper --model large-v3 --output_format srt --temperature 0.6"
 exists podman && ! exists docker && alias docker="sudo podman"
-exists git && alias gr='cd $(git rev-parse --show-toplevel)'
+
+exists git && {
+  alias gr='cd $(git rev-parse --show-toplevel)'
+  alias gp="git push"
+  alias fastpush="git commit -am update && git push origin main"
+}
+
 exists pacdiff && alias pacdiff="sudo -E pacdiff"
 
 exists wpctl && alias switch-sink="wpctl status | grep vol | head -n -1 | fzf | sed 's/\*/ /' | sed 's/ //g' | sed 's/│//g' | awk -F '.' '{print $1}' | xargs wpctl set-default"

@@ -1,6 +1,7 @@
 return {
   "mrcjkb/rustaceanvim",
-  version = "^4", -- Recommended
+  version = "^6", -- Recommended
+  lazy = false,
   ft = { "rust" },
   opts = {
     server = {
@@ -31,4 +32,7 @@ return {
       },
     },
   },
+  config = function(_, opts)
+    vim.g.rustaceanvim = opts
+  end
 }
