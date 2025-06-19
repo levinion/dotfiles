@@ -34,6 +34,9 @@ vim.keymap.set("n", "<leader>cl", "<cmd>LspInfo<CR>", { desc = "Lsp Info" })
 vim.keymap.set("n", "<leader>cr", "<cmd>LspRestart<CR>", { desc = "Restart LSP" })
 vim.keymap.set("n", "<leader>cd", function() vim.diagnostic.open_float() end, { desc = "Code diagnostic" })
 
+-- others
+vim.keymap.set("n", "<leader>cm", "<cmd>Mason<CR>", { desc = "Mason" })
+
 -- ## snacks picker ##
 
 -- general
@@ -50,11 +53,9 @@ vim.keymap.set("n", "<leader>fk", function() Snacks.picker.keymaps() end, { desc
 vim.keymap.set("n", "<leader>fd", function() Snacks.picker.diagnostics_buffer() end, { desc = "Local Diagnostics" })
 vim.keymap.set("n", "<leader>fD", function() Snacks.picker.diagnostics() end, { desc = "Root Diagnostics" })
 vim.keymap.set("n", "<leader>fc", function() Snacks.picker.commands() end, { desc = "Commands" })
-vim.keymap.set("n", "<leader>ft", function() Snacks.picker.todo_comments() end, { desc = "TODO" })
 vim.keymap.set("n", "<leader>fC", function() Snacks.picker.colorschemes() end, { desc = "Color Schemes" })
-vim.keymap.set("n", "<leader>fh", function() Snacks.picker.highlights() end, { desc = "highlights" })
 vim.keymap.set("n", "<leader>fn", function() Snacks.picker.notifications() end, { desc = "Notifications" })
-vim.keymap.set("n", "<leader>fs", function() Snacks.picker.command_history() end, { desc = "Command History" })
+vim.keymap.set("n", "<leader>fh", function() Snacks.picker.command_history() end, { desc = "Command History" })
 
 -- lsp
 vim.keymap.set("n", "gd", function() Snacks.picker.lsp_definitions() end, { desc = "Goto Definition" })

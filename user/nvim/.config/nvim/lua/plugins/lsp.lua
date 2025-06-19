@@ -48,12 +48,14 @@ return {
         update_in_insert = true,
         virtual_text = true,
         underline = true,
+        -- diagnostic icons
+        text = {
+          DiagnosticSignError = "",
+          DiagnosticSignWarn = "",
+          DiagnosticSignHint = "",
+          DiagnosticSignInfo = "",
+        }
       })
-      -- diagnostic icons
-      vim.fn.sign_define("DiagnosticSignError", { text = "" })
-      vim.fn.sign_define("DiagnosticSignWarn", { text = "" })
-      vim.fn.sign_define("DiagnosticSignHint", { text = "" })
-      vim.fn.sign_define("DiagnosticSignInfo", { text = "" })
       -- clangd
       lspconfig.clangd.setup {
         cmd = {
@@ -100,6 +102,18 @@ return {
           },
         },
       }
+
+      -- lua
+      lspconfig.lua_ls.setup {
+        settings = {
+          Lua = {
+            workspace = { library = vim.api.nvim_get_runtime_file("", true) },
+            telemetry = { enable = false },
+            diagnostics = {
+              globals = { "vim" },
+            },
+          },
+        } }
     end
   },
 }

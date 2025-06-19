@@ -23,5 +23,9 @@ return {
     },
     highlight = { enable = true },
     indent = { enable = true },
-  }
+    auto_install = vim.fn.executable("tree-sitter"),
+  },
+  config = function(_, opts)
+    require("nvim-treesitter.configs").setup(opts)
+  end
 }
