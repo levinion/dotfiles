@@ -8,14 +8,16 @@ vim.keymap.set({ "n", "v", "o" }, "gl", "g_", { desc = "Go right" }) -- gl to go
 -- editor action
 vim.keymap.set("n", "<leader>ww", "<cmd>w<CR>", { desc = "Save buffer" })
 vim.keymap.set("n", "<leader>qq", "<cmd>qa<CR>", { desc = "Quit all" })
+vim.keymap.set({ "n", "v", "o" }, "<leader>wq", "<cmd>wq<cr>", { desc = "Save and quit" })
 
 -- window
 vim.keymap.set({ "n", "v", "o" }, "<c-h>", "<c-w>h", { desc = "Switch to left" })
 vim.keymap.set({ "n", "v", "o" }, "<c-l>", "<c-w>l", { desc = "Switch to right" })
-vim.keymap.set({ "n", "v", "o" }, "<leader>wq", "<cmd>wq<cr>", { desc = "Save and quit" })
+vim.keymap.set({ "n", "v", "o" }, "<c-j>", "<c-w>j", { desc = "Switch to below" })
+vim.keymap.set({ "n", "v", "o" }, "<c-k>", "<c-w>k", { desc = "Switch to upper" })
 
--- yazi
-vim.keymap.set({ "n", "v", "o" }, "<leader>e", function() require("oil").toggle_float() end, { desc = "Toggle Oil" })
+-- file manager
+vim.keymap.set({ "n", "v", "o" }, "<leader>e", function() require("yazi").toggle() end, { desc = "Toggle Yazi" })
 
 -- flash
 vim.keymap.set({ "n", "v", "o" }, "s",
@@ -41,10 +43,16 @@ vim.keymap.set("n", "<leader>cm", "<cmd>Mason<CR>", { desc = "Mason" })
 
 -- general
 vim.keymap.set("n", "<leader>/", function() Snacks.picker.grep() end, { desc = "Grep root" })
-vim.keymap.set("n", "<leader><space>", function() Snacks.picker.files() end, { desc = "Searc Files" })
+vim.keymap.set("n", "<leader><space>", function() Snacks.picker.files() end, { desc = "Search Files" })
 
 -- buffer
-vim.keymap.set("n", "<leader>bd", function() Snacks.bufdelete() end, { desc = "Delete Buffer" })
+vim.keymap.set("n", "<leader>bx", "<cmd>q<cr>", { desc = "Delete Buffer" })
+vim.keymap.set("n", "<leader>bv", "<c-w>v", { desc = "Split vertically" })
+vim.keymap.set("n", "<leader>bV", "<c-w>s", { desc = "Split horizontally" })
+vim.keymap.set("n", "<leader>bj", "<c-w>J", { desc = "Move to far bottom" })
+vim.keymap.set("n", "<leader>bk", "<c-w>K", { desc = "Move to far top" })
+vim.keymap.set("n", "<leader>bh", "<c-w>H", { desc = "Move to far left" })
+vim.keymap.set("n", "<leader>bl", "<c-w>L", { desc = "Move to far right" })
 
 -- search
 vim.keymap.set("n", "<leader>fj", function() Snacks.picker.jumps() end, { desc = "Jumps" })
@@ -56,6 +64,7 @@ vim.keymap.set("n", "<leader>fc", function() Snacks.picker.commands() end, { des
 vim.keymap.set("n", "<leader>fC", function() Snacks.picker.colorschemes() end, { desc = "Color Schemes" })
 vim.keymap.set("n", "<leader>fn", function() Snacks.picker.notifications() end, { desc = "Notifications" })
 vim.keymap.set("n", "<leader>fh", function() Snacks.picker.command_history() end, { desc = "Command History" })
+vim.keymap.set("n", "<leader>fH", function() Snacks.picker.help() end, { desc = "Help" })
 
 -- lsp
 vim.keymap.set("n", "gd", function() Snacks.picker.lsp_definitions() end, { desc = "Goto Definition" })

@@ -1,0 +1,17 @@
+#compdef run
+
+__run() {
+  _arguments -s \
+    '1: :->cmds' \
+    '*::arg:->args'
+
+  case $state in
+    cmds)
+      _command_names
+      ;;
+    args)
+      ;;
+  esac
+}
+
+__run

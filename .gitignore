@@ -1,5 +1,6 @@
 .tmp*
-.gitignore
 fishd.tmp.*
 vps*
 .zcompdump
+/user/mpd/.config/mpd/*
+!mpd.conf

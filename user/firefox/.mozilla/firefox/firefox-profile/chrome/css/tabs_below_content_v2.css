@@ -3,90 +3,106 @@ See the above repository for updates as well as full license text. */
 
 /* Requires Fx 133+ */
 @media (-moz-bool-pref: "userchrome.force-window-controls-on-left.enabled"),
-  -moz-pref("userchrome.force-window-controls-on-left.enabled") {
-  #nav-bar > .titlebar-buttonbox-container {
+-moz-pref("userchrome.force-window-controls-on-left.enabled") {
+  #nav-bar>.titlebar-buttonbox-container {
     order: -1 !important;
-    > .titlebar-buttonbox {
+
+    >.titlebar-buttonbox {
       flex-direction: row-reverse;
     }
   }
 }
+
 @media not (-moz-bool-pref: "sidebar.verticalTabs"),
-  not -moz-pref("sidebar.verticalTabs") {
-  #main-window > body {
+not -moz-pref("sidebar.verticalTabs") {
+  #main-window>body {
     display: grid !important;
     grid-template-rows: repeat(8, max-content) 1fr;
     grid-auto-rows: auto;
   }
+
   #navigator-toolbox {
     display: contents;
   }
+
   :root[sizemode="fullscreen"]:not([inDOMFullscreen]) #toolbar-menubar {
     min-height: 0 !important;
   }
+
   #main-window #browser {
     grid-row: 9/10;
   }
+
   #TabsToolbar {
     grid-row: 10/11;
     background-attachment: scroll;
   }
+
   .browser-toolbar {
     background: inherit;
     background-attachment: fixed;
   }
-  #TabsToolbar > :is(.titlebar-buttonbox-container, .titlebar-spacer) {
+
+  #TabsToolbar> :is(.titlebar-buttonbox-container, .titlebar-spacer) {
     display: none;
   }
-  :root[sizemode="fullscreen"] #nav-bar > .titlebar-buttonbox-container {
+
+  :root[sizemode="fullscreen"] #nav-bar>.titlebar-buttonbox-container {
     display: flex !important;
   }
-  :root:is([tabsintitlebar], [customtitlebar])
-    #toolbar-menubar:not([autohide="false"])
-    ~ #nav-bar {
-    > .titlebar-buttonbox-container {
+
+  :root:is([tabsintitlebar], [customtitlebar]) #toolbar-menubar:not([autohide="false"])~#nav-bar {
+    >.titlebar-buttonbox-container {
       display: flex !important;
     }
+
     :root[sizemode="normal"] & {
-      > .titlebar-spacer {
+      >.titlebar-spacer {
         display: flex !important;
       }
     }
+
     :root[sizemode="maximized"] & {
-      > .titlebar-spacer[type="post-tabs"] {
+      >.titlebar-spacer[type="post-tabs"] {
         display: flex !important;
       }
     }
+
     @media (-moz-bool-pref: "userchrome.force-window-controls-on-left.enabled"),
-      -moz-pref("userchrome.force-window-controls-on-left.enabled"),
-      (-moz-gtk-csd-reversed-placement),
-      (-moz-platform: macos) {
-      > .titlebar-spacer[type="post-tabs"] {
+    -moz-pref("userchrome.force-window-controls-on-left.enabled"),
+    (-moz-gtk-csd-reversed-placement),
+    (-moz-platform: macos) {
+      >.titlebar-spacer[type="post-tabs"] {
         display: none !important;
       }
-      > .titlebar-spacer[type="pre-tabs"] {
+
+      >.titlebar-spacer[type="pre-tabs"] {
         display: flex !important;
       }
     }
   }
+
   @media (-moz-bool-pref: "browser.fullscreen.autohide"),
-    -moz-pref("browser.fullscreen.autohide") {
+  -moz-pref("browser.fullscreen.autohide") {
     #main-window[sizemode="fullscreen"]:not([inDOMFullscreen]) {
-      > body {
+      >body {
         grid-template-rows: repeat(8, 0px) 1fr;
         grid-auto-rows: 0px;
       }
+
       & #nav-bar {
         height: min-content;
         z-index: 1;
         transition: transform 133ms ease-in-out 400ms !important;
         transform: rotateX(89.9deg);
         transform-origin: top;
+
         &:hover {
           transition-delay: 0ms !important;
           transform: rotateX(0deg);
         }
       }
+
       & #TabsToolbar {
         opacity: 0 !important;
         will-change: unset !important;
@@ -97,30 +113,23 @@ See the above repository for updates as well as full license text. */
         height: min-content;
         align-self: end;
         z-index: 2;
+
         &:hover {
           transition-delay: 0ms !important;
           transform: translateY(0);
           opacity: 1 !important;
         }
       }
-      &
-        #mainPopupSet:has(
-          > [panelopen]:not(
-              #ask-chat-shortcuts,
-              #selection-shortcut-action-panel,
-              #chat-shortcuts-options-panel,
-              #tab-preview-panel
-            )
-        )
-        ~ #navigator-toolbox
-        > #nav-bar {
+
+      & #mainPopupSet:has(> [panelopen]:not(#ask-chat-shortcuts,
+          #selection-shortcut-action-panel,
+          #chat-shortcuts-options-panel,
+          #tab-preview-panel))~#navigator-toolbox>#nav-bar {
         transition-delay: 0ms !important;
         transform: rotateX(0deg);
       }
-      &
-        #mainPopupSet:has(> #tabContextMenu:hover)
-        ~ #navigator-toolbox
-        #TabsToolbar {
+
+      & #mainPopupSet:has(> #tabContextMenu:hover)~#navigator-toolbox #TabsToolbar {
         transition-delay: 0ms;
         transform: translateY(0);
         opacity: 1 !important;

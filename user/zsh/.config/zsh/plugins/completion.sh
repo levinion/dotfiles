@@ -1,4 +1,4 @@
 # enable completion
 fpath+=$ZDOTDIR/completions
 autoload -Uz compinit
-compinit
+compinit -d /tmp/.zcompdump

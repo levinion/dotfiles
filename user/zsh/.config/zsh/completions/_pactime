@@ -1,0 +1,12 @@
+#compdef pactime
+
+__pactime() {
+    _arguments -s \
+        {-v,--version}"[print version]" \
+        {-h,--help}"[show this help message and exit]" \
+        {-e,--explicit}"[only list explicitly installed packages]" \
+        {-f,--format}"[custom time format (default: %Y-%m-%d %H:%M:%S)]" \
+        {-w,--width}"[space left for package names (default: 50)]"
+}
+
+__pactime

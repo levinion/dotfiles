@@ -50,3 +50,10 @@ exists fzf && exists col && fkill() {
 exists fkill && restart() {
   fkill "$@" | xargs run
 }
+
+exists btrfs && snapshot() {
+  local date="$(date +'%Y%m%d-%H_%M_%S')"
+  sudo btrfs subvolume snapshot -r /home/ /manual-home-$date
+  sudo btrfs subvolume snapshot -r / /manual-root-$date
+
+}

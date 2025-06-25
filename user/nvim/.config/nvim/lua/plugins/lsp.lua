@@ -49,11 +49,13 @@ return {
         virtual_text = true,
         underline = true,
         -- diagnostic icons
-        text = {
-          DiagnosticSignError = "",
-          DiagnosticSignWarn = "",
-          DiagnosticSignHint = "",
-          DiagnosticSignInfo = "",
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = "",
+            [vim.diagnostic.severity.WARN] = "",
+            [vim.diagnostic.severity.INFO] = "",
+            [vim.diagnostic.severity.HINT] = "",
+          }
         }
       })
       -- clangd
@@ -78,7 +80,6 @@ return {
         init_options = {
           compilationDatabasePath = "./build",
         },
-        filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
       }
 
       -- css
@@ -114,6 +115,12 @@ return {
             },
           },
         } }
+
+      -- bash
+
+      lspconfig.bashls.setup {
+        filetypes = { "sh", "bash", "zsh" }
+      }
     end
   },
 }

@@ -77,31 +77,26 @@ install-dependencies:
     "zsh-completions"
     "fzf-tab-git"
     # "fish"
+
+    # -- music
+    "mpd"
+    "rmpc"
   )
   $AUR_HELPER -S --needed "${dependencies[@]}"
 
 apply-user:
-  just install-dotfiles
-
-install-dotfiles:
-  stor home/*
-
-uninstall-dotfiles:
-  stor -D home/*
+  stor home/*/
+  stor bwrap/*/
 
 apply-system:
-  just pacman-hooks
-
-pacman-hooks:
+  # pacman-hooks
   sudo install -Dm755 ./system/pacman/scripts/* /usr/share/libalpm/scripts/
   sudo cp ./system/pacman/hooks/* /usr/share/libalpm/hooks/
-
-install-sysctl:
+  # sysctl
   sudo mkdir -p /etc/sysctl.d/
   sudo cp ./system/sysctl/* /etc/sysctl.d/
   sudo sysctl -p
-
-install-sddm:
+  # sddm
   sudo cp -r ./system/sddm/* /etc/
 
 [private]
