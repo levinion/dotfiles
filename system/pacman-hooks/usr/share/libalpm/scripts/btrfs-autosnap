@@ -4,9 +4,9 @@ Date=$(date +"%Y%m%d-%H%M")
 
 echo "cleaning older snapshots..."
 if [[ -n "$(btrfs subvolume list / | grep autosnap-)" ]]; then
-  btrfs subvolume delete /autosnap-*
+  btrfs subvolume delete /snapshots/autosnap-*
 fi
 
 echo "creating new snapshots..."
-btrfs subvolume snapshot /home/ /autosnap-home-$Date
-btrfs subvolume snapshot / /autosnap-root-$Date
+btrfs subvolume snapshot /home/ /snapshots/autosnap-home-$Date
+btrfs subvolume snapshot / /snapshots/autosnap-root-$Date

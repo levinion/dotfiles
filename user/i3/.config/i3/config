@@ -200,22 +200,20 @@ for_window [class=".*"] border pixel 1
 for_window [class="scrcpy"] floating enable, resize set height 720, resize set width 1280
 for_window [class="Clash-verge|nekoray|QQ|Io.ente.auth|Telegram"] floating enable, move position center, focus
 for_window [class="fzfmenu"] floating enable, resize set height 400, resize set width 1200, move position center, focus
-for_window [class="QtScrcpy"] floating enable, resize set height 400, resize set width 1200, move position center, focus
 # for_window [class="kaleido"] floating enable, focus
 
 exec --no-startup-id nm-applet &
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 exec --no-startup-id feh --bg-scale $bg &
 exec --no-startup-id fcitx5 -d &
-exec_always --no-startup-id picom &
+exec --no-startup-id picom &
 exec --no-startup-id polybar &
-exec_always --no-startup-id autotiling &
-exec_always --no-startup-id otd-daemon &
+exec --no-startup-id autotiling &
+exec --no-startup-id otd-daemon &
 exec --no-startup-id "openrgb --startminimized -p default &"
 exec --no-startup-id "steam -nochatui -nofriendsui -silent &"
 exec --no-startup-id "sudo sing-box run -c $HOME/.config/sing-box/config.yaml -D $HOME/.config/sing-box &"
 exec --no-startup-id "mygo -p 4611 $HOME/.config/i3/assets/catppuccin-homepage &"
-exec --no-startup-id "obs --minimize-to-tray --disable-shutdown-check &"
 exec --no-startup-id "flameshot &"
 exec --no-startup-id "easyeffects --gapplication-service &"
 

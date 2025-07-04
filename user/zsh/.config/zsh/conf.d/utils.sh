@@ -53,7 +53,11 @@ exists fkill && restart() {
 
 exists btrfs && snapshot() {
   local date="$(date +'%Y%m%d-%H_%M_%S')"
-  sudo btrfs subvolume snapshot -r /home/ /manual-home-$date
-  sudo btrfs subvolume snapshot -r / /manual-root-$date
+  sudo btrfs subvolume snapshot -r /home/ /snapshots/manual-home-$date
+  sudo btrfs subvolume snapshot -r / /snapshots/manual-root-$date
 
+}
+
+exists obs && obs() {
+  run obs --minimize-to-tray --disable-shutdown-check
 }

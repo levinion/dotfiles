@@ -30,7 +30,7 @@ install-dependencies:
     "fcitx5-im"
     "fcitx5-rime"
     # "rofi"
-    "openrgb" # rgb control
+    # "openrgb" # rgb control
     "mpv"
     "flameshot"
 
@@ -61,7 +61,7 @@ install-dependencies:
     "fastfetch"
 
     # -- game --
-    "steam"
+    # "steam"
 
     # -- fonts --
     "ttf-jetbrains-mono-nerd"
@@ -79,25 +79,21 @@ install-dependencies:
     # "fish"
 
     # -- music
-    "mpd"
-    "rmpc"
+    # "mpd"
+    # "rmpc"
+
+    # -- document
+    # "libreoffice-fresh"
+    # "libreoffice-fresh-zh-cn"
   )
   $AUR_HELPER -S --needed "${dependencies[@]}"
 
 apply-user:
-  stor home/*/
-  stor bwrap/*/
+  stor -f home/*/
+  stor -f bwrap/*/
 
 apply-system:
-  # pacman-hooks
-  sudo install -Dm755 ./system/pacman/scripts/* /usr/share/libalpm/scripts/
-  sudo cp ./system/pacman/hooks/* /usr/share/libalpm/hooks/
-  # sysctl
-  sudo mkdir -p /etc/sysctl.d/
-  sudo cp ./system/sysctl/* /etc/sysctl.d/
-  sudo sysctl -p
-  # sddm
-  sudo cp -r ./system/sddm/* /etc/
+  sudo stor -cf -t / system/*/
 
 [private]
 push:

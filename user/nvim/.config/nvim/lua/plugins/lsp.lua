@@ -119,7 +119,12 @@ return {
       -- bash
 
       lspconfig.bashls.setup {
-        filetypes = { "sh", "bash", "zsh" }
+        filetypes = { "sh", "bash", "zsh" },
+        settings = {
+          bashIde = {
+            globPattern = "*@(.sh|.inc|.bash|.command|.zshrc)"
+          }
+        }
       }
     end
   },
