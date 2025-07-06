@@ -3,7 +3,7 @@ export DIFFPROG='nvim -d'
 
 export BROWSER="firefox-developer-edition"
 export RUSTC_WRAPPER=sccache
-export GDK_DPI_SCALE=-1
+export GDK_DPI_SCALE=1
 export GDK_SCALE=2
 export XCURSOR_SIZE=32
 export QT_AUTO_SCREEN_SCALE_FACTOR=2

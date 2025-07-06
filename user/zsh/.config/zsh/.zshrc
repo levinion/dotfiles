@@ -23,7 +23,6 @@ zsh-load-plugin completion
 exists atuin && zsh-load-plugin atuin
 exists zoxide && zsh-load-plugin zoxide
 exists-package fzf-tab-git && zsh-load-plugin fzf-tab
-exists-package zsh-history-substring-search && zsh-load-plugin history-substring-search
 zsh-load-plugin vim-mode
 exists-package zsh-fast-syntax-highlighting && zsh-load-plugin fast-syntax-highlighting
 

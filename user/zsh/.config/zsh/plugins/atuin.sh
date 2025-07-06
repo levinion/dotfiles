@@ -1,4 +1,5 @@
-eval "$(atuin init zsh --disable-up-arrow)"
+# eval "$(atuin init zsh --disable-up-arrow)"
+eval "$(atuin init zsh)"
 
 # local ATUIN_SEARCH_INDEX=-1
 # local ATUIN_SEARCH_KEYWORD=""

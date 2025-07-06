@@ -5,7 +5,7 @@ return {
     "folke/snacks.nvim"
   },
   opts = {
-    open_for_directories = true,
+    open_for_directories = false,
   },
   init = function()
     vim.g.loaded_netrwPlugin = 1

@@ -6,7 +6,7 @@ __build_info:
     key_bindings: 1750272266
     key_bindings.custom: 0
     placeless_flypy.custom: 0
-    placeless_flypy.schema: 1739696685
+    placeless_flypy.schema: 1751812178
     punctuation: 1750272266
     punctuation.custom: 0
 engine:
@@ -132,9 +132,9 @@ punctuator:
     ">": "》"
     "?": {commit: "？"}
     "@": "@"
-    "[": "["
+    "[": "「"
     "\\": "、"
-    "]": "]"
+    "]": "」"
     "^": {commit: "……"}
     _: "——"
     "`": "`"

@@ -31,7 +31,7 @@ exists pacdiff && alias pacdiff="sudo -E pacdiff"
 
 exists wpctl && alias switch-sink="wpctl status | grep vol | head -n -1 | fzf | sed 's/\*/ /' | sed 's/ //g' | sed 's/│//g' | awk -F '.' '{print $1}' | xargs wpctl set-default"
 exists grub-mkconfig && alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
-exists firefox-developer-edition && alias firefox=firefox-developer-edition
+exists firefox-developer-edition && ! exists firefox && alias firefox=firefox-developer-edition
 
 exists uv && {
   alias uvlocal="source .venv/bin/activate"

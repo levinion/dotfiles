@@ -72,7 +72,6 @@ install-dependencies:
     "zsh"
     "zsh-autosuggestions"
     "zsh-fast-syntax-highlighting"
-    "zsh-history-substring-search"
     "zsh-theme-powerlevel10k-git"
     "zsh-completions"
     "fzf-tab-git"
@@ -89,7 +88,7 @@ install-dependencies:
   $AUR_HELPER -S --needed "${dependencies[@]}"
 
 apply-user:
-  stor -f home/*/
+  stor -f user/*/
   stor -f bwrap/*/
 
 apply-system:
