@@ -11,6 +11,7 @@ exists bat && alias cat="bat -p"
 exists gdb && alias gdb="gdb -q"
 alias e=exit
 alias c=clear
+alias pfkill="pkill --signal 9"
 exists xclip && alias ccopy="xclip -se c"
 exists xclip && alias cpaste="xclip -se c -o"
 exists yazi && alias y=yazi

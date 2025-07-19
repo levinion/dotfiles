@@ -48,6 +48,7 @@ return {
         update_in_insert = true,
         virtual_text = true,
         underline = true,
+        severity_sort = true,
         -- diagnostic icons
         signs = {
           text = {
@@ -56,10 +57,16 @@ return {
             [vim.diagnostic.severity.INFO] = "",
             [vim.diagnostic.severity.HINT] = "",
           }
-        }
+        },
       })
+
+      -- enable inlay_hint for all buffers
+      vim.lsp.inlay_hint.enable(true)
+
       -- clangd
       lspconfig.clangd.setup {
+        keys = {
+        },
         cmd = {
           "clangd",
           "--clang-tidy",
@@ -79,6 +86,9 @@ return {
         },
         init_options = {
           compilationDatabasePath = "./build",
+          usePlaceholders = true,
+          completeUnimported = true,
+          clangdFileStatus = true,
         },
       }
 
@@ -105,13 +115,21 @@ return {
       }
 
       -- lua
+
+      local library = {
+        unpack(vim.api.nvim_get_runtime_file("", true)),
+        "/usr/share/lua/5.1/",
+        "/usr/share/lua/5.4/",
+        "/usr/share/luajit-2.1/"
+      }
+
       lspconfig.lua_ls.setup {
         settings = {
           Lua = {
-            workspace = { library = vim.api.nvim_get_runtime_file("", true) },
+            workspace = { library = library },
             telemetry = { enable = false },
             diagnostics = {
-              globals = { "vim" },
+              globals = { "vim", "_ura" },
             },
           },
         } }

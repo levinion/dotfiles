@@ -17,7 +17,9 @@ vim.keymap.set({ "n", "v", "o" }, "<c-j>", "<c-w>j", { desc = "Switch to below" 
 vim.keymap.set({ "n", "v", "o" }, "<c-k>", "<c-w>k", { desc = "Switch to upper" })
 
 -- file manager
-vim.keymap.set({ "n", "v", "o" }, "<leader>e", function() require("yazi").toggle() end, { desc = "Toggle Yazi" })
+vim.keymap.set({ "n", "v", "o" }, "<leader>e", function() require("neo-tree.command").execute({ toggle = true }) end,
+  { desc = "Toggle FileManager" })
+
 
 -- flash
 vim.keymap.set({ "n", "v", "o" }, "s",
@@ -35,9 +37,25 @@ vim.keymap.set("n", "<leader>cm", "<cmd>Mason<CR>", { desc = "Mason" })
 vim.keymap.set("n", "<leader>cl", "<cmd>LspInfo<CR>", { desc = "Lsp Info" })
 vim.keymap.set("n", "<leader>cr", "<cmd>LspRestart<CR>", { desc = "Restart LSP" })
 vim.keymap.set("n", "<leader>cd", function() vim.diagnostic.open_float() end, { desc = "Code diagnostic" })
+vim.keymap.set("n", "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", { desc = "Switch Source/Header (C/C++)" })
 
 -- others
 vim.keymap.set("n", "<leader>cm", "<cmd>Mason<CR>", { desc = "Mason" })
+
+-- diagnostic
+local diagnostic_goto = function(next, severity)
+  local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
+  severity = severity and vim.diagnostic.severity[severity] or nil
+  return function()
+    go({ severity = severity })
+  end
+end
+vim.keymap.set("n", "]d", diagnostic_goto(true), { desc = "Next Diagnostic" })
+vim.keymap.set("n", "[d", diagnostic_goto(false), { desc = "Prev Diagnostic" })
+vim.keymap.set("n", "]e", diagnostic_goto(true, "ERROR"), { desc = "Next Error" })
+vim.keymap.set("n", "[e", diagnostic_goto(false, "ERROR"), { desc = "Prev Error" })
+vim.keymap.set("n", "]w", diagnostic_goto(true, "WARN"), { desc = "Next Warning" })
+vim.keymap.set("n", "[w", diagnostic_goto(false, "WARN"), { desc = "Prev Warning" })
 
 -- ## snacks picker ##
 
