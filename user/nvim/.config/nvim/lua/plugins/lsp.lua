@@ -117,19 +117,22 @@ return {
       -- lua
 
       local library = {
-        unpack(vim.api.nvim_get_runtime_file("", true)),
+        vim.env.VIMRUNTIME,
         "/usr/share/lua/5.1/",
         "/usr/share/lua/5.4/",
-        "/usr/share/luajit-2.1/"
+        "/usr/share/luajit-2.1/",
       }
 
       lspconfig.lua_ls.setup {
         settings = {
           Lua = {
+            runtime = {
+              version = 'LuaJIT',
+            },
             workspace = { library = library },
             telemetry = { enable = false },
             diagnostics = {
-              globals = { "vim", "_ura" },
+              globals = { "vim", "ura" },
             },
           },
         } }

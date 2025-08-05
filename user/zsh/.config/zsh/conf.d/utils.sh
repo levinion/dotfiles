@@ -58,6 +58,6 @@ exists btrfs && snapshot() {
 
 }
 
-exists obs && obs() {
-  run obs --minimize-to-tray --disable-shutdown-check
-}
+# exists obs && obs() {
+#   run obs --minimize-to-tray --disable-shutdown-check
+# }

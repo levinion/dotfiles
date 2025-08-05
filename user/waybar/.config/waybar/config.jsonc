@@ -1,0 +1,52 @@
+{
+  "layer": "bottom",
+  "height": 20,
+  "spacing": 10,
+  "position": "top",
+  "modules-left": [
+    "custom/workspace",
+    "custom/appindicator"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "memory",
+    "pulseaudio",
+    "tray"
+  ],
+  "tray": {
+    "icon-size": 15,
+    "spacing": 20
+  },
+  "clock": {
+    "timezone": "Asia/Shanghai",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": " {:%d/%m/%Y}",
+    "format": "  {:%H:%M}"
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "",
+    "format-icons": {
+      "default": [
+        "",
+        "",
+        " "
+      ]
+    }
+  },
+  "memory": {
+    "format": "  {used}G"
+  },
+  "custom/workspace": {
+    "exec": "~/.config/waybar/scripts/workspace.py",
+    "format": "{text}",
+    "signal": 8
+  },
+  "custom/appindicator": {
+    "exec": "~/.config/waybar/scripts/appindicator.py",
+    "format": "{text}",
+    "signal": 9
+  }
+}

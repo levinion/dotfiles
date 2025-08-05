@@ -1,0 +1,51 @@
+@import url("./mocha.css");
+
+* {
+  font-family: "JetBrains-Mono-Nerd";
+  font-size: 13px;
+  min-height: 0;
+  border-radius: 20px;
+}
+
+#waybar {
+  background: transparent;
+  color: @text;
+}
+
+#tray,
+#clock,
+#pulseaudio,
+#custom-workspace,
+#custom-appindicator,
+#memory {
+  background-color: @surface0;
+  margin: 5 0;
+  padding: 5 15;
+}
+
+#clock {
+  color: @blue;
+}
+
+
+#pulseaudio {
+  color: @maroon;
+}
+
+#tray {
+  margin-right: 10px;
+}
+
+#memory {
+  color: @pink;
+}
+
+#custom-workspace {
+  color: @rosewater;
+  margin-left: 10px;
+}
+
+#custom-appindicator {
+  color: @maroon;
+  margin-left: 10px;
+}

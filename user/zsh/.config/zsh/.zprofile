@@ -3,6 +3,11 @@ export DIFFPROG='nvim -d'
 
 export BROWSER="firefox-developer-edition"
 export RUSTC_WRAPPER=sccache
+
+# input method
+if [[ "$XDG_SESSION_TYPE" = "x11" ]]; then
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
 export GDK_DPI_SCALE=1
 export GDK_SCALE=2
 export XCURSOR_SIZE=32
@@ -10,10 +15,21 @@ export QT_AUTO_SCREEN_SCALE_FACTOR=2
 export QT_ENABLE_HIGHDPI_SCALING=0
 export QT_SCALE_FACTOR=2
 export QT_STYLE_OVERRIDE=kvantum
+fi
 
-# input method
+if [[ "$XDG_SESSION_TYPE" = "wayland" ]]; then
 export QT_IM_MODULE=fcitx
-export GTK_IM_MODULE=fcitx
+export QT_IM_MODULES="wayland;fcitx;ibus"
+export GDK_DPI_SCALE=1
+export GDK_SCALE=1
+export XCURSOR_SIZE=32
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+export QT_ENABLE_HIGHDPI_SCALING=0
+export QT_SCALE_FACTOR=1
+export QT_QPA_PLATFORM=wayland
+export ELECTRON_OZONE_PLATFORM_HINT=auto
+fi
+
 export XMODIFIERS="@im=fcitx"
 export XIM=fcitx
 export XIM_PROGRAM=fcitx

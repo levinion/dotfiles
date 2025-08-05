@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Tab</title>
+    <link href="css/style.css" rel="stylesheet" />
+    <script>
+      function updateTime() {
+        const now = new Date();
+        const timeString = now.toLocaleTimeString("zh-CN", { hour12: false });
+        document.getElementById("time").innerText =
+          timeString.slice(0, 5) + " " + (now.getHours > 12 ? "AM" : "PM");
+      }
+      setInterval(updateTime, 1000);
+    </script>
+  </head>
+  <body onload="updateTime()" onselectstart="return false">
+    <div class="container">
+      <div class="time" id="time"></div>
+      <div class="search-box">
+        <form action="https://www.google.com/search" method="GET">
+          <input
+            type="text"
+            name="q"
+            placeholder="Google Search"
+            autofocus
+            autocomplete="off"
+          />
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
