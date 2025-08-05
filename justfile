@@ -19,20 +19,24 @@ install-dependencies:
   dependencies=(
     # -- desktop environment --
     "stor" # an alternative of GNU/Stow
-    "i3-wm"
+    "ly"
+    "ura-git"
     "firefox-developer-edition"
     "alacritty"
-    "picom"
-    "polybar"
     "dex"
     "feh"
-    "autotiling"
     "fcitx5-im"
     "fcitx5-rime"
     # "rofi"
     # "openrgb" # rgb control
     "mpv"
-    "flameshot"
+    "grim"
+    "slurp"
+    "wf-recorder"
+    "wl-clipboard"
+    "swaybg"
+    "waybar"
+    "wlr-randr"
 
     # -- code --
     "rustup"
@@ -59,6 +63,7 @@ install-dependencies:
     "zoxide"
     "sing-box"
     "fastfetch"
+    "trash-cli"
 
     # -- game --
     # "steam"
@@ -75,7 +80,6 @@ install-dependencies:
     "zsh-theme-powerlevel10k-git"
     "zsh-completions"
     "fzf-tab-git"
-    # "fish"
 
     # -- music
     # "mpd"
