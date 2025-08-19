@@ -19,7 +19,7 @@
 #custom-appindicator,
 #memory {
   background-color: @surface0;
-  margin: 5 0;
+  margin: 5 0 0 0;
   padding: 5 15;
 }
 

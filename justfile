@@ -27,7 +27,6 @@ install-dependencies:
     "feh"
     "fcitx5-im"
     "fcitx5-rime"
-    # "rofi"
     # "openrgb" # rgb control
     "mpv"
     "grim"
@@ -37,6 +36,7 @@ install-dependencies:
     "swaybg"
     "waybar"
     "wlr-randr"
+    "dunst"
 
     # -- code --
     "rustup"
@@ -82,8 +82,8 @@ install-dependencies:
     "fzf-tab-git"
 
     # -- music
-    # "mpd"
-    # "rmpc"
+    "mpd"
+    "rmpc"
 
     # -- document
     # "libreoffice-fresh"

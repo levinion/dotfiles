@@ -56,9 +56,11 @@ def open_application_runner(output: str):
 
 def window_jump_runner(output: str):
     args = output.split(" ")
-    workspace_index = args[-2]
+    workspace_id = args[-2]
     window_index = args[-1]
-    command = f"ura.win.activate({workspace_index},{window_index})"
+    if not workspace_id.isnumeric():
+        workspace_id = f'"{workspace_id}"'
+    command = f"ura.win.activate({workspace_id},{window_index})"
     subprocess.call(f"uracil -c '{command}'", shell=True)
 
 
@@ -75,7 +77,20 @@ def run_plugins_picker(input: str):
 
 def window_jump_picker(input):
     input = input.removeprefix("wd ")
-    command = "local workspaces = ura.ws.list() for _, workspace in ipairs(workspaces) do for _, toplevel in ipairs(workspace.windows) do print(toplevel.app_id, toplevel.title, toplevel.workspace_index, toplevel.index) end end"
+    command = " ".join(
+        [
+            "local workspaces = ura.ws.list()",
+            "for _, workspace in ipairs(workspaces) do",
+            "for _, toplevel in ipairs(workspace.windows) do",
+            "if workspace.name then",
+            "print(toplevel.app_id, toplevel.title, workspace.name, toplevel.index)",
+            "else",
+            "print(toplevel.app_id, toplevel.title, workspace.index, toplevel.index)",
+            "end",
+            "end",
+            "end",
+        ]
+    )
     output = subprocess.check_output(
         f"uracil -c '{command}'", shell=True, text=True
     ).strip()
