@@ -58,6 +58,16 @@ exists btrfs && snapshot() {
 
 }
 
-# exists obs && obs() {
-#   run obs --minimize-to-tray --disable-shutdown-check
-# }
+exists yt-dlp && yt-dlp-m4a() {
+  yt-dlp \
+    -f "bestaudio[ext=m4a]" \
+    --extract-audio \
+    --audio-format m4a \
+    --embed-metadata \
+    --embed-thumbnail \
+    $@
+}
+
+exists obs && obs() {
+  run obs --minimize-to-tray --disable-shutdown-check
+}

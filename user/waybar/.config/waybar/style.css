@@ -17,7 +17,8 @@
 #pulseaudio,
 #custom-workspace,
 #custom-appindicator,
-#memory {
+#memory,
+#mpd {
   background-color: @surface0;
   margin: 5 0 0 0;
   padding: 5 15;
@@ -27,17 +28,20 @@
   color: @blue;
 }
 
-
 #pulseaudio {
   color: @maroon;
 }
 
-#tray {
-  margin-right: 10px;
-}
-
 #memory {
   color: @pink;
+}
+
+#mpd {
+  color: @peach
+}
+
+#tray {
+  margin-right: 10px;
 }
 
 #custom-workspace {
@@ -47,5 +51,4 @@
 
 #custom-appindicator {
   color: @maroon;
-  margin-left: 10px;
 }

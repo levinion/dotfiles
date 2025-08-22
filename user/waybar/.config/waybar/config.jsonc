@@ -11,6 +11,7 @@
     "clock"
   ],
   "modules-right": [
+    "mpd",
     "memory",
     "pulseaudio",
     "tray"
@@ -21,12 +22,11 @@
   },
   "clock": {
     "timezone": "Asia/Shanghai",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "format-alt": " {:%d/%m/%Y}",
     "format": "  {:%H:%M}"
   },
   "pulseaudio": {
-    "format": "{icon} {volume}%",
+    "format": "{icon}  {volume}%",
     "format-muted": "",
     "format-icons": {
       "default": [
@@ -37,7 +37,15 @@
     }
   },
   "memory": {
-    "format": "  {used}G"
+    "format": "   {used}G"
+  },
+  "mpd": {
+    "format": "{stateIcon}  {title}",
+    "state-icons": {
+      "playing": "",
+      "paused": ""
+    },
+    "on-click": "rmpc togglepause"
   },
   "custom/workspace": {
     "exec": "~/.config/waybar/scripts/workspace.py",

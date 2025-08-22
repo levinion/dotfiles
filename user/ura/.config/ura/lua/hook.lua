@@ -19,7 +19,6 @@ ura.hook.set("ready", function()
   os.execute("otd-daemon &")
   os.execute("fcitx5 -rd &")
   os.execute("wl-clip-persist -c both --reconnect-tries 3 &")
-  -- os.execute([[swayidle -w timeout 600 "swaylock -f" timeout 1200 'uracil -c "PowerOff()"' &]])
   -- os.execute([[joystickwake --command 'uracil -c "ura.api.notify_idle_activity()"' &]])
   os.execute(
     [[swayidle -w timeout 10 'uracil -c "ura.input.cursor.set_visible(false)"' resume 'uracil -c "ura.input.cursor.set_visible(true)"' &]])
