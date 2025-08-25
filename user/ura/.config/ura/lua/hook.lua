@@ -15,7 +15,7 @@ ura.hook.set("ready", function()
   os.execute("openrgb --startminimized -p default &")
   os.execute("sudo sing-box run -c $HOME/.config/sing-box/config.yaml -D $HOME/.config/sing-box &")
   os.execute("mygo -p 4611 $HOME/.config/ura/assets/catppuccin-homepage &")
-  os.execute("dunst &")
+  os.execute("mako &")
   os.execute("otd-daemon &")
   os.execute("fcitx5 -rd &")
   os.execute("wl-clip-persist -c both --reconnect-tries 3 &")
@@ -39,8 +39,8 @@ ura.hook.set("workspace-change", function()
   os.execute("pkill -SIGRTMIN+8 waybar &")
 end)
 
-ura.hook.set("window-new", function()
-  local win = ura.win.get_current()
+ura.hook.set("window-new", function(index)
+  local win = ura.win.get(index)
   if not win then return end
   if string.match(win.app_id, "fzfmenu") then
     ura.win.set_layout(win.index, "floating")
@@ -53,3 +53,11 @@ ura.hook.set("window-new", function()
     ura.win.center(win.index)
   end
 end)
+
+-- ura.hook.set("window-resize", function(index)
+--   local win = ura.win.get(index)
+--   if not win then return end
+--   if string.match(win.app_id, "foot") then
+--     os.execute(string.format("notify-send '%s:%d:%d' &", win.index, win.width, win.height))
+--   end
+-- end)

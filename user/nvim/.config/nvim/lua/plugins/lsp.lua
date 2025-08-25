@@ -147,6 +147,12 @@ return {
           }
         }
       }
+
+      --toml
+
+      lspconfig.taplo.setup {
+        root_markers = { ".git", "*.toml" }
+      }
     end
   },
 }

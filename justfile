@@ -1,7 +1,7 @@
 install:
   just install-dependencies
   just apply-user
-  # just apply-system
+  just apply-system
 
 # dependencies needed using
 install-dependencies:
@@ -17,26 +17,32 @@ install-dependencies:
   fi
 
   dependencies=(
-    # -- desktop environment --
-    "stor" # an alternative of GNU/Stow
+    # -- DM --
     "ly"
+
+    # -- desktop --
     "ura-git"
+    "swaybg"
+    "swaylock"
+    "swayidle"
+    "waybar"
     "firefox-developer-edition"
-    "alacritty"
-    "dex"
-    "feh"
+    "foot"
+    # "openrgb" # rgb control
+    "mako"
+
+    # -- input method --
     "fcitx5-im"
     "fcitx5-rime"
-    # "openrgb" # rgb control
-    "mpv"
-    "grim"
-    "slurp"
-    "wf-recorder"
-    "wl-clipboard"
-    "swaybg"
-    "waybar"
-    "wlr-randr"
-    "dunst"
+
+    # -- audio --
+    "pipewire"
+    "pipewire-alsa"
+    "pipewire-audio"
+    "pipewire-jack"
+    "pipewire-pulse"
+    "pipewire-session-manager"
+    "wireplumber"
 
     # -- code --
     "rustup"
@@ -51,19 +57,24 @@ install-dependencies:
     # -- cli-tools --
     "neovim"
     "yazi"
-    "ueberzugpp" # review pictures in yazi
     "fzf"
     "eza"
     "ripgrep"
     "fd"
     "tealdeer"
     "tmux"
-    # "zellij"
     "atuin"
     "zoxide"
     "sing-box"
     "fastfetch"
     "trash-cli"
+    "grim"
+    "slurp"
+    "wlr-randr"
+    "stor" # an alternative of GNU/Stow
+    "fzfmenu"
+    "dex"
+    "feh"
 
     # -- game --
     # "steam"
@@ -80,10 +91,15 @@ install-dependencies:
     "zsh-theme-powerlevel10k-git"
     "zsh-completions"
     "fzf-tab-git"
+    "wl-clipboard"
+    "wl-clip-persist"
 
-    # -- music
+    # -- music --
     "mpd"
     "rmpc"
+
+    # -- video --
+    "mpv"
 
     # -- document
     # "libreoffice-fresh"
