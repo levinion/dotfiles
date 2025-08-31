@@ -1,3 +1,6 @@
-#TabsToolbar {
+#TabsToolbar,
+toolbar,
+titlebar {
   background-color: #1e1e2e !important;
+  opacity: 1 !important;
 }

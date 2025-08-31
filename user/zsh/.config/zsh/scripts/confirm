@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/env bash
 
 read -p "$1" confirm
 [[ "$confirm" =~ ^[yY]?$ ]] && exit 0 || exit 1
