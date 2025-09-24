@@ -1,0 +1,36 @@
+#!/usr/bin/python3
+
+import argparse
+import subprocess
+
+
+def get_brightness() -> int:
+    return int(
+        subprocess.check_output("ddcmod 16", shell=True, text=True).split(" ")[0]
+    )
+
+
+def set_brightness(brightness: int):
+    subprocess.call(f"ddcmod 16 {brightness}", shell=True)
+
+
+def notify_brightness():
+    subprocess.call(f"notify-send Brightness: {get_brightness()}%", shell=True)
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-i", "--increase", type=int)
+    parser.add_argument("-d", "--decrease", type=int)
+    args = parser.parse_args()
+
+    if args.increase:
+        set_brightness(min(get_brightness() + 5, 100))
+    elif args.decrease:
+        set_brightness(max(get_brightness() - 5, 50))
+
+    notify_brightness()
+
+
+if __name__ == "__main__":
+    main()

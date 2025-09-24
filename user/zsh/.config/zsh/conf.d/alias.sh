@@ -7,13 +7,10 @@ exists eza && {
 }
 exists rg && alias grep=rg
 exists fd && alias fd="fd --absolute-path"
-exists bat && alias cat="bat -p"
 exists gdb && alias gdb="gdb -q"
 alias e=exit
 alias c=clear
 alias pfkill="pkill --signal 9"
-exists xclip && alias ccopy="xclip -se c"
-exists xclip && alias cpaste="xclip -se c -o"
 exists yazi && alias y=yazi
 exists perf && alias time="perf stat"
 exists trash && alias dl=trash
@@ -38,5 +35,7 @@ exists uv && {
   alias uvlocal="source .venv/bin/activate"
   alias uvglobal="source ~/.venv/bin/activate"
 }
-alias get-idf="source /opt/esp-idf/export.sh"
-exists reflector && alias run-reflector="sudo reflector --verbose --threads 16 -l 200 -p https --sort rate --save /etc/pacman.d/mirrorlist"
+[[ -f "/opt/esp-idf/export.sh" ]] && alias get-idf="source /opt/esp-idf/export.sh"
+exists reflector && alias run-reflector="sudo reflector --verbose --threads 16 -l 100 -p https --sort rate --save /etc/pacman.d/mirrorlist"
+
+alias nv-smooth-motion="env NVPRESENT_ENABLE_SMOOTH_MOTION=1"

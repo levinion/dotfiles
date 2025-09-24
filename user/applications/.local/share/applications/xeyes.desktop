@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=XEyes
+Comment=XEyes
+Exec=xeyes
+Icon=
+Terminal=false
+Type=Application
+Categories=System;

@@ -4,7 +4,6 @@ export DIFFPROG='nvim -d'
 export BROWSER="firefox-developer-edition"
 export RUSTC_WRAPPER=sccache
 
-# input method
 if [[ "$XDG_SESSION_TYPE" = "x11" ]]; then
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
@@ -58,4 +57,5 @@ zsh-add-path ~/go/bin
 zsh-add-path ~/.local/bin
 zsh-add-path ~/.cargo/bin
 zsh-add-path ~/.yarn/bin
+zsh-add-path ~/.nix-profile/
 zsh-add-path $ZDOTDIR/scripts

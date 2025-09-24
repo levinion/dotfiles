@@ -1,5 +1,3 @@
-# setterm -linewrap off
-
 zsh-load-plugin() {
   source $ZDOTDIR/plugins/$1.sh
 }
@@ -27,5 +25,6 @@ exists zoxide && zsh-load-plugin zoxide
 exists-package fzf-tab-git && zsh-load-plugin fzf-tab
 zsh-load-plugin vim-mode
 exists-package zsh-fast-syntax-highlighting && zsh-load-plugin fast-syntax-highlighting
+exists-package zsh-history-substring-search && zsh-load-plugin history-substring-search
 
 zsh-load-config-dir

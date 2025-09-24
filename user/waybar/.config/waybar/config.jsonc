@@ -12,6 +12,7 @@
   ],
   "modules-right": [
     "mpd",
+    // "custom/brightness",
     "memory",
     "pulseaudio",
     "tray"
@@ -56,5 +57,10 @@
     "exec": "~/.config/waybar/scripts/appindicator.py",
     "format": "{text}",
     "signal": 9
+  },
+  "custom/brightness": {
+    "exec": "~/.config/waybar/scripts/brightness.sh",
+    "format": "🔆 {text}%",
+    "signal": 10
   }
 }

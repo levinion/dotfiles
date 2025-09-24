@@ -1,1 +1,13 @@
+layer=overlay
 default-timeout=5000
+font=monospace 13
+
+background-color=#1e1e2e
+text-color=#cdd6f4
+border-color=#89b4fa
+progress-color=over #313244
+
+anchor=top-right
+
+[urgency=high]
+border-color=#fab387

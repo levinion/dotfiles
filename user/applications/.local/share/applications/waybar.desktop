@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=waybar
+Comment=waybar
+Exec=waybar
+Icon=
+Terminal=false
+Type=Application
+Categories=Desktop;

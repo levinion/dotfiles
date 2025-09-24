@@ -9,9 +9,9 @@ def window_jump_picker():
             "for _, workspace in ipairs(workspaces) do",
             "for _, toplevel in ipairs(workspace.windows) do",
             "if workspace.name then",
-            "print(toplevel.app_id, toplevel.title, workspace.name, toplevel.index)",
+            "print(toplevel.app_id, toplevel.title, toplevel.layout, workspace.name, toplevel.index)",
             "else",
-            "print(toplevel.app_id, toplevel.title, workspace.index, toplevel.index)",
+            "print(toplevel.app_id, toplevel.title, toplevel.layout, workspace.index, toplevel.index)",
             "end",
             "end",
             "end",
@@ -36,7 +36,7 @@ def window_jump_runner(output: str):
 
 
 def main():
-    args = " ".join(sys.argv[2:])
+    args = sys.argv[2]
     match sys.argv[1]:
         case "picker":
             window_jump_picker()

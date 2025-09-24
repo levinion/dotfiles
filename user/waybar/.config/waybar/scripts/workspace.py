@@ -17,7 +17,7 @@ def main():
         ).strip()
     )
     workspaces = [inactive] * number
-    workspaces[index] = active
+    workspaces[index] = active + "  " + str(index)
     print("  ".join(workspaces))
 
 

@@ -109,13 +109,6 @@ install-dependencies:
 
 apply-user:
   stor -f user/*/
-  stor -f bwrap/*/
 
 apply-system:
   sudo stor -cf -t / system/*/
-
-[private]
-push:
-  git add .
-  git commit -m "update: $(date '+%Y%m%d')"
-  git push origin main

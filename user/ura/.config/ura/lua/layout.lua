@@ -4,5 +4,6 @@ ura.layout.set("always-on-top", function(index)
   if win.first_commit_after_layout_change then
     ura.win.set_z_index(win.index, 500)
     ura.win.set_draggable(win.index, true)
+    ura.win.set_pinned(win.index, true)
   end
 end)

@@ -18,7 +18,7 @@ desc = "Open $SHELL here"
 
 [[mgr.prepend_keymap]]
 on = "y"
-run = ['shell -- echo "$@" | xclip -selection clipboard -t image/png', "yank"]
+run = ['shell -- echo "$@" | wl-copy -t image/png', "yank"]
 desc = "copy to clipboard"
 
 [[mgr.prepend_keymap]]
