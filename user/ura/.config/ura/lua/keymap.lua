@@ -1,4 +1,4 @@
-local util = require("util")
+local utils = require("utils")
 
 ura.keymap.set("super+t", function()
   ura.api.spawn("foot -e tmux")
@@ -24,7 +24,7 @@ end)
 ura.keymap.set("alt+space", function()
   local w = ura.win.get_current()
   if not w then return end
-  util.toggle_layout(w, "floating")
+  utils.toggle_layout(w, "floating")
 end)
 
 ura.keymap.set("super+shift+e", function()
@@ -38,7 +38,7 @@ end)
 ura.keymap.set("super+f", function()
   local w = ura.win.get_current()
   if not w then return end
-  util.toggle_layout(w, "fullscreen")
+  utils.toggle_layout(w, "fullscreen")
 end)
 
 ura.keymap.set("ctrl+left", function()
@@ -106,6 +106,12 @@ ura.keymap.set("super+shift+l", function()
   ura.win.swap(win.index, win.index + 1)
 end)
 
+for i = 0, 9 do
+  ura.keymap.set("super+" .. i, function()
+    ura.ws.switch_or_create(i)
+  end)
+end
+
 ura.keymap.set("super+shift+p", function()
   ura.api.spawn('uracil ~/.config/ura/scripts/dpms_off.lua')
 end)
@@ -116,6 +122,14 @@ end)
 
 ura.keymap.set("alt+a", function()
   ura.api.spawn('grim -g "$(slurp)" - | wl-copy')
+end)
+
+ura.keymap.set("alt+shift+a", function()
+  ura.api.spawn([[
+  PICTURE=~/Pictures/Catch/$(date +%Y-%m-%d_%H-%M-%S).png
+  grim -g "$(slurp)" $PICTURE
+  notify-send Success "Picture saved: $PICTURE"
+  ]])
 end)
 
 ura.keymap.set("super+shift+m", function()
@@ -131,6 +145,14 @@ ura.keymap.set("XF86AudioLowerVolume", function()
   ura.api.spawn("volume -d 5")
 end)
 
+ura.keymap.set("XF86MonBrightnessUp", function()
+  ura.api.spawn("brightness -i 5")
+end)
+
+ura.keymap.set("XF86MonBrightnessDown", function()
+  ura.api.spawn("brightness -d 5")
+end)
+
 ura.keymap.set("super+shift+s", function()
   ura.api.spawn("swaylock -f -i ~/.config/ura/assets/bg.jpg")
 end)
@@ -144,5 +166,5 @@ end)
 ura.keymap.set("super+d", function()
   local w = ura.win.get_current()
   if not w then return end
-  util.toggle_layout(w, "always-on-top")
+  utils.toggle_layout(w, "always-on-top")
 end)
