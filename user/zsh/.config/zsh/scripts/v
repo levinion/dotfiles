@@ -1,23 +1,23 @@
 #!/bin/env python
 
 import os
-import subprocess
 import sys
 
 
 def main():
     argv = sys.argv
-    _target = os.getcwd() if len(argv) == 1 else argv[1]
+    _target = os.getcwd() if len(argv) == 1 else argv[-1]
     target = os.path.abspath(_target)
+    flags = " ".join(argv[1:-1])
     editor = os.environ["EDITOR"]
     if (
         not os.path.exists(target)
         and os.access(os.path.dirname(target), os.W_OK)
         or os.access(target, os.W_OK)
     ):
-        subprocess.run(f"{editor} {target}", shell=True)
+        os.execl("/bin/sh", "sh", "-c", f"{editor} {flags} {target}")
     else:
-        subprocess.run(f"sudo -E {editor} {target}", shell=True)
+        os.execl("/bin/sh", "sh", "-c", f"sudo -E {editor} {flags} {target}")
 
 
 if __name__ == "__main__":

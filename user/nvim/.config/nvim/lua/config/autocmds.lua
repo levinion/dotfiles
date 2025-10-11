@@ -33,6 +33,14 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
   end,
 })
 
+vim.api.nvim_create_autocmd("BufEnter", {
+  callback = function()
+    if vim.bo.filetype == "make" then
+      vim.o.expandtab = false
+    end
+  end,
+})
+
 -- autocmds from lazyvim : https://www.lazyvim.org/configuration/general
 
 -- Check if we need to reload the file when it changed

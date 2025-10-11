@@ -1,3 +1,5 @@
+# setterm -linewrap off
+
 zsh-load-plugin() {
   source $ZDOTDIR/plugins/$1.sh
 }

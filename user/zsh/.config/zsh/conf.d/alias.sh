@@ -1,4 +1,7 @@
-exists nvim && alias vim=nvim
+exists nvim && {
+  alias vim=nvim
+  alias vr='nvim -c "set readonly"'
+}
 exists eza && {
   alias ls=eza
   alias la="eza -a"
@@ -27,7 +30,6 @@ exists git && {
 
 exists pacdiff && alias pacdiff="sudo -E pacdiff"
 
-exists wpctl && alias switch-sink="wpctl status | grep vol | head -n -1 | fzf | sed 's/\*/ /' | sed 's/ //g' | sed 's/│//g' | awk -F '.' '{print $1}' | xargs wpctl set-default"
 exists grub-mkconfig && alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 exists firefox-developer-edition && ! exists firefox && alias firefox=firefox-developer-edition
 

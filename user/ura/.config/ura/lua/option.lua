@@ -7,7 +7,7 @@ ura.opt.tilling.gap.inner = 10
 ura.opt.device.outputs["DP-5"] = {
   height = 2160,
   width = 3840,
-  refresh = 159.977005,
+  refresh = 119.879997,
   scale = 2
 }
 

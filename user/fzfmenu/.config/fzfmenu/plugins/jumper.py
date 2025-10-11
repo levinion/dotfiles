@@ -22,6 +22,8 @@ def window_jump_picker():
     ).strip()
     for line in output.splitlines():
         line = line.strip()
+        if line.startswith("fzfmenu"):
+            continue
         print(line)
 
 

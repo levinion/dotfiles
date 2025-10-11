@@ -21,7 +21,7 @@ function M.apply_window_rules(rules)
       end
 
       if rule.title then
-        if not (win.title and string.match(win.title, rule.title)) then
+        if not string.match(win.title, rule.title) then
           match = false
         end
       end

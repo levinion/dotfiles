@@ -1,7 +1,7 @@
 shut() {
-  exists podman &&
-    sudo podman container list | grep redroid13 >/dev/null 2>&1 &&
-    sudo podman kill redroid13
+  exists docker &&
+    docker container list | grep -q redroid13 &&
+    docker stop redroid13
   shutdown -h now
 }
 

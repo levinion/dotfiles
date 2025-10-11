@@ -5,7 +5,8 @@
   "position": "top",
   "modules-left": [
     "custom/workspace",
-    "custom/appindicator"
+    "custom/app_id",
+    "custom/app_title"
   ],
   "modules-center": [
     "clock"
@@ -49,18 +50,23 @@
     "on-click": "rmpc togglepause"
   },
   "custom/workspace": {
-    "exec": "~/.config/waybar/scripts/workspace.py",
+    "exec": "python ~/.config/waybar/scripts/workspace.py",
     "format": "{text}",
     "signal": 8
   },
-  "custom/appindicator": {
-    "exec": "~/.config/waybar/scripts/appindicator.py",
+  "custom/app_id": {
+    "exec": "python ~/.config/waybar/scripts/appindicator.py app_id",
     "format": "{text}",
     "signal": 9
   },
-  "custom/brightness": {
-    "exec": "~/.config/waybar/scripts/brightness.sh",
-    "format": "🔆 {text}%",
+  "custom/app_title": {
+    "exec": "python ~/.config/waybar/scripts/appindicator.py title",
+    "format": "{text}",
     "signal": 10
+  },
+  "custom/brightness": {
+    "exec": "python ~/.config/waybar/scripts/brightness.sh",
+    "format": "🔆 {text}%",
+    "signal": 11
   }
 }

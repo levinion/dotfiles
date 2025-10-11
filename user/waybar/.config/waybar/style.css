@@ -16,7 +16,8 @@
 #clock,
 #pulseaudio,
 #custom-workspace,
-#custom-appindicator,
+#custom-app_id,
+#custom-app_title,
 #custom-brightness,
 #memory,
 #mpd {
@@ -53,7 +54,11 @@
   margin-left: 10px;
 }
 
-#custom-appindicator {
+#custom-app_id {
+  color: @maroon;
+}
+
+#custom-app_title {
   color: @maroon;
 }
 

@@ -1,7 +1,7 @@
 ura.hook.set("prepare", function()
-  ura.fn.set_env("XDG_CURRENT_DESKTOP", "ura")
+  ura.fn.set_env("XDG_CURRENT_DESKTOP", "sway")
   ura.fn.set_env("XDG_SESSION_TYPE", "wayland")
-  ura.fn.set_env("WLR_RENDERER", "vulkan")
+  ura.fn.set_env("WLR_RENDERER", "gles2")
   ura.fn.set_env("WLR_NO_HARDWARE_CURSORS", "0")
   ura.fn.set_env("LIBVA_DRIVER_NAME", "nvidia")
   ura.fn.set_env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
@@ -34,10 +34,19 @@ end)
 
 ura.hook.set("focus-change", function()
   ura.api.spawn("pkill -SIGRTMIN+9 waybar")
+  ura.api.spawn("pkill -SIGRTMIN+10 waybar")
 end)
 
 ura.hook.set("workspace-change", function()
   ura.api.spawn("pkill -SIGRTMIN+8 waybar")
+end)
+
+ura.hook.set("window-app_id-change", function()
+  ura.api.spawn("pkill -SIGRTMIN+9 waybar")
+end)
+
+ura.hook.set("window-title-change", function()
+  ura.api.spawn("pkill -SIGRTMIN+10 waybar")
 end)
 
 ura.hook.set("new-input", function(name)

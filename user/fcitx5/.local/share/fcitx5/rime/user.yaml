@@ -1,8 +1,8 @@
 var:
-  last_build_time: 1758728040
+  last_build_time: 1760173215
   option:
     full_shape: true
   previously_selected_schema: placeless_flypy
   schema_access_time:
     luna_pinyin_simp: 1750348270
-    placeless_flypy: 1758703676
+    placeless_flypy: 1760192883

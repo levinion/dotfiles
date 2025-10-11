@@ -2,7 +2,7 @@ export EDITOR=nvim
 export DIFFPROG='nvim -d'
 
 export BROWSER="firefox-developer-edition"
-export RUSTC_WRAPPER=sccache
+pacman -Qq sccache > /dev/null 2>&1 && export RUSTC_WRAPPER=sccache
 
 if [[ "$XDG_SESSION_TYPE" = "x11" ]]; then
 export GTK_IM_MODULE=fcitx
@@ -36,6 +36,9 @@ export SDL_IM_MODULE=fcitx
 export INPUT_METHOD=fcitx
 export GLFW_IM_MODULE=ibus
 
+# disable csd for firefox
+export MOZ_GTK_TITLEBAR_DECORATION=system
+
 # firefox nvidia vaapi
 export MOZ_DISABLE_RDD_SANDBOX=1
 export LIBVA_DRIVER_NAME=nvidia
@@ -48,6 +51,9 @@ export FZF_DEFAULT_OPTS="\
 --color=selected-bg:#45475a \
 --multi"
 export FZF_DEFAULT_COMMAND="eza"
+
+# man
+export MANPAGER="nvim +Man! -c 'set nowrap'"
 
 zsh-add-path() {
   PATH=$1:$PATH
