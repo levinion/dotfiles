@@ -8,7 +8,7 @@ __build_info:
     punctuation: 1758176996
     punctuation.custom: 0
     stroke.custom: 0
-    stroke.schema: 1759302061
+    stroke.schema: 1760467193
 abc_segmentor:
   extra_tags:
     - reverse_lookup
@@ -163,6 +163,7 @@ schema:
     - "四季的風"
     - "雪齋"
     - "Kunki Chou"
+    - "宋天"
   dependencies:
     - luna_pinyin
   description: |
@@ -171,7 +172,7 @@ schema:
 
   name: "五筆畫"
   schema_id: stroke
-  version: 0.5
+  version: 0.6
 speller:
   alphabet: abcdefghijklmnopqrstuvwxyz
   delimiter: " '"

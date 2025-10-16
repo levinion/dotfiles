@@ -42,7 +42,6 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
-      local lspconfig = require("lspconfig")
       -- inline hint
       vim.diagnostic.config({
         update_in_insert = true,
@@ -63,96 +62,8 @@ return {
       -- enable inlay_hint for all buffers
       vim.lsp.inlay_hint.enable(true)
 
-      -- clangd
-      lspconfig.clangd.setup {
-        keys = {
-        },
-        cmd = {
-          "clangd",
-          "--clang-tidy",
-          "--all-scopes-completion",
-          "--completion-style=detailed",
-          "--header-insertion=iwyu",
-          "--pch-storage=disk",
-          "--log=error",
-          "--j=12",
-          "--background-index",
-          "--function-arg-placeholders",
-          "--fallback-style=llvm",
-          "--query-driver=**",
-          "--suggest-missing-includes",
-          "--cross-file-rename",
-          "--header-insertion-decorators",
-        },
-        init_options = {
-          compilationDatabasePath = "./build",
-          usePlaceholders = true,
-          completeUnimported = true,
-          clangdFileStatus = true,
-        },
-      }
-
-      -- css
-      lspconfig.cssls.setup {
-        settings = {
-          -- ignore warning when using tailwindcss
-          css = {
-            lint = {
-              unknownAtRules = "ignore",
-            },
-          },
-          scss = {
-            lint = {
-              unknownAtRules = "ignore",
-            },
-          },
-          less = {
-            lint = {
-              unknownAtRules = "ignore",
-            },
-          },
-        },
-      }
-
-      -- lua
-
-      local library = {
-        vim.env.VIMRUNTIME,
-        "/usr/share/lua/5.1/",
-        "/usr/share/lua/5.4/",
-        "/usr/share/luajit-2.1/",
-      }
-
-      lspconfig.lua_ls.setup {
-        settings = {
-          Lua = {
-            runtime = {
-              version = 'LuaJIT',
-            },
-            workspace = { library = library },
-            telemetry = { enable = false },
-            diagnostics = {
-              globals = { "vim", "ura" },
-            },
-          },
-        } }
-
-      -- bash
-
-      lspconfig.bashls.setup {
-        filetypes = { "sh", "bash", "zsh" },
-        settings = {
-          bashIde = {
-            globPattern = "*@(.sh|.inc|.bash|.command|.zshrc)"
-          }
-        }
-      }
-
-      --toml
-
-      lspconfig.taplo.setup {
-        root_markers = { ".git", "*.toml" }
-      }
+      -- load lang config
+      require("utils").glob_require("lang")
     end
   },
 }

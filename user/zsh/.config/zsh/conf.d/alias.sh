@@ -9,7 +9,7 @@ exists eza && {
   alias tree="eza -T"
 }
 exists rg && alias grep=rg
-exists fd && alias fd="fd --absolute-path"
+exists fd && alias fd="fd --absolute-path -E /snapshots"
 exists gdb && alias gdb="gdb -q"
 alias e=exit
 alias c=clear

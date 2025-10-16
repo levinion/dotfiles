@@ -1,0 +1,26 @@
+vim.lsp.config("clangd", {
+	keys = {},
+	cmd = {
+		"clangd",
+		"--clang-tidy",
+		"--all-scopes-completion",
+		"--completion-style=detailed",
+		"--header-insertion=iwyu",
+		"--pch-storage=disk",
+		"--log=error",
+		"--j=12",
+		"--background-index",
+		"--function-arg-placeholders",
+		"--fallback-style=llvm",
+		"--query-driver=**",
+		"--suggest-missing-includes",
+		"--cross-file-rename",
+		"--header-insertion-decorators",
+	},
+	init_options = {
+		compilationDatabasePath = "./build",
+		usePlaceholders = true,
+		completeUnimported = true,
+		clangdFileStatus = true,
+	},
+})

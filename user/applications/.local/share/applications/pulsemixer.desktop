@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=PulseMixer
+Comment=PulseMixer
+Exec=pulsemixer
+Icon=
+Terminal=true
+Type=Application
+Categories=System;
