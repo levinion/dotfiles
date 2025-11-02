@@ -1,5 +1,5 @@
 patch:
-  __include: wanxiang_suggestion:/
+  __include: wanxiang_pro_suggestion:/
   schema_list:
   switcher/hotkeys:
     - "Control+grave"
