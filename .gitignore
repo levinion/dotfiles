@@ -5,4 +5,4 @@ vps*
 /user/mpd/.config/mpd/*
 !mpd.conf
 /user/fcitx5/.local/share/fcitx5/rime/*
-/user/fcitx5/.local/share/fcitx5/rime/default.custom.yaml
+!/user/fcitx5/.local/share/fcitx5/rime/*.custom.yaml

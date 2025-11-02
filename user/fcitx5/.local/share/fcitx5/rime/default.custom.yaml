@@ -1,6 +1,5 @@
 patch:
   __include: wanxiang_pro_suggestion:/
-  schema_list:
   switcher/hotkeys:
     - "Control+grave"
     - "Control+Shift+grave"
@@ -14,7 +13,10 @@ patch:
       Control_R: inline_ascii
       Caps_Lock: commit_code
       Eisu_toggle: clear
-  key_binder/bindings:
-    - { accept: Tab, send: Page_Down, when: composing }
-    - { accept: bracketleft, send: Page_Up, when: paging }
-    - { accept: bracketright, send: Page_Down, when: has_menu }
+  key_binder:
+    bindings:
+      - { accept: Tab, send: Page_Down, when: composing }
+      - { accept: bracketleft, send: Page_Up, when: paging }
+      - { accept: bracketright, send: Page_Down, when: has_menu }
+      - { accept: minus, send: Page_Up, when: paging }
+      - { accept: equal, send: Page_Down, when: has_menu }

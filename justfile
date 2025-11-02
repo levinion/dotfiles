@@ -17,9 +17,6 @@ install-dependencies:
   fi
 
   dependencies=(
-    # -- DM --
-    "ly"
-
     # -- desktop --
     "ura-git"
     "swaybg"
@@ -28,12 +25,13 @@ install-dependencies:
     "waybar"
     "firefox-developer-edition"
     "foot"
-    # "openrgb" # rgb control
+    "openrgb" # rgb control
     "mako"
 
     # -- input method --
     "fcitx5-im"
     "fcitx5-rime"
+    "rime-wanxiang-pro-flypy"
 
     # -- audio --
     "pipewire"

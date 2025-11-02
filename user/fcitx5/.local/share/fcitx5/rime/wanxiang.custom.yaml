@@ -1,0 +1,3 @@
+patch:
+  key_binder/select_first_character: ""
+  key_binder/select_last_character: ""
