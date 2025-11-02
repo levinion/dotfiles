@@ -193,6 +193,9 @@ end, { desc = "Command History" })
 vim.keymap.set("n", "<leader>sH", function()
 	Snacks.picker.help()
 end, { desc = "Help" })
+vim.keymap.set("n", "<leader>sb", function()
+	Snacks.picker.buffers()
+end, { desc = "Buffers" })
 
 -- lsp
 vim.keymap.set("n", "gd", function()

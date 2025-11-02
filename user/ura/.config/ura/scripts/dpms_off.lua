@@ -1,7 +1,7 @@
-local output = ura.output.get_current()
-if not output then return end
+local output = ura.api.get_current_output()
+assert(output)
 if arg[1] ~= "-t" then
-  ura.output.set_dpms(output.name, false)
+	ura.api.set_output_dpms(output, false)
 else
-  ura.output.set_dpms(output.name, true)
+	ura.api.set_output_dpms(output, true)
 end

@@ -1,5 +1,3 @@
-local utils = require("utils")
-
 ura.keymap.set("super+t", function()
 	ura.api.spawn("foot -e tmux")
 end)
@@ -13,10 +11,7 @@ ura.keymap.set("super+e", function()
 end)
 
 ura.keymap.set("super+q", function()
-	local w = ura.win.get_current()
-	if w then
-		ura.win.close(w.index)
-	end
+	ura.cmd.close()
 end)
 
 ura.keymap.set("super+space", function()
@@ -24,11 +19,7 @@ ura.keymap.set("super+space", function()
 end)
 
 ura.keymap.set("alt+space", function()
-	local w = ura.win.get_current()
-	if not w then
-		return
-	end
-	utils.toggle_layout(w, "floating")
+	ura.cmd.toggle_layout("floating")
 end)
 
 ura.keymap.set("super+shift+e", function()
@@ -40,99 +31,53 @@ ura.keymap.set("super+shift+r", function()
 end)
 
 ura.keymap.set("super+f", function()
-	local w = ura.win.get_current()
-	if not w then
-		return
-	end
-	utils.toggle_layout(w, "fullscreen")
+	ura.cmd.toggle_layout("fullscreen")
 end)
 
 ura.keymap.set("ctrl+left", function()
-	local index = ura.ws.get_current().index
-	ura.ws.switch(index - 1)
-	ura.ws.destroy(index)
+	ura.cmd.switch_prev()
 end)
 
 ura.keymap.set("ctrl+right", function()
-	local index = ura.ws.get_current().index
-	ura.ws.switch_or_create(index + 1)
+	ura.cmd.switch_next()
 end)
 
 ura.keymap.set("ctrl+shift+left", function()
-	local ws = ura.ws.get_current()
-	if not ws then
-		return
-	end
-	local win = ura.win.get_current()
-	if not win then
-		return
-	end
-	ura.win.move_to_workspace(win.index, ws.index - 1)
-	ura.ws.switch(ws.index - 1)
-	ura.ws.destroy(ws.index)
+	ura.cmd.move_to_prev()
 end)
 
 ura.keymap.set("ctrl+shift+right", function()
-	local ws = ura.ws.get_current()
-	if not ws then
-		return
-	end
-	local win = ura.win.get_current()
-	if not win then
-		return
-	end
-	ura.win.move_to_workspace_or_create(win.index, ws.index + 1)
-	ura.ws.switch(ws.index + 1)
+	ura.cmd.move_to_next()
 end)
 
 ura.keymap.set("super+h", function()
-	local win = ura.win.get_current()
-	if win then
-		if win.layout == "fullscreen" then
-			return
-		end
-	end
-	ura.win.focus(win and win.index - 1 or ura.win.size() - 1)
+	ura.cmd.focus_prev()
 end)
 
 ura.keymap.set("super+l", function()
-	local win = ura.win.get_current()
-	if win then
-		if win.layout == "fullscreen" then
-			return
-		end
-	end
-	ura.win.focus(win and win.index + 1 or 0)
+	ura.cmd.focus_next()
 end)
 
 ura.keymap.set("super+shift+h", function()
-	local win = ura.win.get_current()
-	if not win then
-		return
-	end
-	ura.win.swap(win.index, win.index - 1)
+	ura.cmd.swap_prev()
 end)
 
 ura.keymap.set("super+shift+l", function()
-	local win = ura.win.get_current()
-	if not win then
-		return
-	end
-	ura.win.swap(win.index, win.index + 1)
+	ura.cmd.swap_next()
 end)
 
-for i = 0, 9 do
-	ura.keymap.set("super+" .. i, function()
-		ura.ws.switch_or_create(i)
-	end)
-	ura.keymap.set("super+shift" .. i, function()
-		local win = ura.win.get_current()
-		if not win then
-			return
-		end
-		ura.win.move_to_workspace_or_create(win.index, i)
-	end)
-end
+-- for i = 0, 9 do
+-- 	ura.keymap.set("super+" .. i, function()
+-- 		ura.ws.switch_or_create(i)
+-- 	end)
+-- 	ura.keymap.set("super+shift" .. i, function()
+-- 		local win = ura.win.get_current()
+-- 		if not win then
+-- 			return
+-- 		end
+-- 		ura.win.move_to_workspace_or_create(win.index, i)
+-- 	end)
+-- end
 
 ura.keymap.set("super+shift+p", function()
 	ura.api.spawn("uracil ~/.config/ura/scripts/dpms_off.lua")
@@ -143,14 +88,23 @@ ura.keymap.set("super+p", function()
 end)
 
 ura.keymap.set("alt+a", function()
-	ura.api.spawn(
-		[[grim -g "$(slurp)" - | satty --filename - --fullscreen --output-filename ~/Pictures/Catch/$(date +%Y-%m-%d-%H-%M-%S).png]]
-	)
+	ura.api.spawn("screenshot")
 end)
 
 ura.keymap.set("super+shift+m", function()
-	local index = ura.win.get_current().index
-	ura.win.move_to_workspace(index, "scratchpad")
+	local win = ura.api.get_current_window()
+	local scratchpad = ura.api.get_named_workspace("scratchpad")
+	if scratchpad == nil then
+		ura.api.create_named_workspace("scratchpad")
+		scratchpad = ura.api.get_named_workspace("scratchpad")
+	end
+	if win and scratchpad then
+		ura.api.move_window_to_workspace(win, scratchpad)
+	end
+end)
+
+ura.keymap.set("super+m", function()
+	ura.api.spawn("fzfmenu -q 'wd scratchpad '")
 end)
 
 ura.keymap.set("XF86AudioRaiseVolume", function()
@@ -171,20 +125,4 @@ end)
 
 ura.keymap.set("super+shift+s", function()
 	ura.api.spawn("swaylock -f -i ~/.config/ura/assets/bg.jpg")
-end)
-
-ura.keymap.set("super+up", function()
-	local win = ura.win.get_current()
-	if not win or not win.layout == "floating" then
-		return
-	end
-	ura.win.center(win.index)
-end)
-
-ura.keymap.set("super+d", function()
-	local w = ura.win.get_current()
-	if not w then
-		return
-	end
-	utils.toggle_layout(w, "always-on-top")
 end)

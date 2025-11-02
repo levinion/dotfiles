@@ -10,7 +10,7 @@ vim.lsp.config("clangd", {
 		"--log=error",
 		"--j=12",
 		"--background-index",
-		"--function-arg-placeholders",
+		"--function-arg-placeholders=0",
 		"--fallback-style=llvm",
 		"--query-driver=**",
 		"--suggest-missing-includes",

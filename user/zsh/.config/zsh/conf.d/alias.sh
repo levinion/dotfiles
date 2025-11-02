@@ -38,6 +38,7 @@ exists uv && {
   alias uvglobal="source ~/.venv/bin/activate"
 }
 [[ -f "/opt/esp-idf/export.sh" ]] && alias get-idf="source /opt/esp-idf/export.sh"
+[[ -f /opt/miniconda3/etc/profile.d/conda.sh ]] && alias get-conda="source /opt/miniconda3/etc/profile.d/conda.sh"
 exists reflector && alias run-reflector="sudo reflector --verbose --threads 16 -l 100 -p https --sort rate --save /etc/pacman.d/mirrorlist"
 
 alias nv-smooth-motion="env NVPRESENT_ENABLE_SMOOTH_MOTION=1"

@@ -8,12 +8,22 @@ def main():
     inactive = ""
     index = int(
         subprocess.check_output(
-            "uracil -c 'print(ura.ws.get_current().index)'", shell=True, text=True
+            "ura shell -c 'local ws=ura.api.get_current_workspace() if ws then print(ura.api.get_workspace_index(ws)) end'",
+            shell=True,
+            text=True,
         ).strip()
     )
+    command = """
+             local output=ura.api.get_current_output()
+             assert(output)
+             local workspaces=ura.api.get_indexed_workspaces(output)
+             print(#workspaces)
+"""
     number = int(
         subprocess.check_output(
-            "uracil -c 'print(ura.ws.size())'", shell=True, text=True
+            f"ura shell -c '{command}'",
+            shell=True,
+            text=True,
         ).strip()
     )
     workspaces = [inactive] * number

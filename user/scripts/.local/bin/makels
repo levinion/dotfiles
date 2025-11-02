@@ -1,3 +1,4 @@
 #!/bin/bash
 
-cat Makefile | grep .PHONY | cut -d: -f 2- | xargs -n 1 echo
+target="${*:-Makefile}"
+cat "$target" | grep .PHONY | cut -d: -f 2- | xargs -n 1 echo
