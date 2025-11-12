@@ -104,7 +104,7 @@ ura.keymap.set("super+shift+m", function()
 end)
 
 ura.keymap.set("super+m", function()
-	ura.api.spawn("fzfmenu -q 'wd scratchpad '")
+	ura.api.spawn("fzfmenu --no-reload -q 'wd scratchpad '")
 end)
 
 ura.keymap.set("XF86AudioRaiseVolume", function()

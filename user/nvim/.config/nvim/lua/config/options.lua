@@ -4,6 +4,8 @@ vim.g.mapleader = " " -- set leader with <Space>
 vim.g.maplocalleader = "\\"
 vim.g.snacks_animate = false -- disable animation provided by snacks
 
+vim.o.termguicolors = true
+
 local opt = vim.opt
 opt.spell = false -- disable spell
 opt.swapfile = false -- disable swapfile

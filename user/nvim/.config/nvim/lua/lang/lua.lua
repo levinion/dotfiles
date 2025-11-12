@@ -1,7 +1,7 @@
 -- lua
 local library = {
 	vim.env.VIMRUNTIME,
-	"/usr/share/ura/_runtime/",
+	"/usr/share/ura/runtime/",
 }
 
 vim.lsp.config("lua_ls", {

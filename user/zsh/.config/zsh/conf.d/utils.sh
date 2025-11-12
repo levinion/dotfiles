@@ -12,7 +12,7 @@ exists fd && j() {
 
 exists colorful && zsh-eval() {
   local cmd="$@"
-  [[ -z "$cmd" ]] && return -1
+  [[ -z "$cmd" ]] && exit 1
   echo -n $(colorful -f green 💡 About to execute:)
   echo -n "  $(colorful -f cyan "$cmd")  "
   confirm "$(colorful -f yellow '[y/n]: ')" && eval "$cmd"
@@ -44,7 +44,7 @@ exists fzf && exists col && fkill() {
     echo "$cmd"
     return 0
   fi
-  return -1
+  exit 1
 }
 
 exists fkill && restart() {
@@ -65,7 +65,7 @@ exists yt-dlp && yt-dlp-m4a() {
     --audio-format m4a \
     --embed-metadata \
     --embed-thumbnail \
-    $@
+    "$@"
 }
 
 exists obs && obs() {

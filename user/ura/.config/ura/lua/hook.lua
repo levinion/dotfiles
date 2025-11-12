@@ -1,3 +1,7 @@
+require("builtin.layout.tiling").setup()
+require("builtin.layout.fullscreen").setup()
+require("builtin.layout.floating").setup()
+
 ura.hook.set("prepare", function()
 	ura.api.set_env("XDG_CURRENT_DESKTOP", "ura")
 	ura.api.set_env("XDG_SESSION_TYPE", "wayland")
@@ -13,16 +17,13 @@ ura.hook.set("ready", function()
 	ura.api.spawn("xwayland-satellite")
 	ura.api.spawn("swaybg -i ~/.config/ura/assets/bg.jpg")
 	ura.api.spawn("waybar")
-	ura.api.spawn("openrgb --noautoconnect -p default")
-	ura.api.spawn("sing-box run -c $HOME/.config/sing-box/config.yaml -D $HOME/.config/sing-box")
-	ura.api.spawn("mygo -p 4611 $HOME/.config/ura/assets/catppuccin-homepage")
 	ura.api.spawn("mako")
 	ura.api.spawn("otd-daemon")
 	ura.api.spawn("fcitx5 -rd")
 	ura.api.spawn("wl-clip-persist -c both --reconnect-tries 3")
 	-- ura.api.spawn([[joystickwake --command 'uracil -c "ura.api.notify_idle_activity()"']])
 	ura.api.spawn(
-		[[swayidle -w timeout 10 'uracil ~/.config/ura/scripts/hide_cursor.lua' resume 'uracil ~/.config/ura/scripts/hide_cursor.lua -t']]
+		[[swayidle -w timeout 10 'ura-shell ~/.config/ura/scripts/hide_cursor.lua' resume 'ura-shell -- ~/.config/ura/scripts/hide_cursor.lua -t']]
 	)
 	ura.api.spawn("ddcmod --init")
 	ura.api.set_keyboard_repeat(40, 300)

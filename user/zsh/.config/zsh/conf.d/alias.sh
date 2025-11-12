@@ -42,3 +42,9 @@ exists uv && {
 exists reflector && alias run-reflector="sudo reflector --verbose --threads 16 -l 100 -p https --sort rate --save /etc/pacman.d/mirrorlist"
 
 alias nv-smooth-motion="env NVPRESENT_ENABLE_SMOOTH_MOTION=1"
+
+exists squeue && {
+  alias sq=squeue
+  alias run="squeue add -- "
+
+}

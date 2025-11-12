@@ -36,3 +36,17 @@ description = "Switch default pipewire sink."
 prefix = "sk "
 picker = "python ~/.config/fzfmenu/plugins/sink.py picker '{}'"
 runner = "python ~/.config/fzfmenu/plugins/sink.py runner '{}'"
+
+[[plugins]]
+name = "mpris"
+description = "control play/pause with playerctl."
+prefix = "mp "
+picker = "python ~/.config/fzfmenu/plugins/mpris.py picker '{}'"
+runner = "python ~/.config/fzfmenu/plugins/mpris.py runner '{}'"
+
+[[plugins]]
+name = "cmd"
+description = "run cmd"
+prefix = "cmd "
+picker = "echo '{}'"
+runner = "{}; read"

@@ -1,13 +1,13 @@
 # setterm -linewrap off
 
 zsh-load-plugin() {
-  source $ZDOTDIR/plugins/$1.sh
+  source "$ZDOTDIR/plugins/$1.sh"
 }
 
 zsh-load-config-dir() {
   local file
-  for file in $ZDOTDIR/conf.d/*; do
-    source $file
+  for file in "$ZDOTDIR"/conf.d/*; do
+    source "$file"
   done
 }
 
@@ -28,5 +28,6 @@ exists-package fzf-tab-git && zsh-load-plugin fzf-tab
 zsh-load-plugin vim-mode
 exists-package zsh-fast-syntax-highlighting && zsh-load-plugin fast-syntax-highlighting
 exists-package zsh-history-substring-search && zsh-load-plugin history-substring-search
+exists direnv && zsh-load-plugin direnv
 
 zsh-load-config-dir
