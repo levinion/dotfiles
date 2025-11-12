@@ -1,0 +1,11 @@
+vim.keymap.set("n", "<leader>ww", "<cmd>w<CR>", { desc = "Save buffer" })
+vim.keymap.set("n", "<leader>qq", "<cmd>qa<CR>", { desc = "Quit all" })
+vim.keymap.set({ "n", "v", "o" }, "<leader>wq", "<cmd>wq<cr>", { desc = "Save and quit" })
+
+vim.keymap.set("n", "<leader>bx", "<cmd>q<cr>", { desc = "Delete Buffer" })
+vim.keymap.set("n", "<leader>bv", "<c-w>v", { desc = "Split vertically" })
+vim.keymap.set("n", "<leader>bV", "<c-w>s", { desc = "Split horizontally" })
+vim.keymap.set("n", "<leader>bj", "<c-w>J", { desc = "Move to far bottom" })
+vim.keymap.set("n", "<leader>bk", "<c-w>K", { desc = "Move to far top" })
+vim.keymap.set("n", "<leader>bh", "<c-w>H", { desc = "Move to far left" })
+vim.keymap.set("n", "<leader>bl", "<c-w>L", { desc = "Move to far right" })

@@ -1,0 +1,10 @@
+[Unit]
+Description=sing-box user service
+After=network-online.target
+
+[Service]
+ExecStart=sing-box run -c %h/.config/sing-box/config.yaml -D %h/.config/sing-box/
+Restart=always
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+ura shell -c "ura.api.set_cursor_visible(false)"
+wayfreeze &
+PID=$!
+sleep .1
+TEMP_FILE=$(mktemp)
+trap 'rm $TEMP_FILE' EXIT
+grim -g "$(slurp)" - >"$TEMP_FILE"
+status=$?
+kill $PID
+[[ $status == 0 ]] || exit 1
+satty --filename "$TEMP_FILE" --output-filename ~/Pictures/Catch/"$(date +%Y-%m-%d-%H-%M-%S)".png
+exit 0
