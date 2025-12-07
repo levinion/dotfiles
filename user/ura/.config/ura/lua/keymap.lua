@@ -1,5 +1,5 @@
 ura.keymap.set("super+t", function()
-	ura.api.spawn("foot -e tmux")
+	ura.api.spawn("foot")
 end)
 
 ura.keymap.set("super+w", function()

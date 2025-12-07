@@ -43,8 +43,16 @@ exists reflector && alias run-reflector="sudo reflector --verbose --threads 16 -
 
 alias nv-smooth-motion="env NVPRESENT_ENABLE_SMOOTH_MOTION=1"
 
-exists squeue && {
+if exists squeue; then
   alias sq=squeue
   alias run="squeue add -- "
+else
+  function run() {
+    "$@" >/dev/null 2>&1 &
+    disown
+  }
+fi
 
+exists foot && {
+  alias fork='foot -D $(pwd) > /dev/null 2>&1 & disown'
 }

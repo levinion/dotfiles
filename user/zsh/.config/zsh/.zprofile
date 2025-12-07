@@ -13,7 +13,6 @@ if [[ "$XDG_SESSION_TYPE" = "x11" ]]; then
   export QT_AUTO_SCREEN_SCALE_FACTOR=2
   export QT_ENABLE_HIGHDPI_SCALING=0
   export QT_SCALE_FACTOR=2
-  export QT_STYLE_OVERRIDE=kvantum
 fi
 
 if [[ "$XDG_SESSION_TYPE" = "wayland" ]]; then
@@ -22,12 +21,15 @@ if [[ "$XDG_SESSION_TYPE" = "wayland" ]]; then
   export GDK_DPI_SCALE=1
   export GDK_SCALE=1
   export XCURSOR_SIZE=32
-  export QT_AUTO_SCREEN_SCALE_FACTOR=1
+  export QT_AUTO_SCREEN_SCALE_FACTOR=0
   export QT_ENABLE_HIGHDPI_SCALING=0
   export QT_SCALE_FACTOR=1
   export QT_QPA_PLATFORM=wayland
   export ELECTRON_OZONE_PLATFORM_HINT=auto
 fi
+
+export QT_STYLE_OVERRIDE=kvantum
+export QT_QPA_PLATFORMTHEME=qt6ct
 
 export XMODIFIERS="@im=fcitx"
 export XIM=fcitx
@@ -37,7 +39,7 @@ export INPUT_METHOD=fcitx
 export GLFW_IM_MODULE=ibus
 
 # disable csd for firefox
-export MOZ_GTK_TITLEBAR_DECORATION=system
+# export MOZ_GTK_TITLEBAR_DECORATION=system
 
 # firefox nvidia vaapi
 export MOZ_DISABLE_RDD_SANDBOX=1

@@ -5,7 +5,7 @@ import sys
 
 
 def mpris_picker(_):
-    actions = ["play-pause", "next", "previous"]
+    actions = ["play-pause", "next", "previous", "pause", "play"]
     players = subprocess.check_output(["playerctl", "-l"], text=True).splitlines()
     players.append("all")
     for player in players:

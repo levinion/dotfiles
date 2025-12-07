@@ -6,8 +6,11 @@ function M.glob_require(package)
 
 	for _, path in pairs(vim.split(vim.fn.glob(glob_path), "\n")) do
 		-- ~/.config/nvim/lua/<package>/<module>.lua => <package>/<module>
-		local module = path:gsub(_base_lua_path, ""):gsub("%.lua$", "")
-		require(module)
+		local module = path:gsub(_base_lua_path, ""):gsub("%.lua$", ""):gsub("/", ".")
+		local module_name = module:match("([^.]+)$")
+		if module_name and module_name:sub(1, 1) ~= "_" then
+			require(module)
+		end
 	end
 end
 
