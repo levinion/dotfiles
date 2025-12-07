@@ -1,0 +1,4 @@
+#!/bin/bash
+
+USER=$(loginctl list-users | tail +2 | head -n1 | cut -d' ' -f 2)
+busctl --machine="$USER"@.host --user call org.fcitx.Fcitx5 /controller org.fcitx.Fcitx.Controller1 SetConfig sv "fcitx://config/addon/rime/deploy" s ""
