@@ -56,3 +56,5 @@ fi
 exists foot && {
   alias fork='foot -D $(pwd) > /dev/null 2>&1 & disown'
 }
+
+exists pikaur && alias pa=pikaur

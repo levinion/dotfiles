@@ -1,6 +1,6 @@
 patch:
-  key_binder/select_first_character: ""
-  key_binder/select_last_character: ""
+  key_binder/select_first_character: minus
+  key_binder/select_last_character: equal
   speller/algebra:
     __patch:
       - wanxiang_algebra:/pro/小鹤双拼

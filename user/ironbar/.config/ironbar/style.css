@@ -1,0 +1,70 @@
+@import url("./mocha.css");
+
+* {
+  font-family: "JetBrains-Mono-Nerd";
+  font-size: 13px;
+  min-height: 0;
+  border-radius: 10px;
+  border-style: hidden;
+}
+
+.background {
+  background: transparent;
+  margin: 0px;
+  padding: 0px;
+}
+
+.container {
+  margin: 0px;
+  padding: 0px;
+}
+
+.tray,
+.sysinfo,
+.clock,
+.music,
+.volume,
+.workspace,
+.title,
+.app_id {
+  background: @surface0;
+  margin: 5px 5px 0px 5px;
+  padding: 0px 10px;
+}
+
+.tray .item {
+  background: @surface0;
+}
+
+.clock {
+  color: @blue;
+}
+
+.volume {
+  color: @maroon;
+}
+
+.sysinfo {
+  color: @pink;
+}
+
+.music {
+  color: @peach
+}
+
+.tray {
+  margin-right: 10px;
+}
+
+.workspace {
+  color: @rosewater;
+  margin-left: 10px;
+}
+
+.app_id {
+  color: @maroon;
+}
+
+.title {
+  color: @maroon;
+}

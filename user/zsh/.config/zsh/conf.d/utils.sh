@@ -71,3 +71,11 @@ exists yt-dlp && yt-dlp-m4a() {
 exists obs && obs() {
   run obs --minimize-to-tray --disable-shutdown-check
 }
+
+exists pikaur && pikaur() {
+  if [ $# -eq 0 ]; then
+    command pikaur -Syu
+  else
+    command pikaur "$@"
+  fi
+}

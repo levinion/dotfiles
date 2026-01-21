@@ -1,9 +1,10 @@
+import os
 import subprocess
 import sys
 import json
 
 
-def sink_picker(_):
+def sink_picker():
     output = subprocess.check_output("pw-dump").strip().decode()
     data = json.loads(output)
     for obj in data:
@@ -13,7 +14,7 @@ def sink_picker(_):
             id = obj["id"]
             name = obj["info"]["props"]["node.description"]
             print(id, name)
-        finally:
+        except Exception:
             continue
 
 
@@ -26,12 +27,11 @@ def sink_runner(output: str):
 
 
 def main():
-    args = sys.argv[2]
     match sys.argv[1]:
         case "picker":
-            sink_picker(args)
+            sink_picker()
         case "runner":
-            sink_runner(args)
+            sink_runner(os.environ["FZFMENU_OUTPUT"])
 
 
 if __name__ == "__main__":

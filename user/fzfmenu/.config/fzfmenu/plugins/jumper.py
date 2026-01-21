@@ -1,3 +1,4 @@
+import os
 import subprocess
 import sys
 
@@ -67,12 +68,11 @@ ura.api.activate_window(win)
 
 
 def main():
-    args = sys.argv[2]
     match sys.argv[1]:
         case "picker":
             window_jump_picker()
         case "runner":
-            window_jump_runner(args)
+            window_jump_runner(os.environ["FZFMENU_OUTPUT"])
 
 
 if __name__ == "__main__":

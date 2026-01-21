@@ -17,6 +17,6 @@ patch:
     bindings:
       - { accept: bracketleft, send: Page_Up, when: paging }
       - { accept: bracketright, send: Page_Down, when: has_menu }
-      - { accept: minus, send: Page_Up, when: paging }
-      - { accept: equal, send: Page_Down, when: has_menu }
-      - { accept: Shift_L, send: "/", when: has_menu }
+      # - { accept: minus, send: Page_Up, when: paging }
+      # - { accept: equal, send: Page_Down, when: has_menu }
+      # - { accept: Shift_L, send: "/", when: has_menu }

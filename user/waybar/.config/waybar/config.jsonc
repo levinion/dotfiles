@@ -55,12 +55,12 @@
     "signal": 8
   },
   "custom/app_id": {
-    "exec": "ura shell ~/.config/waybar/scripts/appindicator.lua app_id",
+    "exec": "ura-shell ~/.config/waybar/scripts/appindicator.lua app_id",
     "format": "{text}",
     "signal": 9
   },
   "custom/app_title": {
-    "exec": "ura shell ~/.config/waybar/scripts/appindicator.lua title",
+    "exec": "ura-shell ~/.config/waybar/scripts/appindicator.lua title",
     "format": "{text}",
     "signal": 10
   },

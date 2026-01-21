@@ -1,5 +1,6 @@
 # see: https://wiki.archlinux.org/title/MPRIS
 
+import os
 import subprocess
 import sys
 
@@ -24,12 +25,11 @@ def mpris_runner(output: str):
 
 
 def main():
-    args = sys.argv[2]
     match sys.argv[1]:
         case "picker":
-            mpris_picker(args)
+            mpris_picker(os.environ["FZFMENU_INPUT"])
         case "runner":
-            mpris_runner(args)
+            mpris_runner(os.environ["FZFMENU_OUTPUT"])
 
 
 if __name__ == "__main__":

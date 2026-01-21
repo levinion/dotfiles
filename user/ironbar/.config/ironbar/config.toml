@@ -1,0 +1,59 @@
+position = "top"
+
+[[start]]
+type = "label"
+class = "workspace"
+label = "#workspace"
+show_if = "#workspace"
+
+[[start]]
+type = "label"
+class = "app_id"
+label = "#app_id"
+show_if = "#app_id"
+
+[[start]]
+type = "label"
+class = "title"
+label = " #title "
+show_if = "#title"
+
+[[center]]
+format = "  %H:%M "
+type = "clock"
+
+[[end]]
+type = "music"
+player_type = "mpd"
+format = "{title}"
+truncate = "end"
+[end.icons]
+play = ""
+pause = ""
+
+[[end]]
+type = "sys_info"
+format = ["  {cpu_percent:<3.2}%"]
+[end.interval]
+cpu = 1
+
+[[end]]
+type = "sys_info"
+format = ["   {memory_used:<3.2}G"]
+[end.interval]
+memory = 1
+
+[[end]]
+type = "volume"
+format = "{icon}  {percentage}%"
+max_volume = 100
+truncate = "middle"
+
+[end.icons]
+volume_high = ""
+volume_medium = ""
+volume_low = ""
+muted = ""
+
+[[end]]
+type = "tray"

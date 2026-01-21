@@ -1,3 +1,7 @@
+terminal = "foot"
+arguments = ["-a", "fzfmenu"]
+fzf_arguments = ["--border=rounded"]
+
 [[plugins]]
 name = "app_launcher"
 description = "Launch applications based on your desktop environment."
@@ -11,7 +15,7 @@ description = "Find and terminate running processes."
 prefix = "kl "
 picker = "python ~/.config/fzfmenu/plugins/killer.py picker"
 runner = "python ~/.config/fzfmenu/plugins/killer.py runner"
-dynamic = true
+reload = true
 
 [[plugins]]
 name = "jumper"
@@ -26,7 +30,6 @@ description = "Search and reuse past shell commands."
 prefix = "hs "
 picker = "python ~/.config/fzfmenu/plugins/history.py picker"
 runner = "python ~/.config/fzfmenu/plugins/history.py runner"
-dynamic = true
 
 [[plugins]]
 name = "sink"
@@ -48,8 +51,3 @@ description = "manage sing-box user service."
 prefix = "sb "
 picker = "python ~/.config/fzfmenu/plugins/sing-box.py picker"
 runner = "python ~/.config/fzfmenu/plugins/sing-box.py runner"
-on_enter = [
-  "change-preview(systemctl --user status sing-box.service)",
-  "show-preview",
-]
-on_leave = ["hide-preview"]

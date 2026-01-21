@@ -6,13 +6,15 @@ install:
 # dependencies needed using
 install-dependencies:
   #!/bin/bash
-  # find by paru > yay
+  # find by paru > pikaur > yay
   if $(type paru > /dev/null 2>&1); then
     AUR_HELPER="paru"
+  elif $(type pikaur > /dev/null 2>&1); then
+    AUR_HELPER="pikaur"
   elif $(type yay > /dev/null 2>&1); then
     AUR_HELPER="yay"
   else
-    echo "neither paru or yay is found, exiting..."
+    echo "neither paru, pikaur or yay is found, exiting..."
     exit 1
   fi
 
@@ -24,7 +26,7 @@ install-dependencies:
     "swaylock"
     "swayidle"
     "waybar"
-    "firefox-developer-edition"
+    "firefox-nightly-en-us" 
     "foot"
     "openrgb" # rgb control
     "mako"

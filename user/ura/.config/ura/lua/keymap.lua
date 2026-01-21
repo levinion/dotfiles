@@ -3,7 +3,7 @@ ura.keymap.set("super+t", function()
 end)
 
 ura.keymap.set("super+w", function()
-	ura.api.spawn("firefox-developer-edition")
+	ura.api.spawn("firefox-nightly")
 end)
 
 ura.keymap.set("super+e", function()
@@ -15,7 +15,7 @@ ura.keymap.set("super+q", function()
 end)
 
 ura.keymap.set("super+space", function()
-	ura.api.spawn("fzfmenu")
+	ura.api.spawn("foot -a fzfmenu -e fzfmenu")
 end)
 
 ura.keymap.set("alt+space", function()
@@ -48,22 +48,6 @@ end)
 
 ura.keymap.set("ctrl+shift+right", function()
 	ura.cmd.move_to_next()
-end)
-
-ura.keymap.set("super+h", function()
-	ura.cmd.focus_prev()
-end)
-
-ura.keymap.set("super+l", function()
-	ura.cmd.focus_next()
-end)
-
-ura.keymap.set("super+shift+h", function()
-	ura.cmd.swap_prev()
-end)
-
-ura.keymap.set("super+shift+l", function()
-	ura.cmd.swap_next()
 end)
 
 -- for i = 0, 9 do
@@ -104,7 +88,7 @@ ura.keymap.set("super+shift+m", function()
 end)
 
 ura.keymap.set("super+m", function()
-	ura.api.spawn("fzfmenu --no-reload -q 'wd scratchpad '")
+	ura.api.spawn("foot -a fzfmenu -e fzfmenu -q 'wd scratchpad '")
 end)
 
 ura.keymap.set("XF86AudioRaiseVolume", function()
