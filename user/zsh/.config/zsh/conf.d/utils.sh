@@ -10,14 +10,6 @@ exists fd && j() {
   [[ -n "$target" ]] && cd "$target"
 }
 
-exists colorful && zsh-eval() {
-  local cmd="$@"
-  [[ -z "$cmd" ]] && exit 1
-  echo -n $(colorful -f green 💡 About to execute:)
-  echo -n "  $(colorful -f cyan "$cmd")  "
-  confirm "$(colorful -f yellow '[y/n]: ')" && eval "$cmd"
-}
-
 exists atuin && h() {
   local cmd="$(atuin search "$@" --cmd-only | fzf)"
   zsh-eval $cmd
@@ -34,17 +26,16 @@ exists xset && standby() {
   xset dpms force standby
 }
 
-exists fzf && exists col && fkill() {
+exists fzf && fkill() {
   [[ $# == 0 ]] && return 1
   local option=$(pgrep -fa "$@" | fzf)
   if [[ -n "$option" ]]; then
-    local pid=$(echo $option | col 1)
-    local cmd=$(echo $option | col 2-)
+    local pid=$(echo $option | cut -d ' ' -f 1)
+    local cmd=$(echo $option | cut -d ' ' -f 2-)
     kill "$pid"
     echo "$cmd"
     return 0
   fi
-  exit 1
 }
 
 exists fkill && restart() {
@@ -78,4 +69,12 @@ exists pikaur && pikaur() {
   else
     command pikaur "$@"
   fi
+}
+
+exists yazi && function yazi() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  command yazi "$@" --cwd-file="$tmp"
+  IFS= read -r -d '' cwd <"$tmp"
+  [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+  rm -f -- "$tmp"
 }

@@ -1,27 +1,19 @@
-# go to pictures
 [[mgr.prepend_keymap]]
-on = ["g", "p"]
-run = 'cd ~/Pictures'
-desc = "Goto ~/Pictures"
-
-# go to video
-[[mgr.prepend_keymap]]
-on = ["g", "v"]
-run = 'cd ~/Video'
-desc = "Goto ~/Video"
-
-[[mgr.prepend_keymap]]
-on = ["o", "t"]
+on = "!"
 for = "unix"
 run = 'shell "$SHELL" --block'
 desc = "Open $SHELL here"
 
 [[mgr.prepend_keymap]]
 on = "y"
-run = ['shell -- echo "$@" | wl-copy -t image/png', "yank"]
-desc = "copy to clipboard"
+for = "unix"
+run = [
+  'shell -- for path in %s; do echo "file://$path"; done | wl-copy -t text/uri-list',
+  "yank",
+]
+desc = "Copy to system clipboard"
 
 [[mgr.prepend_keymap]]
 on = ["g", "r"]
 run = 'shell -- ya emit cd "$(git rev-parse --show-toplevel)"'
-desc = "back to git root"
+desc = "Back to root of git repo"

@@ -7,11 +7,11 @@ ura.keymap.set("super+w", function()
 end)
 
 ura.keymap.set("super+e", function()
-	ura.api.spawn("foot -e yazi")
+	ura.api.spawn("foot -a yazi -e yazi")
 end)
 
 ura.keymap.set("super+q", function()
-	ura.cmd.close()
+	ura.class.UraWindow:current():close()
 end)
 
 ura.keymap.set("super+space", function()
@@ -19,7 +19,7 @@ ura.keymap.set("super+space", function()
 end)
 
 ura.keymap.set("alt+space", function()
-	ura.cmd.toggle_layout("floating")
+	ura.class.UraWindow:current():toggle_layout("floating")
 end)
 
 ura.keymap.set("super+shift+e", function()
@@ -31,15 +31,36 @@ ura.keymap.set("super+shift+r", function()
 end)
 
 ura.keymap.set("super+f", function()
-	ura.cmd.toggle_layout("fullscreen")
+	ura.class.UraWindow:current():toggle_layout("fullscreen")
 end)
 
 ura.keymap.set("ctrl+left", function()
-	ura.cmd.switch_prev()
+	local tag = tonumber(ura.class.UraOutput:current():tags()[1]) - 1
+	if tag < 1 then
+		return
+	end
+	ura.class.UraOutput:current():set_tags({ tostring(tag) })
 end)
 
 ura.keymap.set("ctrl+right", function()
-	ura.cmd.switch_next()
+	local tag = tonumber(ura.class.UraOutput:current():tags()[1]) + 1
+	ura.class.UraOutput:current():set_tags({ tostring(tag) })
+end)
+
+ura.keymap.set("super+h", function()
+	ura.cmd.focus_left()
+end)
+
+ura.keymap.set("super+l", function()
+	ura.cmd.focus_right()
+end)
+
+ura.keymap.set("super+j", function()
+	ura.cmd.focus_down()
+end)
+
+ura.keymap.set("super+k", function()
+	ura.cmd.focus_up()
 end)
 
 ura.keymap.set("ctrl+shift+left", function()
@@ -49,19 +70,6 @@ end)
 ura.keymap.set("ctrl+shift+right", function()
 	ura.cmd.move_to_next()
 end)
-
--- for i = 0, 9 do
--- 	ura.keymap.set("super+" .. i, function()
--- 		ura.ws.switch_or_create(i)
--- 	end)
--- 	ura.keymap.set("super+shift" .. i, function()
--- 		local win = ura.win.get_current()
--- 		if not win then
--- 			return
--- 		end
--- 		ura.win.move_to_workspace_or_create(win.index, i)
--- 	end)
--- end
 
 ura.keymap.set("super+shift+p", function()
 	ura.api.spawn("uracil ~/.config/ura/scripts/dpms_off.lua")
@@ -75,20 +83,20 @@ ura.keymap.set("alt+a", function()
 	ura.api.spawn("screenshot")
 end)
 
-ura.keymap.set("super+shift+m", function()
-	local win = ura.api.get_current_window()
-	local scratchpad = ura.api.get_named_workspace("scratchpad")
-	if scratchpad == nil then
-		ura.api.create_named_workspace("scratchpad")
-		scratchpad = ura.api.get_named_workspace("scratchpad")
-	end
-	if win and scratchpad then
-		ura.api.move_window_to_workspace(win, scratchpad)
-	end
+ura.keymap.set("super+shift+o", function()
+	ura.api.spawn("screencapture")
 end)
 
 ura.keymap.set("super+m", function()
-	ura.api.spawn("foot -a fzfmenu -e fzfmenu -q 'wd scratchpad '")
+	ura.api.spawn("foot -a fzfmenu -e fzfmenu -q 'wd '")
+end)
+
+ura.keymap.set("super+shift+m", function()
+	ura.api.spawn([[
+  id=$(ura-shell -c "print(ura.class.UraWindow:current().id)")
+  tag=$(zenity --entry)
+  [ -n "$tag" ] && ura-shell -c "ura.class.UraWindow:new($id):set_tags({ '$tag' })"
+  ]])
 end)
 
 ura.keymap.set("XF86AudioRaiseVolume", function()
@@ -109,4 +117,14 @@ end)
 
 ura.keymap.set("super+shift+s", function()
 	ura.api.spawn("swaylock -f -i ~/.config/ura/assets/bg.jpg")
+end)
+
+for i = 1, 9 do
+	ura.keymap.set("super+" .. tostring(i), function()
+		ura.class.UraOutput:current():set_tags({ tostring(i) })
+	end)
+end
+
+ura.keymap.set("super+0", function()
+	ura.class.UraOutput:current():set_tags({ "10" })
 end)

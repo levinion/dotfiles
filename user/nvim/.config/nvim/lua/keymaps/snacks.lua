@@ -56,9 +56,6 @@ end, { desc = "Color Schemes" })
 vim.keymap.set("n", "<leader>sn", function()
 	Snacks.picker.notifications()
 end, { desc = "Notifications" })
-vim.keymap.set("n", "<leader>s/", function()
-	Snacks.picker.command_history()
-end, { desc = "Command History" })
 vim.keymap.set("n", "<leader>sh", function()
 	Snacks.picker.help()
 end, { desc = "Help" })
@@ -77,6 +74,11 @@ end, { desc = "Undo" })
 vim.keymap.set("n", "<leader>sa", function()
 	Snacks.picker.autocmds()
 end, { desc = "Autocmds" })
+
+-- history
+vim.keymap.set("n", "<leader>h", function()
+	Snacks.picker.command_history()
+end, { desc = "Command History" })
 
 -- lsp
 vim.keymap.set("n", "gd", function()

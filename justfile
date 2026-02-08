@@ -25,7 +25,7 @@ install-dependencies:
     "swaybg"
     "swaylock"
     "swayidle"
-    "waybar"
+    "ironbar-bin"
     "firefox-nightly-en-us" 
     "foot"
     "openrgb" # rgb control

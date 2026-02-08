@@ -1,0 +1,21 @@
+#!/usr/bin/bash
+
+cleanup() {
+  ironbar var set recording ''
+}
+
+start_recording() {
+  trap cleanup EXIT SIGHUP
+
+  DESTDIR=~/Videos/wf-recorder
+  mkdir -p $DESTDIR
+  ironbar var set recording '🔴 REC'
+  wf-recorder -a -c h264_nvenc -m matroska -f /dev/stdout -y | ffmpeg -i - -c copy -y $DESTDIR/"$(date +%Y-%m-%d-%H_%M_%S)".mp4
+}
+
+if pgrep -x "wf-recorder" >/dev/null; then
+  pkill -SIGINT -x "wf-recorder"
+  exit 0
+fi
+
+start_recording

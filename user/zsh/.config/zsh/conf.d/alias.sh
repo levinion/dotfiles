@@ -11,10 +11,11 @@ exists eza && {
 exists rg && alias grep=rg
 exists fd && alias fd="fd --absolute-path -E /snapshots"
 exists gdb && alias gdb="gdb -q"
+
 alias e=exit
 alias c=clear
 alias pfkill="pkill --signal 9"
-exists yazi && alias y=yazi
+
 exists perf && alias time="perf stat"
 exists trash && alias dl=trash
 
@@ -37,21 +38,12 @@ exists uv && {
   alias uvlocal="source .venv/bin/activate"
   alias uvglobal="source ~/.venv/bin/activate"
 }
+
 [[ -f "/opt/esp-idf/export.sh" ]] && alias get-idf="source /opt/esp-idf/export.sh"
 [[ -f /opt/miniconda3/etc/profile.d/conda.sh ]] && alias get-conda="source /opt/miniconda3/etc/profile.d/conda.sh"
 exists reflector && alias run-reflector="sudo reflector --verbose --threads 16 -l 100 -p https --sort rate --save /etc/pacman.d/mirrorlist"
 
 alias nv-smooth-motion="env NVPRESENT_ENABLE_SMOOTH_MOTION=1"
-
-if exists squeue; then
-  alias sq=squeue
-  alias run="squeue add -- "
-else
-  function run() {
-    "$@" >/dev/null 2>&1 &
-    disown
-  }
-fi
 
 exists foot && {
   alias fork='foot -D $(pwd) > /dev/null 2>&1 & disown'

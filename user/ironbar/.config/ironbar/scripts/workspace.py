@@ -1,36 +1,78 @@
 #!/usr/bin/python3
 
+import json
 import subprocess
 
 
 def workspaces():
     active = ""
     inactive = ""
-    index = int(
-        subprocess.check_output(
-            [
-                "ura-shell",
-                "-c",
-                "local ws=ura.api.get_current_workspace() if ws then print(ura.api.get_workspace_index(ws)) end",
-            ],
-            text=True,
-        ).strip()
-    )
     command = """
-             local output=ura.api.get_current_output()
-             assert(output)
-             local workspaces=ura.api.get_indexed_workspaces(output)
-             print(#workspaces)
+local current = ura.class.UraOutput:current():tags()
+
+local index = nil
+for _, tag in ipairs(current) do
+	if tonumber(tag) then
+		index = tonumber(tag)
+		break
+	end
+end
+
+local max = index or 0
+
+local named = {}
+local checkd = {}
+
+local wins = ura.class.UraWindow:all()
+for _, win in ipairs(wins) do
+	local tags = win:tags()
+	for _, tag in ipairs(tags) do
+		local i = tonumber(tag)
+		if i then
+			if i > max then
+				max = i
+			end
+		else
+			if not checkd[tag] then
+				table.insert(named, tag)
+				checkd[tag] = true
+			end
+		end
+	end
+end
+
+print(ura.api.to_json({
+	current = current,
+	sum = max,
+	named = named,
+}))
 """
-    number = int(
+
+    j = json.loads(
         subprocess.check_output(
             ["ura-shell", "-c", command],
             text=True,
         ).strip()
     )
-    workspaces = [inactive] * number
-    workspaces[index] = active + "  " + str(index)
-    return "  ".join(workspaces)
+    current: list[str] = j["current"]
+    sum: int = j["sum"]
+    named: list[str] = sorted(j["named"])
+    output = [inactive] * sum
+
+    for tag in current:
+        if tag.isnumeric():
+            output[int(tag) - 1] = active + "  " + tag
+
+    if named:
+        output.append(" | ")
+
+    for tag in named:
+        if tag in current:
+            output.append(active + "  " + tag)
+        else:
+            output.append(tag)
+
+    return "  ".join(output)
 
 
 def main():

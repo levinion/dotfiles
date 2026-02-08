@@ -66,5 +66,4 @@ zsh-add-path ~/.local/bin
 zsh-add-path ~/.cargo/bin
 zsh-add-path ~/.yarn/bin
 zsh-add-path ~/.nix-profile/
-zsh-add-path "$ZDOTDIR"/scripts
 zsh-add-path /usr/share/ura/bin

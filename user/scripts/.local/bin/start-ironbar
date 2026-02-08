@@ -1,0 +1,7 @@
+#!/bin/bash
+
+ironbar &
+sleep .1
+python ~/.config/ironbar/scripts/appindicator.py app_id
+python ~/.config/ironbar/scripts/appindicator.py title
+python ~/.config/ironbar/scripts/workspace.py

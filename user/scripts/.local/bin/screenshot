@@ -10,5 +10,5 @@ grim -g "$(slurp)" - >"$TEMP_FILE"
 status=$?
 kill $PID
 [[ $status == 0 ]] || exit 1
-satty --filename "$TEMP_FILE" --output-filename ~/Pictures/Catch/"$(date +%Y-%m-%d-%H-%M-%S)".png
+satty --filename "$TEMP_FILE" --output-filename ~/Pictures/Catch/"$(date +%Y-%m-%d-%H_%M_%S)".png
 exit 0

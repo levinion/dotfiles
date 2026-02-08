@@ -1,7 +1,7 @@
 [Desktop Entry]
-Name=waybar
-Comment=waybar
-Exec=waybar
+Name=ironbar
+Comment=ironbar
+Exec=start-ironbar
 Icon=
 Terminal=false
 Type=Application

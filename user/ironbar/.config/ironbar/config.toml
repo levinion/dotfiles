@@ -14,13 +14,19 @@ show_if = "#app_id"
 
 [[start]]
 type = "label"
-class = "title"
+class = "app_title"
 label = " #title "
 show_if = "#title"
 
 [[center]]
 format = "  %H:%M "
 type = "clock"
+
+[[end]]
+type = "label"
+class = "recording"
+label = "#recording"
+show_if = "#recording"
 
 [[end]]
 type = "music"

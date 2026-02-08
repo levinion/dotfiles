@@ -13,10 +13,35 @@ function M.reload(module)
 end
 
 function M.spawn()
-	ura.api.spawn("ironbar")
-	M.reload("workspace")
-	M.reload("title")
-	M.reload("app_id")
+	ura.api.spawn("start-ironbar")
+end
+
+function M.setup_hooks()
+	ura.hook.set("focus-change", function()
+		M.reload("app_id")
+		M.reload("title")
+	end)
+
+	ura.hook.set("output-tags-change", function()
+		M.reload("workspace")
+	end)
+
+	ura.hook.set("window-tags-change", function()
+		M.reload("workspace")
+	end)
+
+	ura.hook.set("window-app_id-change", function()
+		M.reload("app_id")
+	end)
+
+	ura.hook.set("window-title-change", function()
+		M.reload("title")
+	end)
+
+	ura.hook.set("window-close", function()
+		M.reload("app_id")
+		M.reload("title")
+	end)
 end
 
 return M

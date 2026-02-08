@@ -5,7 +5,6 @@
   font-size: 13px;
   min-height: 0;
   border-radius: 10px;
-  border-style: hidden;
 }
 
 .background {
@@ -25,15 +24,21 @@
 .music,
 .volume,
 .workspace,
-.title,
-.app_id {
+.app_title,
+.app_id,
+.recording {
   background: @surface0;
   margin: 5px 5px 0px 5px;
   padding: 0px 10px;
 }
 
+.popup-music .volume {
+  background: transparent;
+}
+
 .tray .item {
   background: @surface0;
+  border-style: hidden;
 }
 
 .clock {
@@ -65,6 +70,6 @@
   color: @maroon;
 }
 
-.title {
+.app_title {
   color: @maroon;
 }
