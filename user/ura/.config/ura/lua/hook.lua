@@ -39,6 +39,10 @@ end)
 
 ura.hook.set("reload", function() end)
 
+ura.hook.set("window-new", function(e)
+	ura.class.UraWindow:new(e.id):focus()
+end)
+
 ironbar.setup_hooks()
 
 ura.hook.set("window-new", function(e)

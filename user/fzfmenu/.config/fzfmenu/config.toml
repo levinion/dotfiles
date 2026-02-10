@@ -14,11 +14,25 @@ runner = "python ~/.config/fzfmenu/plugins/killer.py runner"
 dynamic = true
 
 [[plugins]]
-name = "jumper"
+name = "ura-jumper"
 description = "Jump to any windows (only works on Ura WM)."
 prefix = "wd "
-picker = "python ~/.config/fzfmenu/plugins/jumper.py picker"
-runner = "python ~/.config/fzfmenu/plugins/jumper.py runner"
+picker = "python ~/.config/fzfmenu/plugins/ura-jumper.py picker"
+runner = "python ~/.config/fzfmenu/plugins/ura-jumper.py runner"
+
+[[plugins]]
+name = "ura-move"
+description = "move any windows to current workspace (only works on Ura WM)."
+prefix = "wdi "
+picker = "python ~/.config/fzfmenu/plugins/ura-move.py picker"
+runner = "python ~/.config/fzfmenu/plugins/ura-move.py runner"
+
+[[plugins]]
+name = "brotab"
+description = "Activate tab using brotab"
+prefix = "bt "
+picker = "python ~/.config/fzfmenu/plugins/brotab.py picker"
+runner = "python ~/.config/fzfmenu/plugins/brotab.py runner"
 
 [[plugins]]
 name = "history"

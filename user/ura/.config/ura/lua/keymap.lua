@@ -47,6 +47,36 @@ ura.keymap.set("ctrl+right", function()
 	ura.class.UraOutput:current():set_tags({ tostring(tag) })
 end)
 
+local function all_tags()
+	local tags = {}
+	local checked = {}
+	for _, w in ipairs(ura.class.UraWindow:all()) do
+		for _, tag in ipairs(w:tags()) do
+			if not checked[tag] then
+				checked[tag] = true
+				table.insert(tags, tag)
+			end
+		end
+	end
+	return ura.fn.natural_sort(tags)
+end
+
+ura.keymap.set("ctrl+alt+left", function()
+	local tags = all_tags()
+	local index = ura.fn.find(tags, ura.class.UraOutput:current():tags()[1])
+	if index and index - 1 >= 1 then
+		ura.class.UraOutput:current():set_tags({ tags[index - 1] })
+	end
+end)
+
+ura.keymap.set("ctrl+alt+right", function()
+	local tags = all_tags()
+	local index = ura.fn.find(tags, ura.class.UraOutput:current():tags()[1])
+	if index and index + 1 <= #tags then
+		ura.class.UraOutput:current():set_tags({ tags[index + 1] })
+	end
+end)
+
 ura.keymap.set("super+h", function()
 	ura.cmd.focus_left()
 end)
@@ -64,11 +94,18 @@ ura.keymap.set("super+k", function()
 end)
 
 ura.keymap.set("ctrl+shift+left", function()
-	ura.cmd.move_to_prev()
+	local tag = tonumber(ura.class.UraOutput:current():tags()[1]) - 1
+	if tag < 1 then
+		return
+	end
+	ura.class.UraWindow:current():set_tags({ tostring(tag) })
+	ura.class.UraOutput:current():set_tags({ tostring(tag) })
 end)
 
 ura.keymap.set("ctrl+shift+right", function()
-	ura.cmd.move_to_next()
+	local tag = tonumber(ura.class.UraOutput:current():tags()[1]) + 1
+	ura.class.UraWindow:current():set_tags({ tostring(tag) })
+	ura.class.UraOutput:current():set_tags({ tostring(tag) })
 end)
 
 ura.keymap.set("super+shift+p", function()
@@ -88,15 +125,11 @@ ura.keymap.set("super+shift+o", function()
 end)
 
 ura.keymap.set("super+m", function()
-	ura.api.spawn("foot -a fzfmenu -e fzfmenu -q 'wd '")
+	ura.api.spawn("foot -a fzfmenu -e fzfmenu -q 'wdi '")
 end)
 
 ura.keymap.set("super+shift+m", function()
-	ura.api.spawn([[
-  id=$(ura-shell -c "print(ura.class.UraWindow:current().id)")
-  tag=$(zenity --entry)
-  [ -n "$tag" ] && ura-shell -c "ura.class.UraWindow:new($id):set_tags({ '$tag' })"
-  ]])
+	ura.class.UraWindow:current():set_tags({})
 end)
 
 ura.keymap.set("XF86AudioRaiseVolume", function()
