@@ -33,7 +33,7 @@ def open_application_picker_by_path(path: str, d: set[str]):
             d.add(name)
 
 
-def open_application_picker():
+def picker():
     d: set[str] = set()
     open_application_picker_by_path(os.path.expanduser("~/Desktop/"), d)
     open_application_picker_by_path(
@@ -42,7 +42,7 @@ def open_application_picker():
     open_application_picker_by_path("/usr/share/applications/", d)
 
 
-def open_application_runner(output: str):
+def runner(output: str):
     desktop = output.split(" ")[-1]
     if os.path.exists(desktop):
         subprocess.call(["dex", desktop], start_new_session=True)
@@ -51,9 +51,9 @@ def open_application_runner(output: str):
 def main():
     match sys.argv[1]:
         case "picker":
-            open_application_picker()
+            picker()
         case "runner":
-            open_application_runner(os.environ["FZFMENU_OUTPUT"])
+            runner(os.environ["FZFMENU_OUTPUT"])
 
 
 if __name__ == "__main__":

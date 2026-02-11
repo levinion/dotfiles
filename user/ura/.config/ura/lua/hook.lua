@@ -24,7 +24,7 @@ ura.hook.set("ready", function()
 	ura.api.spawn("wl-clip-persist -c both --reconnect-tries 3")
 	-- ura.api.spawn([[joystickwake --command 'uracil -c "ura.api.notify_idle_activity()"']])
 	ura.api.spawn(
-		[[swayidle -w timeout 10 'ura-shell ~/.config/ura/scripts/hide_cursor.lua' resume 'ura-shell -- ~/.config/ura/scripts/hide_cursor.lua -t']]
+		[[swayidle -w timeout 10 'ura-shell -c	"ura.api.set_cursor_visible(false)"' resume 'ura-shell -c "ura.api.set_cursor_visible(true)"']]
 	)
 	ura.api.spawn("ddcmod --init")
 	ura.api.set_keyboard_repeat(40, 300)

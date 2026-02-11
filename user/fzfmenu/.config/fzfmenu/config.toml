@@ -28,9 +28,17 @@ picker = "python ~/.config/fzfmenu/plugins/ura-move.py picker"
 runner = "python ~/.config/fzfmenu/plugins/ura-move.py runner"
 
 [[plugins]]
+name = "ura-tag"
+description = "Enable or create new tags"
+prefix = "t "
+picker = "python ~/.config/fzfmenu/plugins/ura-tag.py picker"
+runner = "python ~/.config/fzfmenu/plugins/ura-tag.py runner"
+dynamic = true
+
+[[plugins]]
 name = "brotab"
 description = "Activate tab using brotab"
-prefix = "bt "
+prefix = "fx "
 picker = "python ~/.config/fzfmenu/plugins/brotab.py picker"
 runner = "python ~/.config/fzfmenu/plugins/brotab.py runner"
 

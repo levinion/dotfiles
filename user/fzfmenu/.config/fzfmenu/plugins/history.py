@@ -5,7 +5,7 @@ import sys
 shell = os.environ["SHELL"]
 
 
-def history_picker(input: str):
+def picker(input: str):
     atuin_init_cmd = ""
     if "zsh" in shell:
         atuin_init_cmd = 'eval "$(atuin init zsh)"'
@@ -30,17 +30,17 @@ def history_picker(input: str):
         print(line)
 
 
-def history_runner(output: str):
+def runner(output: str):
     subprocess.call(output, shell=True, start_new_session=True)
-    input()
+    input("Press any key to continue...")
 
 
 def main():
     match sys.argv[1]:
         case "picker":
-            history_picker(os.environ["FZFMENU_INPUT"])
+            picker(os.environ["FZFMENU_INPUT"])
         case "runner":
-            history_runner(os.environ["FZFMENU_OUTPUT"])
+            runner(os.environ["FZFMENU_OUTPUT"])
 
 
 if __name__ == "__main__":

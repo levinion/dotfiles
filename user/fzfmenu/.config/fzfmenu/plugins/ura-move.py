@@ -4,7 +4,7 @@ import subprocess
 import sys
 
 
-def window_move_picker():
+def picker():
     windows = json.loads(
         subprocess.check_output(["ura-cmd", "show-windows"], text=True).strip()
     )
@@ -25,7 +25,7 @@ def window_move_picker():
         print(" ".join([w["app_id"], w["title"], tags, id]))
 
 
-def window_move_runner(output: str):
+def runner(output: str):
     args = output.split(" ")
     id = args[-1]
     command = (
@@ -37,9 +37,9 @@ def window_move_runner(output: str):
 def main():
     match sys.argv[1]:
         case "picker":
-            window_move_picker()
+            picker()
         case "runner":
-            window_move_runner(os.environ["FZFMENU_OUTPUT"])
+            runner(os.environ["FZFMENU_OUTPUT"])
 
 
 if __name__ == "__main__":

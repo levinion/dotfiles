@@ -4,7 +4,7 @@ import sys
 import json
 
 
-def sink_picker():
+def picker():
     output = subprocess.check_output("pw-dump").strip().decode()
     data = json.loads(output)
     for obj in data:
@@ -18,7 +18,7 @@ def sink_picker():
             continue
 
 
-def sink_runner(output: str):
+def runner(output: str):
     output_ = output.split(" ")
     id = output_[0]
     name = " ".join(output_[1:])
@@ -29,9 +29,9 @@ def sink_runner(output: str):
 def main():
     match sys.argv[1]:
         case "picker":
-            sink_picker()
+            picker()
         case "runner":
-            sink_runner(os.environ["FZFMENU_OUTPUT"])
+            runner(os.environ["FZFMENU_OUTPUT"])
 
 
 if __name__ == "__main__":

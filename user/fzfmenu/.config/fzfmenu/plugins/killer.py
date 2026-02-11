@@ -3,7 +3,7 @@ import subprocess
 import sys
 
 
-def killer_picker(input: str):
+def picker(input: str):
     if len(input) == 0:
         return
     output = subprocess.check_output(f"pgrep -fa {input}", shell=True).strip().decode()
@@ -13,7 +13,7 @@ def killer_picker(input: str):
         print(line)
 
 
-def killer_runner(output: str):
+def runner(output: str):
     pid = output.split(" ")[0]
     subprocess.call(["kill", "-9", pid])
 
@@ -21,9 +21,9 @@ def killer_runner(output: str):
 def main():
     match sys.argv[1]:
         case "picker":
-            killer_picker(os.environ["FZFMENU_INPUT"])
+            picker(os.environ["FZFMENU_INPUT"])
         case "runner":
-            killer_runner(os.environ["FZFMENU_OUTPUT"])
+            runner(os.environ["FZFMENU_OUTPUT"])
 
 
 if __name__ == "__main__":

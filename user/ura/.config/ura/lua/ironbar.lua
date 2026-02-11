@@ -3,12 +3,11 @@ local M = {}
 ---@param module "workspace" | "title" | "app_id"
 function M.reload(module)
 	if module == "app_id" then
-		ura.api.spawn("python ~/.config/ironbar/scripts/appindicator.py app_id")
-		ura.api.spawn("python ~/.config/ironbar/scripts/appindicator.py title")
+		ura.api.spawn("ura-shell ~/.config/ironbar/scripts/appindicator.lua app_id")
 	elseif module == "title" then
-		ura.api.spawn("python ~/.config/ironbar/scripts/appindicator.py title")
+		ura.api.spawn("ura-shell ~/.config/ironbar/scripts/appindicator.lua title")
 	elseif module == "workspace" then
-		ura.api.spawn("python ~/.config/ironbar/scripts/workspace.py")
+		ura.api.spawn("ura-shell ~/.config/ironbar/scripts/workspace.lua")
 	end
 end
 
