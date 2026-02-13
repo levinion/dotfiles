@@ -16,28 +16,28 @@ function M.spawn()
 end
 
 function M.setup_hooks()
-	ura.hook.set("focus-change", function()
+	ura.hook.add("focus-change", function()
 		M.reload("app_id")
 		M.reload("title")
 	end)
 
-	ura.hook.set("output-tags-change", function()
+	ura.hook.add("output-tags-change", function()
 		M.reload("workspace")
 	end)
 
-	ura.hook.set("window-tags-change", function()
+	ura.hook.add("window-tags-change", function()
 		M.reload("workspace")
 	end)
 
-	ura.hook.set("window-app_id-change", function()
+	ura.hook.add("window-app_id-change", function()
 		M.reload("app_id")
 	end)
 
-	ura.hook.set("window-title-change", function()
+	ura.hook.add("window-title-change", function()
 		M.reload("title")
 	end)
 
-	ura.hook.set("window-close", function()
+	ura.hook.add("window-close", function()
 		M.reload("app_id")
 		M.reload("title")
 	end)

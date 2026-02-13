@@ -26,6 +26,8 @@ description = "move any windows to current workspace (only works on Ura WM)."
 prefix = "wdi "
 picker = "python ~/.config/fzfmenu/plugins/ura-move.py picker"
 runner = "python ~/.config/fzfmenu/plugins/ura-move.py runner"
+on_enter = ["change-multi"]
+on_leave = ["change-multi(0)"]
 
 [[plugins]]
 name = "ura-tag"
