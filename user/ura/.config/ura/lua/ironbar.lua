@@ -16,31 +16,36 @@ function M.spawn()
 end
 
 function M.setup_hooks()
+	local opt = {
+		priority = ura.g.priority.slow,
+		ns = "ironbar",
+	}
+
 	ura.hook.add("focus-change", function()
 		M.reload("app_id")
 		M.reload("title")
-	end)
+	end, opt)
 
 	ura.hook.add("output-tags-change", function()
 		M.reload("workspace")
-	end)
+	end, opt)
 
 	ura.hook.add("window-tags-change", function()
 		M.reload("workspace")
-	end)
+	end, opt)
 
 	ura.hook.add("window-app_id-change", function()
 		M.reload("app_id")
-	end)
+	end, opt)
 
 	ura.hook.add("window-title-change", function()
 		M.reload("title")
-	end)
+	end, opt)
 
 	ura.hook.add("window-close", function()
 		M.reload("app_id")
 		M.reload("title")
-	end)
+	end, opt)
 end
 
 return M

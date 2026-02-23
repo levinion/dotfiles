@@ -23,7 +23,7 @@ runner = "python ~/.config/fzfmenu/plugins/ura-jumper.py runner"
 [[plugins]]
 name = "ura-move"
 description = "move any windows to current workspace (only works on Ura WM)."
-prefix = "wdi "
+prefix = "wi "
 picker = "python ~/.config/fzfmenu/plugins/ura-move.py picker"
 runner = "python ~/.config/fzfmenu/plugins/ura-move.py runner"
 on_enter = ["change-multi"]
@@ -32,9 +32,17 @@ on_leave = ["change-multi(0)"]
 [[plugins]]
 name = "ura-tag"
 description = "Enable or create new tags"
-prefix = "t "
+prefix = "wg "
 picker = "python ~/.config/fzfmenu/plugins/ura-tag.py picker"
 runner = "python ~/.config/fzfmenu/plugins/ura-tag.py runner"
+dynamic = true
+
+[[plugins]]
+name = "ura-selector"
+description = "Select existing tags"
+prefix = "ws "
+picker = "python ~/.config/fzfmenu/plugins/ura-selector.py picker"
+runner = "python ~/.config/fzfmenu/plugins/ura-selector.py runner"
 dynamic = true
 
 [[plugins]]

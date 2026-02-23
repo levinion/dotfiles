@@ -1,0 +1,13 @@
+-- libinput:register({ 1 })
+-- libinput:connect("new-evdev-device", function(device)
+-- 	if device:udev_properties()["ID_INPUT_MOUSE"] then
+-- 		device:connect("evdev-frame", function(_, frame, _)
+-- 			for _, event in ipairs(frame) do
+-- 				if event.usage == evdev.REL_X then
+-- 					event.value = -event.value
+-- 				end
+-- 			end
+-- 			return frame
+-- 		end)
+-- 	end
+-- end)

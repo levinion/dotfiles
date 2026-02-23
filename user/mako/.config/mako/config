@@ -1,6 +1,8 @@
 layer=overlay
-default-timeout=5000
+default-timeout=10000
 font=monospace 13
+width=500
+height=500
 
 background-color=#1e1e2e
 text-color=#cdd6f4

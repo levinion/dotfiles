@@ -18,11 +18,8 @@ def picker(input: str):
 
 
 def runner(output: str):
-    v = output.split(":")
-    if len(v) < 2 or not v[-1].isdigit():
-        output += ":1"
     subprocess.call(
-        ["ura-shell", "-c", f"ura.class.UraOutput:current():set_tags({{'{output}'}})"]
+        ["ura-shell", "-c", f"ura.class.UraOutput:current():select('{output}')"]
     )
 
 

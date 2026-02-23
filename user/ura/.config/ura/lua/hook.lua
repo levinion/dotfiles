@@ -1,6 +1,8 @@
 require("builtin.layout.tiling").setup({ type = "horizontal" })
 require("builtin.layout.fullscreen").setup()
+require("builtin.layout.maximize").setup()
 require("builtin.layout.floating").setup()
+
 local ironbar = require("ironbar")
 
 ura.hook.add("prepare", function()
@@ -13,7 +15,7 @@ ura.hook.add("prepare", function()
 end)
 
 ura.hook.add("ready", function()
-	ura.api.spawn("wlr-randr --output DP-5 --mode 3840x2160@119.879997Hz --scale 2")
+	ura.api.spawn("kanshi")
 	ura.api.set_env("DISPLAY", ":0")
 	ura.api.spawn("xwayland-satellite")
 	ura.api.spawn("swaybg -i ~/.config/ura/assets/bg.jpg")
@@ -28,16 +30,12 @@ ura.hook.add("ready", function()
 	)
 	ura.api.spawn("ddcmod --init")
 	ura.api.set_keyboard_repeat(40, 300)
-	ura.api.set_pointer_accel_profile("flat", "Ninjutso*")
 	ura.api.set_cursor_theme("default", 18)
 end)
 
 ura.hook.add("output-resume", function()
-	ura.api.spawn("wlr-randr --output DP-5 --mode 3840x2160@119.879997Hz --scale 2")
-	ura.api.set_pointer_accel_profile("flat", "Ninjutso*")
+	ura.api.spawn("kanshictl reload")
 end)
-
-ura.hook.add("reload", function() end)
 
 ura.hook.add("window-new", function(e)
 	local win = ura.class.UraWindow:new(e.id)
