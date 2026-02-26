@@ -1,7 +1,5 @@
 shut() {
-  exists docker &&
-    docker container list | grep -q redroid13 &&
-    docker stop redroid13
+  docker rm -f "$(docker ps -q)"
   shutdown -h now
 }
 

@@ -4,6 +4,7 @@ description = "Launch applications based on your desktop environment."
 prefix = ""
 picker = "python ~/.config/fzfmenu/plugins/app_launcher.py picker"
 runner = "python ~/.config/fzfmenu/plugins/app_launcher.py runner"
+background = true
 
 [[plugins]]
 name = "killer"
@@ -12,6 +13,7 @@ prefix = "kl "
 picker = "python ~/.config/fzfmenu/plugins/killer.py picker"
 runner = "python ~/.config/fzfmenu/plugins/killer.py runner"
 dynamic = true
+background = true
 
 [[plugins]]
 name = "ura-jumper"
@@ -19,6 +21,7 @@ description = "Jump to any windows (only works on Ura WM)."
 prefix = "wd "
 picker = "python ~/.config/fzfmenu/plugins/ura-jumper.py picker"
 runner = "python ~/.config/fzfmenu/plugins/ura-jumper.py runner"
+background = true
 
 [[plugins]]
 name = "ura-move"
@@ -28,6 +31,7 @@ picker = "python ~/.config/fzfmenu/plugins/ura-move.py picker"
 runner = "python ~/.config/fzfmenu/plugins/ura-move.py runner"
 on_enter = ["change-multi"]
 on_leave = ["change-multi(0)"]
+background = true
 
 [[plugins]]
 name = "ura-tag"
@@ -36,6 +40,7 @@ prefix = "wg "
 picker = "python ~/.config/fzfmenu/plugins/ura-tag.py picker"
 runner = "python ~/.config/fzfmenu/plugins/ura-tag.py runner"
 dynamic = true
+background = true
 
 [[plugins]]
 name = "ura-selector"
@@ -44,6 +49,7 @@ prefix = "ws "
 picker = "python ~/.config/fzfmenu/plugins/ura-selector.py picker"
 runner = "python ~/.config/fzfmenu/plugins/ura-selector.py runner"
 dynamic = true
+background = true
 
 [[plugins]]
 name = "brotab"
@@ -51,6 +57,7 @@ description = "Activate tab using brotab"
 prefix = "fx "
 picker = "python ~/.config/fzfmenu/plugins/brotab.py picker"
 runner = "python ~/.config/fzfmenu/plugins/brotab.py runner"
+background = true
 
 [[plugins]]
 name = "history"
@@ -66,6 +73,7 @@ description = "Switch default pipewire sink."
 prefix = "sk "
 picker = "python ~/.config/fzfmenu/plugins/sink.py picker"
 runner = "python ~/.config/fzfmenu/plugins/sink.py runner"
+background = true
 
 [[plugins]]
 name = "mpris"
@@ -73,6 +81,7 @@ description = "control play/pause with playerctl."
 prefix = "mp "
 picker = "python ~/.config/fzfmenu/plugins/mpris.py picker"
 runner = "python ~/.config/fzfmenu/plugins/mpris.py runner"
+background = true
 
 [[plugins]]
 name = "sing-box"
@@ -85,3 +94,4 @@ on_enter = [
   "show-preview",
 ]
 on_leave = ["hide-preview"]
+background = true

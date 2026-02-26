@@ -12,4 +12,9 @@ apply-user:
 apply-system:
 	sudo stor -cf -t / system/*/
 
-.PHONY: apply-user apply-system install-deps deps install
+push: deps
+	git add .
+	git commit -m "$(shell date)"
+	git push -u origin main
+
+.PHONY: apply-user apply-system install-deps deps install push

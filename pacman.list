@@ -8,6 +8,7 @@ arch-install-scripts
 archlinuxcn-keyring
 arduino-cli
 arduino-language-server
+asio
 atuin
 autotiling
 base
@@ -52,7 +53,6 @@ fcitx5-gtk
 fcitx5-qt
 fcitx5-rime
 fd
-feh
 firefox-nightly-en-us
 fish
 foot
@@ -151,7 +151,6 @@ nmap
 noto-fonts-emoji
 npm
 ntfs-3g
-nushell
 nvidia-open
 nvidia-settings
 nvidia-utils
