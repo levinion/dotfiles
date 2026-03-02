@@ -18,11 +18,11 @@ def picker():
         text=True,
     ).strip()
 
-    for id, w in windows.items():
+    for w in windows:
         tags = json.dumps(w["tags"])
         if tags == output_tags:
             continue
-        print(" ".join([w["app_id"], w["title"], tags, id]))
+        print(" ".join([w["app_id"], w["title"], tags, str(w["id"])]))
 
 
 def runner(output: str):

@@ -9,7 +9,7 @@ def picker(input: str):
         subprocess.check_output(["ura-cmd", "show-windows"], text=True).strip()
     )
     tags = []
-    for _, w in windows.items():
+    for w in windows:
         for tag in w["tags"]:
             if tag not in tags:
                 tags.append(tag)
