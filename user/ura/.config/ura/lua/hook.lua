@@ -3,7 +3,8 @@ require("builtin.layout.fullscreen").setup()
 require("builtin.layout.maximize").setup()
 require("builtin.layout.floating").setup()
 
-local ironbar = require("ironbar")
+local ironbar = require("plugins.ironbar")
+ironbar.setup()
 
 ura.hook.add("prepare", function()
 	ura.api.set_env("XDG_CURRENT_DESKTOP", "ura")
@@ -39,14 +40,6 @@ end)
 
 ura.hook.add("window-new", function(e)
 	local win = ura.class.UraWindow:new(e.id)
-	win:set_layout("tiling")
-	win:focus()
-end)
-
-ironbar.setup_hooks()
-
-ura.hook.add("window-new", function(e)
-	local win = ura.class.UraWindow:new(e.id)
 	local app_id = win:app_id()
 	assert(app_id)
 	if string.match(app_id, "fzfmenu") then
@@ -55,6 +48,7 @@ ura.hook.add("window-new", function(e)
 		win:center()
 	elseif string.match(app_id, "XEyes") then
 		win:set_layout("floating")
+		win:resize(120, 80)
 		win:center()
 	elseif string.match(app_id, "scrcpy") then
 		win:set_layout("floating")
@@ -78,5 +72,18 @@ ura.hook.add("window-new", function(e)
 	elseif string.match(app_id, "zenity") then
 		win:set_layout("floating")
 		win:center()
+	else
+		win:set_layout("tiling")
 	end
+	win:focus()
+end)
+
+ura.hook.add("window-focus", function(e)
+	local win = ura.class.UraWindow:new(e.id)
+	win:set_border_color("#89b4fa")
+end)
+
+ura.hook.add("window-unfocus", function(e)
+	local win = ura.class.UraWindow:new(e.id)
+	win:set_border_color("#00000000")
 end)

@@ -1,5 +1,5 @@
 ura.keymap.set({ "super+t" }, function()
-	ura.api.spawn("foot")
+	ura.api.spawn("foot -e tmux")
 end)
 
 ura.keymap.set({ "super+w" }, function()
@@ -54,7 +54,7 @@ ura.keymap.set({ "ctrl+right", "super+wheeldown" }, function()
 	ura.class.UraOutput:current():set_tags({ blk:tag() })
 end)
 
-ura.keymap.set({ "ctrl+shift+left" }, function()
+ura.keymap.set({ "ctrl+shift+left", "super+shift+wheelup" }, function()
 	local blk = ura.class.UraBlock:current()[1]
 	assert(blk)
 	if blk.index > 1 then
@@ -64,7 +64,7 @@ ura.keymap.set({ "ctrl+shift+left" }, function()
 	end
 end)
 
-ura.keymap.set({ "ctrl+shift+right" }, function()
+ura.keymap.set({ "ctrl+shift+right", "super+shift+wheeldown" }, function()
 	local blk = ura.class.UraBlock:current()[1]
 	assert(blk)
 	blk.index = blk.index + 1
@@ -114,10 +114,6 @@ ura.keymap.set({ "super+k" }, function()
 	ura.cmd.focus_up()
 end)
 
-ura.keymap.set({ "super+shift+p" }, function()
-	ura.api.spawn("ura-shell -c 'ura.class.UraOutput:current():set_dpms(false)'")
-end)
-
 ura.keymap.set({ "super+p" }, function()
 	ura.api.spawn("rmpc togglepause")
 end)
@@ -131,7 +127,7 @@ ura.keymap.set({ "super+shift+o" }, function()
 end)
 
 ura.keymap.set({ "super+m" }, function()
-	ura.api.spawn("foot -a fzfmenu -e fzfmenu -q 'wdi '")
+	ura.api.spawn("foot -a fzfmenu -e fzfmenu -q 'wi '")
 end)
 
 ura.keymap.set({ "super+shift+m" }, function()
@@ -169,3 +165,9 @@ for i = 1, 10 do
 		output:set_tags({ blk:tag() })
 	end)
 end
+
+ura.keymap.set({ "super+shift+d" }, function()
+	for _, win in ipairs(ura.class.UraWindow:all()) do
+		win:set_opacity(0.1)
+	end
+end)

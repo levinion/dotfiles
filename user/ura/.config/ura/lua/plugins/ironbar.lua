@@ -15,13 +15,18 @@ function M.spawn()
 	ura.api.spawn("start-ironbar")
 end
 
-function M.setup_hooks()
+function M.setup()
 	local opt = {
 		priority = ura.g.priority.slow,
 		ns = "ironbar",
 	}
 
-	ura.hook.add("focus-change", function()
+	ura.hook.add("window-focus", function()
+		M.reload("app_id")
+		M.reload("title")
+	end, opt)
+
+	ura.hook.add("window-unfocus", function()
 		M.reload("app_id")
 		M.reload("title")
 	end, opt)

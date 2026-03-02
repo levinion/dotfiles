@@ -80,6 +80,7 @@ i3blocks
 i3lock
 i3status
 imagemagick
+imv
 inetutils
 inkscape
 inxi
@@ -92,6 +93,7 @@ jsonnet
 just
 kanshi
 kexec-tools
+kmscon
 krita
 kvantum-theme-catppuccin-git
 lazygit
@@ -191,7 +193,7 @@ reflector
 remmina
 rime-wanxiang-pro-flypy
 ripgrep
-river
+river-classic
 rmpc
 rnote
 rsync
@@ -265,6 +267,7 @@ wireshark-qt
 wl-clip-persist
 wl-clipboard
 wl-color-picker
+wlopm
 wlr-randr
 wlrctl
 wlrobs

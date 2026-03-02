@@ -8,9 +8,12 @@ def picker():
     windows = json.loads(
         subprocess.check_output(["ura-cmd", "show-windows"], text=True).strip()
     )
-    for id, w in windows.items():
-        tags = json.dumps(w["tags"])
-        print(" ".join([w["app_id"], w["title"], tags, id]))
+    for w in windows:
+        try:
+            tags = json.dumps(w["tags"])
+            print(" ".join([w["app_id"], w["title"], tags, str(w["id"])]))
+        except Exception as e:
+            print(e)
 
 
 def runner(output: str):
