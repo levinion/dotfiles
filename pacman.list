@@ -25,6 +25,7 @@ cargo-generate
 catppuccin-mocha-grub-theme-git
 chromium
 cli11
+cliphist
 cmake
 compsize
 cronie
@@ -107,6 +108,7 @@ libinput-tools
 libisoburn
 libreoffice-fresh
 libreoffice-fresh-zh-cn
+libva-nvidia-driver
 libva-utils
 libvncserver
 linux-firmware-amdgpu
@@ -235,6 +237,7 @@ tomlplusplus
 traceroute
 trash-cli
 tree-sitter-cli
+try
 tsukimi-git
 ttf-jetbrains-mono-nerd
 ttf-lxgw-wenkai

@@ -163,8 +163,8 @@ ura.keymap.set({ "super+s" }, function()
 end)
 
 ura.keymap.set({ "super+b" }, function()
-	local segment = ura.class.UraSegment:new("")
-	ura.class.UraOutput:current():set_tags(segment and { segment:active_block():tag() } or { ":1" })
+	local block = ura.class.UraSegment:new(""):active_block()
+	ura.class.UraOutput:current():set_tags(block and { block:tag() } or { ":1" })
 end)
 
 for i = 1, 10 do

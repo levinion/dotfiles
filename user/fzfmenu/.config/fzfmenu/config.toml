@@ -10,8 +10,8 @@ background = true
 name = "killer"
 description = "Find and terminate running processes."
 prefix = "kl "
-picker = "python ~/.config/fzfmenu/plugins/killer.py picker"
-runner = "python ~/.config/fzfmenu/plugins/killer.py runner"
+picker = 'pgrep -fa "$FZFMENU_INPUT"'
+runner = 'echo "$FZFMENU_OUTPUT" | cut -d " " -f1 | xargs kill -9'
 dynamic = true
 background = true
 
@@ -63,8 +63,8 @@ background = true
 name = "history"
 description = "Search and reuse past shell commands."
 prefix = "hs "
-picker = "python ~/.config/fzfmenu/plugins/history.py picker"
-runner = "python ~/.config/fzfmenu/plugins/history.py runner"
+picker = 'atuin search --cmd-only "$FZFMENU_INPUT"'
+runner = "setsid $FZFMENU_OUTPUT && echo press any key to continue && read"
 dynamic = true
 
 [[plugins]]
@@ -94,4 +94,21 @@ on_enter = [
   "show-preview",
 ]
 on_leave = ["hide-preview"]
+background = true
+
+[[plugins]]
+name = "clipboard-copy"
+description = "copy to clipboard"
+prefix = "cc "
+picker = "echo $FZFMENU_INPUT"
+runner = "echo -n $FZFMENU_OUTPUT | wl-copy"
+background = true
+dynamic = true
+
+[[plugins]]
+name = "clipboard"
+description = "clipboard manager"
+prefix = "cp "
+picker = "cliphist list"
+runner = 'echo -n "$FZFMENU_OUTPUT" | cliphist decode | wl-copy'
 background = true
