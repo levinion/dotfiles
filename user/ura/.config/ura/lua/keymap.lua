@@ -98,25 +98,21 @@ ura.keymap.set({ "ctrl+alt+right", "super+mouseextra" }, function()
 	end
 end)
 
-do
-	local opt = { blacklist = { "nofocus" } }
+ura.keymap.set({ "super+h" }, function()
+	ura.cmd.focus_left()
+end)
 
-	ura.keymap.set({ "super+h" }, function()
-		ura.cmd.focus_left(opt)
-	end)
+ura.keymap.set({ "super+l" }, function()
+	ura.cmd.focus_right()
+end)
 
-	ura.keymap.set({ "super+l" }, function()
-		ura.cmd.focus_right(opt)
-	end)
+ura.keymap.set({ "super+j" }, function()
+	ura.cmd.focus_down()
+end)
 
-	ura.keymap.set({ "super+j" }, function()
-		ura.cmd.focus_down(opt)
-	end)
-
-	ura.keymap.set({ "super+k" }, function()
-		ura.cmd.focus_up(opt)
-	end)
-end
+ura.keymap.set({ "super+k" }, function()
+	ura.cmd.focus_up()
+end)
 
 ura.keymap.set({ "super+p" }, function()
 	ura.api.spawn("rmpc togglepause")
