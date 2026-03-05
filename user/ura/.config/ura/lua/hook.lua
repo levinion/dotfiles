@@ -42,36 +42,37 @@ ura.hook.add("window-new", function(e)
 	local win = ura.class.UraWindow:new(e.id)
 	local app_id = win:app_id()
 	assert(app_id)
+	local opt = { duration = 0 }
 	if string.match(app_id, "fzfmenu") then
 		win:set_layout("floating")
-		win:resize(1000, 600)
-		win:center()
+		win:resize(1000, 600, opt)
+		win:center(opt)
 	elseif string.match(app_id, "XEyes") then
 		win:set_layout("floating")
-		win:resize(120, 80)
-		win:center()
+		win:resize(120, 80, opt)
+		win:center(opt)
 	elseif string.match(app_id, "scrcpy") then
 		win:set_layout("floating")
-		win:resize(640, 360)
-		win:center()
+		win:resize(640, 360, opt)
+		win:center(opt)
 	elseif string.match(app_id, "mpv") then
 		win:set_layout("floating")
-		win:resize(1280, 720)
-		win:center()
+		win:resize(1280, 720, opt)
+		win:center(opt)
 	elseif string.match(app_id, "xdg%-desktop%-portal%-gtk") then
 		win:set_layout("floating")
-		win:resize(1280, 720)
-		win:center()
+		win:resize(1280, 720, opt)
+		win:center(opt)
 	elseif string.match(app_id, "yazi") then
 		win:set_layout("floating")
-		win:resize(1280, 720)
-		win:center()
+		win:resize(1280, 720, opt)
+		win:center(opt)
 	elseif string.match(app_id, "com.gabm.satty") then
 		win:set_layout("fullscreen")
 		win:set_z_index(320)
 	elseif string.match(app_id, "zenity") then
 		win:set_layout("floating")
-		win:center()
+		win:center(opt)
 	else
 		win:set_layout("tiling")
 	end

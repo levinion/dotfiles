@@ -98,21 +98,25 @@ ura.keymap.set({ "ctrl+alt+right", "super+mouseextra" }, function()
 	end
 end)
 
-ura.keymap.set({ "super+h" }, function()
-	ura.cmd.focus_left()
-end)
+do
+	local opt = { blacklist = { "nofocus" } }
 
-ura.keymap.set({ "super+l" }, function()
-	ura.cmd.focus_right()
-end)
+	ura.keymap.set({ "super+h" }, function()
+		ura.cmd.focus_left(opt)
+	end)
 
-ura.keymap.set({ "super+j" }, function()
-	ura.cmd.focus_down()
-end)
+	ura.keymap.set({ "super+l" }, function()
+		ura.cmd.focus_right(opt)
+	end)
 
-ura.keymap.set({ "super+k" }, function()
-	ura.cmd.focus_up()
-end)
+	ura.keymap.set({ "super+j" }, function()
+		ura.cmd.focus_down(opt)
+	end)
+
+	ura.keymap.set({ "super+k" }, function()
+		ura.cmd.focus_up(opt)
+	end)
+end
 
 ura.keymap.set({ "super+p" }, function()
 	ura.api.spawn("rmpc togglepause")
@@ -152,6 +156,15 @@ end)
 
 ura.keymap.set({ "super+shift+s" }, function()
 	ura.api.spawn("swaylock -f -i ~/.config/ura/assets/bg.jpg")
+end)
+
+ura.keymap.set({ "super+s" }, function()
+	ura.api.spawn("waymium")
+end)
+
+ura.keymap.set({ "super+b" }, function()
+	local segment = ura.class.UraSegment:new("")
+	ura.class.UraOutput:current():set_tags(segment and { segment:active_block():tag() } or { ":1" })
 end)
 
 for i = 1, 10 do
