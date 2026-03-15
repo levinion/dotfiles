@@ -99,6 +99,9 @@ end, { desc = "Goto Type Definition" })
 vim.keymap.set("n", "<leader>ss", function()
 	Snacks.picker.lsp_symbols()
 end, { desc = "LSP Symbols" })
+vim.keymap.set("n", "<leader>sS", function()
+	Snacks.picker.lsp_workspace_symbols()
+end, { desc = "LSP Symbols" })
 
 -- git
 vim.keymap.set("n", "<leader>gd", function()

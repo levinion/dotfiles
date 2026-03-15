@@ -10,15 +10,15 @@ return {
 				"shfmt",
 				"bash-language-server",
 				-- python
-				"pyright",
-				"black",
 				"ruff",
+				"ty",
 				-- go
 				"gofumpt",
 				"goimports",
 				"gopls",
 				-- config
 				"json-lsp",
+				"jsonlint",
 				"yaml-language-server",
 				"taplo",
 				-- frontend
@@ -30,7 +30,7 @@ return {
 				"clangd",
 				"cmakelang",
 				"cmakelint",
-				"codelldb",
+				"neocmakelsp",
 			},
 		},
 	},

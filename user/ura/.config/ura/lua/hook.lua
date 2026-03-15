@@ -74,6 +74,10 @@ ura.hook.add("window-new", function(e)
 	elseif string.match(app_id, "zenity") then
 		win:set_layout("floating")
 		win:center(opt)
+	elseif string.match(app_id, "btop") then
+		win:set_layout("floating")
+		win:set_z_index(ura.g.layer.overlay)
+		win:center(opt)
 	else
 		win:set_layout("tiling")
 	end
