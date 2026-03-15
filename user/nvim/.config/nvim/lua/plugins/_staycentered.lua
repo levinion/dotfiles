@@ -4,5 +4,4 @@ return {
 	opts = {
 		skip_filetypes = {},
 	},
-	enabled = false,
 }

@@ -1,1 +1,1 @@
-require("utils").glob_require("autocmds")
+require("utils").require_all("autocmds")

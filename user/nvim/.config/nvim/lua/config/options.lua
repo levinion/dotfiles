@@ -1,7 +1,9 @@
 -- Options are automatically loaded before lazy.nvim startup
 
+-- needed by lazy.nvim
 vim.g.mapleader = " " -- set leader with <Space>
 vim.g.maplocalleader = "\\"
+
 vim.g.snacks_animate = false -- disable animation provided by snacks
 
 vim.o.termguicolors = true

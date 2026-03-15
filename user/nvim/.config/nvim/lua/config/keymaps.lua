@@ -1,1 +1,1 @@
-require("utils").glob_require("keymaps")
+require("utils").require_all("keymaps")

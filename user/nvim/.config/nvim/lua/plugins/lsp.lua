@@ -63,7 +63,7 @@ return {
 			vim.lsp.inlay_hint.enable(true)
 
 			-- load lang config
-			require("utils").glob_require("lang")
+			require("utils").require_all("lang")
 		end,
 	},
 }
