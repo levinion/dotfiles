@@ -114,6 +114,14 @@ ura.keymap.set({ "super+k" }, function()
 	ura.cmd.focus_up()
 end)
 
+ura.keymap.set({ "super+left" }, function()
+	ura.class.UraWindow:current():shrink(0.1)
+end)
+
+ura.keymap.set({ "super+right" }, function()
+	ura.class.UraWindow:current():expand(0.1)
+end)
+
 ura.keymap.set({ "super+p" }, function()
 	ura.api.spawn("rmpc togglepause")
 end)

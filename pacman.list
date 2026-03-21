@@ -75,7 +75,6 @@ httrack
 hwinfo
 hyperfine
 imagemagick
-imv
 inetutils
 inkscape
 inxi
@@ -137,7 +136,7 @@ mtools
 namcap
 nasm
 needrestart
-neovim
+neovim-git
 net-tools
 networkmanager
 nimo-bin
@@ -215,6 +214,7 @@ sudo
 sunshine
 swaybg
 swayidle
+swayimg
 swaylock
 swtpm
 systemctl-tui
@@ -248,7 +248,6 @@ vulkan-tools
 wasmer
 wasmtime
 watchexec
-waybar
 wayland-protocols
 wayland-utils
 wechat-universal-bwrap
@@ -265,7 +264,7 @@ wlopm
 wlr-randr
 wlrctl
 wlrobs
-wlroots-git
+wlroots0.19
 xclip
 xdg-desktop-portal-gtk
 xdg-desktop-portal-termfilechooser-hunkyburrito-git

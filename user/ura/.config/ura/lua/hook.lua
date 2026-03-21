@@ -1,7 +1,4 @@
-require("builtin.layout.tiling").setup({ type = "horizontal" })
-require("builtin.layout.fullscreen").setup()
-require("builtin.layout.maximize").setup()
-require("builtin.layout.floating").setup()
+require("builtin.layout").setup()
 
 local ironbar = require("plugins.ironbar")
 ironbar.setup()
@@ -81,7 +78,13 @@ ura.hook.add("window-new", function(e)
 	else
 		win:set_layout("tiling")
 	end
-	win:focus()
+end)
+
+ura.hook.add("window-map", function(e)
+	local win = ura.class.UraWindow:new(e.id)
+	if e.initial == true then
+		win:focus()
+	end
 end)
 
 ura.hook.add("window-focus", function(e)

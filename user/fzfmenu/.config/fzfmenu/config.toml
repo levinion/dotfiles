@@ -29,8 +29,7 @@ description = "move any windows to current workspace (only works on Ura WM)."
 prefix = "wi "
 picker = "python ~/.config/fzfmenu/plugins/ura-move.py picker"
 runner = "python ~/.config/fzfmenu/plugins/ura-move.py runner"
-on_enter = ["change-multi"]
-on_leave = ["change-multi(0)"]
+multiple = true
 background = true
 
 [[plugins]]
@@ -89,11 +88,7 @@ description = "manage sing-box user service."
 prefix = "sb "
 picker = "python ~/.config/fzfmenu/plugins/sing-box.py picker"
 runner = "python ~/.config/fzfmenu/plugins/sing-box.py runner"
-on_enter = [
-  "change-preview(systemctl --user status sing-box.service)",
-  "show-preview",
-]
-on_leave = ["hide-preview"]
+preview = "systemctl --user status sing-box.service"
 background = true
 
 [[plugins]]

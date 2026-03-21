@@ -1,5 +1,7 @@
 -- lsp
-vim.keymap.set("n", "<leader>cl", "<cmd>LspInfo<CR>", { desc = "Lsp Info" })
+vim.keymap.set("n", "<leader>cl", function()
+	vim.cmd("checkhealth vim.lsp")
+end, { desc = "Lsp Info" })
 vim.keymap.set("n", "<leader>cd", function()
 	vim.diagnostic.open_float()
 end, { desc = "Code diagnostic" })

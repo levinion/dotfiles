@@ -1,3 +1,3 @@
 require("opt")
-require("keymap")
 require("hook")
+require("keymap")

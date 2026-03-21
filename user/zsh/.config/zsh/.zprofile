@@ -1,7 +1,7 @@
 export EDITOR=nvim
 export DIFFPROG='nvim -d'
 
-export BROWSER="firefox-developer-edition"
+export BROWSER="firefox-nightly"
 pacman -Qq sccache >/dev/null 2>&1 && export RUSTC_WRAPPER=sccache
 
 if [[ "$XDG_SESSION_TYPE" = "x11" ]]; then
