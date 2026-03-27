@@ -1,8 +1,7 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	lazy = false,
-	version = false,
-	branch = "master",
+	branch = "main",
 	build = ":TSUpdate",
 	opts = {
 		ensure_installed = {
@@ -25,7 +24,6 @@ return {
 			"vim",
 			"vimdoc",
 			"json",
-			"jsonc",
 			"toml",
 			"xml",
 			"yaml",
@@ -41,11 +39,21 @@ return {
 			"ninja",
 			"rst",
 		},
-		highlight = { enable = true },
-		indent = { enable = true },
-		auto_install = vim.fn.executable("tree-sitter") == 1,
 	},
 	config = function(_, opts)
-		require("nvim-treesitter.configs").setup(opts)
+		require("nvim-treesitter").setup({})
+		require("nvim-treesitter").install(opts.ensure_installed)
+		vim.api.nvim_create_autocmd("FileType", {
+			pattern = opts.ensure_installed,
+			callback = function()
+				-- enable highlighting
+				vim.treesitter.start()
+				-- enable folds
+				vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+				vim.wo[0][0].foldmethod = "expr"
+				-- enable indentation
+				vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+			end,
+		})
 	end,
 }

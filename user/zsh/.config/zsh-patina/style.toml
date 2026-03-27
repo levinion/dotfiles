@@ -1,0 +1,81 @@
+["source"]
+foreground = "#7dcfff"
+
+["meta.function-call"]
+foreground = "#7dcfff"
+
+## --- Comments ---
+["comment.line.number-sign"]
+foreground = "red"
+bold = true
+
+["punctuation.definition.comment"]
+foreground = "red"
+bold = true
+
+## --- Functions & Executables ---
+
+["dynamic.callable.command"]
+foreground = "#89b4fa"
+
+["dynamic.callable.builtin"]
+foreground = "#89b4fa"
+
+["variable.function"]
+foreground = "#89b4fa"
+
+["entity.name.function"]
+foreground = "#89b4fa"
+
+["keyword.other.coproc"]
+foreground = "#89b4fa"
+italic = true
+
+["dynamic.callable.missing"]
+foreground = "red"
+
+## --- Keywords & Control Flow ---
+["keyword.control.if"]
+foreground = "#cba6f7"
+
+["keyword.control.case"]
+foreground = "#cba6f7"
+
+## --- Strings ---
+["string.quoted.single"]
+foreground = "#a6e3a1"
+
+["string.quoted.double"]
+foreground = "#7dcfff"
+
+["string.unquoted"]
+foreground = "#7dcfff"
+
+## --- Variables & Parameters ---
+["variable.other.readwrite"]
+foreground = "#cdd6f4"
+
+["variable.parameter.option"]
+foreground = "#7dcfff"
+
+["punctuation.definition.variable"]
+foreground = "#a6e3a1"
+
+## --- Punctuation & Operators ---
+["punctuation.separator"]
+foreground = "#f38ba8"
+
+["keyword.operator.logical.pipe"]
+foreground = "#f38ba8"
+
+["keyword.operator.assignment.redirection"]
+foreground = "#cdd6f4"
+
+["punctuation.section.brackets"]
+foreground = "#f5c2e7"
+
+
+## --- Paths ---
+["dynamic.path"]
+foreground = "#7dcfff"
+underline = true

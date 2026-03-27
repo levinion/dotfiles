@@ -3,8 +3,6 @@
 EnumerateWithTriggerKeys=True
 # Temporarily Toggle Input Method
 AltTriggerKeys=
-# Enumerate Input Method Forward
-EnumerateForwardKeys=
 # Enumerate Input Method Backward
 EnumerateBackwardKeys=
 # Skip first input method while enumerating
@@ -22,6 +20,9 @@ ModifierOnlyKeyTimeout=250
 
 [Hotkey/DeactivateKeys]
 0=Hangul_Romaja
+
+[Hotkey/EnumerateForwardKeys]
+0=Control+space
 
 [Hotkey/EnumerateGroupForwardKeys]
 0=Super+space

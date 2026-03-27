@@ -1,7 +1,7 @@
 # setterm -linewrap off
 
 zsh-load-plugin() {
-  source "$ZDOTDIR/plugins/$1.sh"
+  source "$ZDOTDIR/plugins/$1.zsh"
 }
 
 zsh-load-config-dir() {
@@ -29,5 +29,6 @@ zsh-load-plugin vim-mode
 exists-package zsh-history-substring-search && zsh-load-plugin history-substring-search
 exists direnv && zsh-load-plugin direnv
 exists-package zsh-syntax-highlighting && zsh-load-plugin zsh-syntax-highlighting
+# exists zsh-patina && zsh-load-plugin zsh-patina
 
 zsh-load-config-dir

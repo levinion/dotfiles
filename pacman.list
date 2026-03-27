@@ -46,6 +46,7 @@ expect
 eza
 fastfetch
 fcitx5
+fcitx5-chinese-addons
 fcitx5-configtool
 fcitx5-gtk
 fcitx5-qt
@@ -207,7 +208,6 @@ smbclient
 sol2
 sshpass
 steam
-stor
 stow
 stress-ng
 sudo
@@ -292,5 +292,6 @@ zsh
 zsh-autosuggestions
 zsh-completions
 zsh-history-substring-search
+zsh-patina-git
 zsh-syntax-highlighting
 zsh-theme-powerlevel10k-git

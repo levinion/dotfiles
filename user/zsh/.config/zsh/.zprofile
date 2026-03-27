@@ -28,6 +28,9 @@ if [[ "$XDG_SESSION_TYPE" = "wayland" ]]; then
   export ELECTRON_OZONE_PLATFORM_HINT=auto
 fi
 
+# use portal instead of gtk-native filechooser
+export GTK_USE_PORTAL=1
+
 export QT_STYLE_OVERRIDE=kvantum
 export QT_QPA_PLATFORMTHEME=qt6ct
 
@@ -39,6 +42,7 @@ export INPUT_METHOD=fcitx
 export GLFW_IM_MODULE=ibus
 
 # disable csd for firefox
+# or manually set that by Customize toolbar > Title Bar > True
 # export MOZ_GTK_TITLEBAR_DECORATION=system
 
 # firefox nvidia vaapi
