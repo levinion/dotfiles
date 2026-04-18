@@ -107,3 +107,9 @@ prefix = "cp "
 picker = "cliphist list"
 runner = 'echo -n "$FZFMENU_OUTPUT" | cliphist decode | wl-copy'
 background = true
+
+[[plugins]]
+name = "plugins-list"
+description = "list all plugins"
+prefix = "ls "
+picker = "fzfmenu -l"

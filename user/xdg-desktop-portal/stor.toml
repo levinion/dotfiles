@@ -1,0 +1,1 @@
+pre_install = "paru -S --needed xdg-desktop-portal-gtk xdg-desktop-portal-termfilechooser-hunkyburrito-git xdg-desktop-portal-wlr"

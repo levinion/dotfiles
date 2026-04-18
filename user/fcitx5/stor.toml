@@ -1,0 +1,1 @@
+pre_install = "paru -S --needed fcitx5 fcitx5-chinese-addons fcitx5-configtool fcitx5-gtk fcitx5-qt fcitx5-rime rime-wanxiang-gram-zh-hans rime-wanxiang-pro-data rime-wanxiang-pro-data-flypy-fuzhu rime-wanxiang-pro-dict rime-wanxiang-pro-dict-flypy-fuzhu rime-wanxiang-pro-flypy"

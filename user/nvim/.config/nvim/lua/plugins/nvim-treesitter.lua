@@ -3,6 +3,7 @@ return {
 	lazy = false,
 	branch = "main",
 	build = ":TSUpdate",
+	dependencies = { "neovim-treesitter/treesitter-parser-registry" },
 	opts = {
 		ensure_installed = {
 			"bash",
@@ -49,8 +50,8 @@ return {
 				-- enable highlighting
 				vim.treesitter.start()
 				-- enable folds
-				vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
-				vim.wo[0][0].foldmethod = "expr"
+				vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+				vim.wo.foldmethod = "expr"
 				-- enable indentation
 				vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 			end,

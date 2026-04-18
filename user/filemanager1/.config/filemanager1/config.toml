@@ -1,1 +1,1 @@
-cmd = "foot -a yazi -e yazi"
+cmd = "foot -a yazi -e yazi {}"

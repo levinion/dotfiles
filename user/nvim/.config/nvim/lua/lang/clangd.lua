@@ -5,7 +5,7 @@ vim.lsp.config("clangd", {
 		"--clang-tidy",
 		"--all-scopes-completion",
 		"--completion-style=detailed",
-		"--header-insertion=iwyu",
+		"--header-insertion=never",
 		"--pch-storage=disk",
 		"--log=error",
 		"--j=12",

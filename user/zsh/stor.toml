@@ -1,0 +1,1 @@
+pre_install = "paru -S --needed zsh zsh-autosuggestions zsh-completions zsh-history-substring-search zsh-patina-git zsh-syntax-highlighting zsh-theme-powerlevel10k-git zoxide fzf-tab-git fzf"

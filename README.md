@@ -1,4 +1,8 @@
-# How to use
+## Dependencies
+
+- paru
+
+## Usage 
 
 ```shell
 make

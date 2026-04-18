@@ -65,9 +65,9 @@ ura.hook.add("window-new", function(e)
 		win:set_layout("floating")
 		win:resize(1280, 720, opt)
 		win:center(opt)
-	elseif string.match(app_id, "com.gabm.satty") then
-		win:set_layout("fullscreen")
-		win:set_z_index(320)
+	-- elseif string.match(app_id, "com.gabm.satty") then
+	-- 	win:set_layout("fullscreen")
+	-- 	win:set_z_index(320)
 	elseif string.match(app_id, "zenity") then
 		win:set_layout("floating")
 		win:center(opt)
@@ -76,7 +76,9 @@ ura.hook.add("window-new", function(e)
 		win:set_z_index(ura.g.layer.overlay)
 		win:center(opt)
 	else
-		win:set_layout("tiling")
+		if win:layout() == nil then
+			win:set_layout("tiling")
+		end
 	end
 end)
 

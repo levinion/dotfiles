@@ -1,10 +1,7 @@
 install: install-deps apply-user apply-system
 
 install-deps:
-	paru -S --needed $(shell cat pacman.list)
-
-deps:
-	pacman -Qqe > pacman.list
+	paru -S --needed stor 
 
 apply-user:
 	stor -f user/*/

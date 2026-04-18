@@ -11,6 +11,6 @@ status=$?
 kill $PID
 [[ $status == 0 ]] || exit 1
 OUTPUT_FILE=~/Pictures/Catch/"$(date +%Y-%m-%d-%H_%M_%S)".png
-satty --filename "$TEMP_FILE" --output-filename "$OUTPUT_FILE"
+satty --filename "$TEMP_FILE" --output-filename "$OUTPUT_FILE" --fullscreen
 wl-copy "$OUTPUT_FILE"
 exit 0
