@@ -29,7 +29,6 @@ foreground = "#89b4fa"
 
 ["keyword.other.coproc"]
 foreground = "#89b4fa"
-italic = true
 
 ["dynamic.callable.missing"]
 foreground = "red"
