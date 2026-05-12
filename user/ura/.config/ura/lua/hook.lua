@@ -44,6 +44,7 @@ ura.hook.add("window-new", function(e)
 	if string.match(app_id, "fzfmenu") then
 		win:set_layout("floating")
 		win:resize(1000, 600, opt)
+		win:set_z_index(ura.g.layer.overlay)
 		win:center(opt)
 	elseif string.match(app_id, "XEyes") then
 		win:set_layout("floating")

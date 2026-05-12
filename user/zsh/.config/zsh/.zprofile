@@ -71,3 +71,4 @@ zsh-add-path ~/.cargo/bin
 zsh-add-path ~/.yarn/bin
 zsh-add-path ~/.nix-profile/
 zsh-add-path /usr/share/ura/bin
+zsh-add-path /opt/shader-slang-bin/bin/

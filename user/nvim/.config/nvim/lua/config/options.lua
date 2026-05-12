@@ -36,3 +36,6 @@ opt.foldtext = ""
 opt.title = true -- auto-change the title of TE
 opt.titlelen = 0 -- do not shorten title
 opt.titlestring = 'nvim %{expand("%:p")}'
+
+-- enable codelens
+vim.lsp.codelens.enable(true)

@@ -15,6 +15,9 @@ vim.lsp.config("lua_ls", {
 			diagnostics = {
 				globals = { "vim", "ura", "Snacks" },
 			},
+			codeLens = {
+				enable = true,
+			},
 		},
 	},
 })

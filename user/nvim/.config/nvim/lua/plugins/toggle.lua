@@ -11,7 +11,6 @@ return {
 			-- Additional toggle pairs (merged with defaults)
 			mappings = {
 				{ "yes", "no" },
-				{ "foo", "bar", "baz" }, -- cycles: foo → bar → baz → foo
 			},
 		})
 	end,
