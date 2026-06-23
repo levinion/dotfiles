@@ -77,12 +77,25 @@ end, { desc = "Help" })
 vim.keymap.set("n", "<leader>sb", function()
 	Snacks.picker.buffers()
 end, { desc = "Buffers" })
+
 vim.keymap.set("n", "<leader>sq", function()
 	Snacks.picker.qflist()
 end, { desc = "Quickfix" })
+
 vim.keymap.set("n", "<leader>su", function()
 	Snacks.picker.undo()
 end, { desc = "Undo" })
+
+vim.keymap.set("n", "<leader>sl", function()
+	Snacks.picker.grep({
+		dirs = { vim.api.nvim_buf_get_name(0) },
+		format = function(item)
+			local ret = { { string.format("%s: ", item.pos[1]), "Conceal" } }
+			Snacks.picker.highlight.format(item, item.line, ret)
+			return ret
+		end,
+	})
+end, { desc = "Grep current buffer" })
 
 -- history
 vim.keymap.set("n", "<leader>h", function()

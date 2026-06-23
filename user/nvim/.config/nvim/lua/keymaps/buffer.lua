@@ -40,3 +40,5 @@ vim.keymap.set("n", "<C-\\>", require("smart-splits").move_cursor_previous)
 -- vim.keymap.set("n", "<leader><leader>j", require("smart-splits").swap_buf_down)
 -- vim.keymap.set("n", "<leader><leader>k", require("smart-splits").swap_buf_up)
 -- vim.keymap.set("n", "<leader><leader>l", require("smart-splits").swap_buf_right)
+
+vim.keymap.set("n", "<leader>o", "<cmd>silent !xdg-open % &<cr>", { desc = "Open with xdg-open" })

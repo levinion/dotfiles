@@ -15,7 +15,7 @@ show_if = "#app_id"
 [[start]]
 type = "label"
 class = "app_title"
-label = " #title "
+label = "#title"
 show_if = "#title"
 
 [[center]]
@@ -45,13 +45,13 @@ cpu = 1
 
 [[end]]
 type = "sys_info"
-format = ["   {memory_used:<3.2}G"]
+format = ["  {memory_used:<3.2}G"]
 [end.interval]
 memory = 1
 
 [[end]]
 type = "volume"
-format = "{icon}  {percentage}%"
+format = "{icon} {percentage}%"
 max_volume = 100
 truncate = "middle"
 

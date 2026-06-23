@@ -61,6 +61,9 @@ export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git --max-r
 # man
 export MANPAGER="nvim +Man! -c 'set nowrap'"
 
+# run libreoffice with gtk4 backend
+export SAL_USE_VCLPLUGIN=gtk4
+
 zsh-add-path() {
   PATH=$1:$PATH
 }

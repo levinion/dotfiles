@@ -1,6 +1,6 @@
 vim.pack.add({ "https://github.com/folke/lazy.nvim.git" })
 
-require("config.options")
+require("options")
 
 require("lazy").setup({
 	spec = {
@@ -9,5 +9,5 @@ require("lazy").setup({
 	checker = { enabled = false },
 })
 
-require("config.keymaps")
-require("config.autocmds")
+require("utils").require_all("keymaps")
+require("utils").require_all("autocmds")

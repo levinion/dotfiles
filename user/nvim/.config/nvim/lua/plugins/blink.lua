@@ -2,10 +2,8 @@ return {
 	{
 		"saghen/blink.cmp",
 		version = "1.*",
-		dependencies = {
-			"rafamadriz/friendly-snippets",
-		},
 		event = "VeryLazy",
+		dependencies = { "L3MON4D3/LuaSnip", version = "v2.*" },
 		opts = {
 			completion = {
 				documentation = {
@@ -21,6 +19,7 @@ return {
 			sources = {
 				default = { "path", "snippets", "buffer", "lsp" },
 			},
+			snippets = { preset = "luasnip" },
 			keymap = {
 				preset = "super-tab",
 				["<C-y>"] = { "select_and_accept" },
