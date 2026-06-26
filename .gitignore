@@ -2,7 +2,6 @@
 fishd.tmp.*
 vps*
 .zcompdump
-/user/mpd/.config/mpd/*
+linux/user/mpd/.config/mpd/*
 !mpd.conf
-/user/fcitx5/.local/share/fcitx5/rime/*
-!/user/fcitx5/.local/share/fcitx5/rime/*.custom.yaml
+.DS_Store
