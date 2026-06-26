@@ -1,0 +1,22 @@
+patch:
+  __include: wanxiang_pro_suggestion:/
+  switcher/hotkeys:
+    - "Control+grave"
+    - "Control+Shift+grave"
+  menu/page_size: 4
+  ascii_composer:
+    good_old_caps_lock: true
+    switch_key:
+      Shift_L: noop
+      Shift_R: noop
+      Control_L: inline_ascii
+      Control_R: inline_ascii
+      Caps_Lock: commit_code
+      Eisu_toggle: clear
+  key_binder:
+    bindings:
+      - { accept: bracketleft, send: Page_Up, when: paging }
+      - { accept: bracketright, send: Page_Down, when: has_menu }
+      # - { accept: minus, send: Page_Up, when: paging }
+      # - { accept: equal, send: Page_Down, when: has_menu }
+      # - { accept: Shift_L, send: "/", when: has_menu }

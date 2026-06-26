@@ -26,7 +26,7 @@ zle -N enter-insert-mode
 
 enter-normal-mode() {
   echo -en '\e[2 q'
- [[ $(uname) != "Darwin" ]] && fcitx5-remote -c
+ [[ $(uname) == "Linux" ]] && fcitx5-remote -c
 }
 
 zle -N enter-normal-mode

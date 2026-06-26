@@ -43,7 +43,10 @@ export GLFW_IM_MODULE=ibus
 
 # disable csd for firefox
 # or manually set that by Customize toolbar > Title Bar > True
-# export MOZ_GTK_TITLEBAR_DECORATION=system
+export MOZ_GTK_TITLEBAR_DECORATION=system
+
+# disable safe mode when launching app with alt
+export MOZ_DISABLE_SAFE_MODE_KEY=1
 
 # firefox nvidia vaapi
 export MOZ_DISABLE_RDD_SANDBOX=1
@@ -61,14 +64,24 @@ export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git --max-r
 # man
 export MANPAGER="nvim +Man! -c 'set nowrap'"
 
-zsh-add-path() {
-  PATH=$1:$PATH
+
+zsh-prepend-path() {
+  [[ -d $1 ]] && PATH=$1:$PATH
 }
 
-zsh-add-path ~/go/bin
+zsh-add-path() {
+  [[ -d $1 ]] && PATH=$PATH:$1
+}
+
+[[ $(uname) == "Darwin" ]] && {
+zsh-prepend-path /opt/homebrew/opt/coreutils/libexec/gnubin
+zsh-prepend-path /opt/homebrew/opt/util-linux/sbin
+zsh-prepend-path /opt/homebrew/opt/util-linux/bin
+}
 zsh-add-path ~/.local/bin
+zsh-add-path ~/go/bin
 zsh-add-path ~/.cargo/bin
 zsh-add-path ~/.yarn/bin
 zsh-add-path ~/.nix-profile/
 zsh-add-path /usr/share/ura/bin
-zsh-add-path /opt/shader-slang-bin/bin/
+zsh-add-path /opt/shader-slang-bin/bin
