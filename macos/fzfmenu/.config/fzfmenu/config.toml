@@ -1,111 +1,9 @@
 [[plugins]]
 name = "app_launcher"
-description = "Launch applications based on your desktop environment."
+description = "Launch applications"
 prefix = ""
-picker = "python ~/.config/fzfmenu/plugins/app_launcher.py picker"
-runner = "python ~/.config/fzfmenu/plugins/app_launcher.py runner"
-background = true
-
-[[plugins]]
-name = "killer"
-description = "Find and terminate running processes."
-prefix = "kl "
-picker = 'pgrep -fa "$FZFMENU_INPUT"'
-runner = 'echo "$FZFMENU_OUTPUT" | cut -d " " -f1 | xargs kill -9'
-dynamic = true
-background = true
-
-[[plugins]]
-name = "ura-jumper"
-description = "Jump to any windows (only works on Ura WM)."
-prefix = "wd "
-picker = "python ~/.config/fzfmenu/plugins/ura-jumper.py picker"
-runner = "python ~/.config/fzfmenu/plugins/ura-jumper.py runner"
-background = true
-
-[[plugins]]
-name = "ura-move"
-description = "move any windows to current workspace (only works on Ura WM)."
-prefix = "wi "
-picker = "python ~/.config/fzfmenu/plugins/ura-move.py picker"
-runner = "python ~/.config/fzfmenu/plugins/ura-move.py runner"
-multiple = true
-background = true
-
-[[plugins]]
-name = "ura-tag"
-description = "Enable or create new tags"
-prefix = "wg "
-picker = "python ~/.config/fzfmenu/plugins/ura-tag.py picker"
-runner = "python ~/.config/fzfmenu/plugins/ura-tag.py runner"
-dynamic = true
-background = true
-
-[[plugins]]
-name = "ura-selector"
-description = "Select existing tags"
-prefix = "ws "
-picker = "python ~/.config/fzfmenu/plugins/ura-selector.py picker"
-runner = "python ~/.config/fzfmenu/plugins/ura-selector.py runner"
-dynamic = true
-background = true
-
-[[plugins]]
-name = "brotab"
-description = "Activate tab using brotab"
-prefix = "fx "
-picker = "python ~/.config/fzfmenu/plugins/brotab.py picker"
-runner = "python ~/.config/fzfmenu/plugins/brotab.py runner"
-background = true
-
-[[plugins]]
-name = "history"
-description = "Search and reuse past shell commands."
-prefix = "hs "
-picker = 'atuin search --cmd-only "$FZFMENU_INPUT"'
-runner = "setsid $FZFMENU_OUTPUT && echo press any key to continue && read"
-dynamic = true
-
-[[plugins]]
-name = "sink"
-description = "Switch default pipewire sink."
-prefix = "sk "
-picker = "python ~/.config/fzfmenu/plugins/sink.py picker"
-runner = "python ~/.config/fzfmenu/plugins/sink.py runner"
-background = true
-
-[[plugins]]
-name = "mpris"
-description = "control play/pause with playerctl."
-prefix = "mp "
-picker = "python ~/.config/fzfmenu/plugins/mpris.py picker"
-runner = "python ~/.config/fzfmenu/plugins/mpris.py runner"
-background = true
-
-[[plugins]]
-name = "sing-box"
-description = "manage sing-box user service."
-prefix = "sb "
-picker = "python ~/.config/fzfmenu/plugins/sing-box.py picker"
-runner = "python ~/.config/fzfmenu/plugins/sing-box.py runner"
-preview = "systemctl --user status sing-box.service"
-background = true
-
-[[plugins]]
-name = "clipboard-copy"
-description = "copy to clipboard"
-prefix = "cc "
-picker = "echo $FZFMENU_INPUT"
-runner = "echo -n $FZFMENU_OUTPUT | wl-copy"
-background = true
-dynamic = true
-
-[[plugins]]
-name = "clipboard"
-description = "clipboard manager"
-prefix = "cp "
-picker = "cliphist list"
-runner = 'echo -n "$FZFMENU_OUTPUT" | cliphist decode | wl-copy'
+picker = "fd -d2 -L '\\.app$' /Applications $HOME/Applications /System/Applications -x echo {/} | cut -d '.' -f1"
+runner = "/usr/bin/open -a '{}'"
 background = true
 
 [[plugins]]
@@ -113,3 +11,19 @@ name = "plugins-list"
 description = "list all plugins"
 prefix = "ls "
 picker = "fzfmenu -l"
+
+[[plugins]]
+name = "focus"
+description = "focus specific window"
+prefix = "f "
+picker = "hs $HOME/.config/fzfmenu/plugins/focus/picker.lua"
+runner = "hs $HOME/.config/fzfmenu/plugins/focus/runner.lua '{}'"
+background = true
+
+[[plugins]]
+name = "brotab"
+description = "Activate tab using brotab"
+prefix = "b "
+picker = "python3 ~/.config/fzfmenu/plugins/brotab/brotab.py picker"
+runner = "python3 ~/.config/fzfmenu/plugins/brotab/brotab.py runner"
+background = true

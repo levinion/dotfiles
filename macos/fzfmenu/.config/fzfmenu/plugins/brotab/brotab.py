@@ -13,8 +13,13 @@ def picker():
 
 
 def runner(output: str):
-    id = output.split("\t")[0]
-    subprocess.call(["brotab", "activate", id, "--focused"])
+    info = output.split("\t")
+    id = info[0]
+    title = info[1]
+    subprocess.call(["brotab", "activate","--focused", id])
+
+    # since --focused activate but not change current space, use hs to change space
+    subprocess.call(["hs", os.path.expandvars("$HOME/.config/fzfmenu/plugins/brotab/focus.lua"), title])
 
 
 def main():

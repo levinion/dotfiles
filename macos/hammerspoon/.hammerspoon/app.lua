@@ -6,6 +6,10 @@ hs.hotkey.bind({ "ctrl", "cmd", "alt" }, "b", function()
   hs.execute("MOZ_DISABLE_SAFE_MODE_KEY=1 open -na 'Firefox Nightly'")
 end)
 
-hs.hotkey.bind({ "ctrl", "cmd", "alt" }, "y", function()
-  hs.execute([[/opt/homebrew/bin/alacritty -e fzfmenu]])
+hs.hotkey.bind({ "cmd" }, "space", function()
+  hs.osascript.applescript([[
+        tell application "iTerm"
+            set newWindow to (create window with profile "fzfmenu")
+        end tell
+    ]])
 end)
