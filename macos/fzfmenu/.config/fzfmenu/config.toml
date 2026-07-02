@@ -3,7 +3,7 @@ name = "app_launcher"
 description = "Launch applications"
 prefix = ""
 picker = "fd -d2 -L '\\.app$' /Applications $HOME/Applications /System/Applications -x echo {/} | cut -d '.' -f1"
-runner = "/usr/bin/open -a '{}'"
+runner = "open -a '{}'"
 background = true
 
 [[plugins]]
@@ -11,6 +11,7 @@ name = "plugins-list"
 description = "list all plugins"
 prefix = "ls "
 picker = "fzfmenu -l"
+runner = "echo '{}'"
 
 [[plugins]]
 name = "focus"

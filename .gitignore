@@ -5,3 +5,4 @@ vps*
 linux/user/mpd/.config/mpd/*
 !mpd.conf
 .DS_Store
+.zsh_sessions/
