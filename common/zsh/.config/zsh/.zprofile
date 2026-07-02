@@ -74,7 +74,7 @@ zsh-add-path() {
 }
 
 [[ $(uname) == "Darwin" ]] && {
-zsh-prepend-path /opt/homebrew/bin/
+eval "$(/opt/homebrew/bin/brew shellenv)"
 zsh-prepend-path /opt/homebrew/opt/coreutils/libexec/gnubin
 zsh-prepend-path /opt/homebrew/opt/util-linux/sbin
 zsh-prepend-path /opt/homebrew/opt/util-linux/bin
