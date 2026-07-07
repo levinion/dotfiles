@@ -1,5 +1,5 @@
 vim.api.nvim_create_autocmd("BufReadCmd", {
-  pattern = { "*.png", "*.jpg", "*.jpeg", "*.pdf", "*.gif", "*.bmp", "*.exr" },
+  pattern = { "*.png", "*.jpg", "*.jpeg", "*.pdf", "*.gif", "*.bmp", "*.exr", "*.hdf5" },
   callback = function(args)
     local bufnr = args.buf
 
