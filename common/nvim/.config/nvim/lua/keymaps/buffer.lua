@@ -41,4 +41,8 @@ vim.keymap.set("n", "<C-\\>", require("smart-splits").move_cursor_previous)
 -- vim.keymap.set("n", "<leader><leader>k", require("smart-splits").swap_buf_up)
 -- vim.keymap.set("n", "<leader><leader>l", require("smart-splits").swap_buf_right)
 
-vim.keymap.set("n", "<leader>o", "<cmd>silent !xdg-open % &<cr>", { desc = "Open with xdg-open" })
+
+vim.keymap.set("n", "<leader>o", function()
+  local cmd = vim.fn.has("mac") == 1 and "open %" or "xdg-open %"
+  vim.cmd("silent !" .. cmd .. " &")
+end, { desc = "Open with system default application" })

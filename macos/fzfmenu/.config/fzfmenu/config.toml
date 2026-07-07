@@ -28,3 +28,12 @@ prefix = "b "
 picker = "python3 ~/.config/fzfmenu/plugins/brotab/brotab.py picker"
 runner = "python3 ~/.config/fzfmenu/plugins/brotab/brotab.py runner"
 background = true
+
+[[plugins]]
+name = "killer"
+description = "Find and terminate running processes."
+prefix = "kl "
+picker = 'pgrep -li "$FZFMENU_INPUT"'
+runner = 'echo "$FZFMENU_OUTPUT" | cut -d " " -f1 | xargs kill -9'
+dynamic = true
+background = true

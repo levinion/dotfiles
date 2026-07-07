@@ -78,6 +78,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 zsh-prepend-path /opt/homebrew/opt/coreutils/libexec/gnubin
 zsh-prepend-path /opt/homebrew/opt/util-linux/sbin
 zsh-prepend-path /opt/homebrew/opt/util-linux/bin
+zsh-add-path /opt/homebrew/opt/imagemagick-full/bin
 }
 zsh-add-path ~/.local/bin
 zsh-add-path ~/go/bin
