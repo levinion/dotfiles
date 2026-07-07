@@ -24,27 +24,27 @@ hs.hotkey.bind({ "cmd" }, "space", function()
 end)
 
 -- maximize window
-hs.hotkey.bind({ "alt" }, "space", function()
+hs.hotkey.bind({ "ctrl", "cmd", "alt" }, "space", function()
   hs.window.focusedWindow():moveToUnit(hs.layout.maximized)
 end)
 
 -- move window to left
-hs.hotkey.bind({ "alt" }, "left", function()
+hs.hotkey.bind({ "ctrl", "cmd", "alt" }, "left", function()
   hs.window.focusedWindow():moveToUnit(hs.layout.left50)
 end)
 
 -- move window to right
-hs.hotkey.bind({ "alt" }, "right", function()
+hs.hotkey.bind({ "ctrl", "cmd", "alt" }, "right", function()
   hs.window.focusedWindow():moveToUnit(hs.layout.right50)
 end)
 
 -- move window to bottom
-hs.hotkey.bind({ "alt" }, "down", function()
+hs.hotkey.bind({ "ctrl", "cmd", "alt" }, "down", function()
   hs.window.focusedWindow():moveToUnit({ 0, 0.5, 1, 0.5 })
 end)
 
 -- move window to up
-hs.hotkey.bind({ "alt" }, "up", function()
+hs.hotkey.bind({ "ctrl", "cmd", "alt" }, "up", function()
   hs.window.focusedWindow():moveToUnit({ 0, 0, 1, 0.5 })
 end)
 
