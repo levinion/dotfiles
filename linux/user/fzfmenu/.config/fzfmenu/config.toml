@@ -18,7 +18,7 @@ background = true
 [[plugins]]
 name = "ura-jumper"
 description = "Jump to any windows (only works on Ura WM)."
-prefix = "wd "
+prefix = "f "
 picker = "python ~/.config/fzfmenu/plugins/ura-jumper.py picker"
 runner = "python ~/.config/fzfmenu/plugins/ura-jumper.py runner"
 background = true
@@ -26,7 +26,7 @@ background = true
 [[plugins]]
 name = "ura-move"
 description = "move any windows to current workspace (only works on Ura WM)."
-prefix = "wi "
+prefix = "m "
 picker = "python ~/.config/fzfmenu/plugins/ura-move.py picker"
 runner = "python ~/.config/fzfmenu/plugins/ura-move.py runner"
 multiple = true
@@ -35,25 +35,16 @@ background = true
 [[plugins]]
 name = "ura-tag"
 description = "Enable or create new tags"
-prefix = "wg "
+prefix = "t "
 picker = "python ~/.config/fzfmenu/plugins/ura-tag.py picker"
 runner = "python ~/.config/fzfmenu/plugins/ura-tag.py runner"
 dynamic = true
 background = true
 
 [[plugins]]
-name = "ura-selector"
-description = "Select existing tags"
-prefix = "ws "
-picker = "python ~/.config/fzfmenu/plugins/ura-selector.py picker"
-runner = "python ~/.config/fzfmenu/plugins/ura-selector.py runner"
-dynamic = true
-background = true
-
-[[plugins]]
 name = "brotab"
 description = "Activate tab using brotab"
-prefix = "fx "
+prefix = "b "
 picker = "python ~/.config/fzfmenu/plugins/brotab.py picker"
 runner = "python ~/.config/fzfmenu/plugins/brotab.py runner"
 background = true

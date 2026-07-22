@@ -82,13 +82,8 @@ ura.hook.add("window-new", function(e)
 			win:set_layout("tiling")
 		end
 	end
-end)
 
-ura.hook.add("window-map", function(e)
-	local win = ura.class.UraWindow:new(e.id)
-	if e.initial == true then
-		win:focus()
-	end
+	win:focus()
 end)
 
 ura.hook.add("window-focus", function(e)
