@@ -1,7 +1,7 @@
 .tmp*
 fishd.tmp.*
 vps*
-.zcompdump
+.zcomp*
 linux/user/mpd/.config/mpd/*
 !mpd.conf
 .DS_Store

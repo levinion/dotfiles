@@ -3,7 +3,7 @@ hs.hotkey.bind({ "ctrl", "cmd", "alt", "shift" }, "r", function()
   hs.reload()
 end)
 
--- launch iterm2
+-- launch terminal
 hs.hotkey.bind({ "ctrl", "cmd", "alt" }, "t", function()
   hs.execute("open -na Alacritty --args -e tmux", true)
 end)
@@ -21,6 +21,11 @@ end)
 -- launch fzfmenu
 hs.hotkey.bind({ "cmd" }, "space", function()
   hs.execute("open -na Alacritty --args -T fzfmenu -e fzfmenu", true)
+end)
+
+-- close window
+hs.hotkey.bind({ "ctrl", "cmd", "alt" }, "q", function()
+  hs.window.focusedWindow():close()
 end)
 
 -- maximize window
