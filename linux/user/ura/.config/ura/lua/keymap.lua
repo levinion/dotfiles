@@ -1,12 +1,12 @@
-ura.keymap.set({ "super+alt+ctrl+t" }, function()
+ura.keymap.set({ "super+t" }, function()
 	ura.api.spawn("foot -e tmux")
 end)
 
-ura.keymap.set({ "super+alt+ctrl+b" }, function()
+ura.keymap.set({ "super+b" }, function()
 	ura.api.spawn("firefox-nightly")
 end)
 
-ura.keymap.set({ "super+alt+ctrl+e" }, function()
+ura.keymap.set({ "super+e" }, function()
 	ura.api.spawn("foot -a yazi -e yazi")
 end)
 
