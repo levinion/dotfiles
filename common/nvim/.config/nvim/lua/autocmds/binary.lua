@@ -1,17 +1,17 @@
 vim.api.nvim_create_autocmd("BufReadCmd", {
-  pattern = { "*.png", "*.jpg", "*.jpeg", "*.pdf", "*.gif", "*.bmp", "*.exr", "*.hdf5" },
-  callback = function(args)
-    local bufnr = args.buf
+	pattern = { "*.png", "*.jpg", "*.jpeg", "*.pdf", "*.gif", "*.bmp", "*.exr", "*.hdf5", "*.obj" },
+	callback = function(args)
+		local bufnr = args.buf
 
-    vim.bo[bufnr].buftype = "nofile"
-    vim.bo[bufnr].bufhidden = "hide"
-    vim.bo[bufnr].swapfile = false
+		vim.bo[bufnr].buftype = "nofile"
+		vim.bo[bufnr].bufhidden = "hide"
+		vim.bo[bufnr].swapfile = false
 
-    vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, {
-      "<Binary File>"
-    })
+		vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, {
+			"<Binary File>",
+		})
 
-    vim.bo[bufnr].readonly = true
-    vim.bo[bufnr].modifiable = false
-  end
+		vim.bo[bufnr].readonly = true
+		vim.bo[bufnr].modifiable = false
+	end,
 })

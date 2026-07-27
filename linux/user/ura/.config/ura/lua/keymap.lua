@@ -159,7 +159,7 @@ ura.keymap.set({ "XF86MonBrightnessDown" }, function()
 end)
 
 ura.keymap.set({ "super+shift+s" }, function()
-	ura.api.spawn("swaylock -f -i ~/.config/ura/assets/bg.jpg")
+	ura.api.spawn("bash ~/.config/ura/scripts/lockidle.sh")
 end)
 
 ura.keymap.set({ "super+s" }, function()
