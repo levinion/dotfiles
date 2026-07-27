@@ -28,6 +28,11 @@ hs.hotkey.bind({ "ctrl", "cmd", "alt" }, "q", function()
   hs.window.focusedWindow():close()
 end)
 
+-- toggle fullscreen
+hs.hotkey.bind({ "ctrl", "cmd", "alt" }, "f", function()
+  hs.window.focusedWindow():toggleFullScreen()
+end)
+
 -- maximize window
 hs.hotkey.bind({ "ctrl", "cmd", "alt" }, "space", function()
   hs.window.focusedWindow():moveToUnit(hs.layout.maximized)
