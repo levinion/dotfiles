@@ -32,3 +32,7 @@ exists direnv && zsh-load-plugin direnv
 exists zsh-patina && zsh-load-plugin zsh-patina
 
 zsh-load-config-dir
+
+if [ -z "$SSH_AUTH_SOCK" ]; then
+  eval "$(ssh-agent -s)"
+fi

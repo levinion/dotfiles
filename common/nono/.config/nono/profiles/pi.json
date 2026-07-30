@@ -10,8 +10,15 @@
     "access": "readwrite"
   },
   "filesystem": {
-    "allow": ["$WORKDIR"],
-    "read": [],
-    "allow_file": ["$SSH_AUTH_SOCK"]
+    "allow": [
+      "$WORKDIR",
+      "/tmp"
+    ],
+    "read": [
+      "/opt/pi-coding-agent"
+    ],
+    "allow_file": [
+      "$SSH_AUTH_SOCK"
+    ]
   }
 }
