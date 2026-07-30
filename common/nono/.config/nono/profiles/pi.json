@@ -1,0 +1,17 @@
+{
+  "extends": "nolabs-ai/pi",
+  "meta": {
+    "name": "pi"
+  },
+  "groups": {
+    "include": []
+  },
+  "workdir": {
+    "access": "readwrite"
+  },
+  "filesystem": {
+    "allow": ["$WORKDIR"],
+    "read": [],
+    "allow_file": ["$SSH_AUTH_SOCK"]
+  }
+}
