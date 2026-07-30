@@ -24,6 +24,7 @@ zsh-load-plugin autosuggestions
 zsh-load-plugin completion
 exists atuin && zsh-load-plugin atuin
 exists zoxide && zsh-load-plugin zoxide
+exists nono && zsh-load-plugin nono
 zsh-load-plugin fzf-tab
 zsh-load-plugin vim-mode
 exists-package zsh-history-substring-search && zsh-load-plugin history-substring-search
