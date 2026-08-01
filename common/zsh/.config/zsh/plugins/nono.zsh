@@ -1,2 +1,2 @@
 eval "$(nono completion zsh)"
-alias nonopi="nono run --profile pi -- pi"
+alias np="nono run --profile pi -- pi"

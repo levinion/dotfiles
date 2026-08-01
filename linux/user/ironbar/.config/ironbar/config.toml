@@ -17,6 +17,9 @@ type = "label"
 class = "app_title"
 label = "#title"
 show_if = "#title"
+[start.truncate]
+mode = "end"
+max_length = 30
 
 [[center]]
 format = "  %H:%M "
@@ -28,14 +31,16 @@ class = "recording"
 label = "#recording"
 show_if = "#recording"
 
-[[end]]
-type = "music"
-player_type = "mpd"
-format = "{title}"
-truncate = "end"
-[end.icons]
-play = ""
-pause = ""
+# [[end]]
+# type = "music"
+# player_type = "mpris"
+# format = "{title}"
+# [end.truncate]
+# mode = "end"
+# max_length = 30
+# [end.icons]
+# play = ""
+# pause = ""
 
 [[end]]
 type = "sys_info"
