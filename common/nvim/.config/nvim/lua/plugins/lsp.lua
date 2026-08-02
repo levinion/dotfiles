@@ -33,6 +33,10 @@ return {
 				"neocmakelsp",
 			},
 		},
+		config = function(_, opts)
+			require("mason").setup(opts)
+			vim.keymap.set("n", "<leader>cm", "<cmd>Mason<CR>", { desc = "Mason" })
+		end,
 	},
 	{
 		"mason-org/mason-lspconfig.nvim",
