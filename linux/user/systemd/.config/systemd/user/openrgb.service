@@ -1,11 +1,9 @@
 [Unit]
-Description=openrgb user oneshot service
-After=graphical-session.target
+Description=OpenRGB Profile Loader
 
 [Service]
 Type=oneshot
-ExecStartPre=/bin/sleep 5
-ExecStart=openrgb --noautoconnect -p default
+ExecStart=/usr/bin/openrgb --noautoconnect -p default
 
 [Install]
-WantedBy=default.target
+WantedBy=graphical-session.target

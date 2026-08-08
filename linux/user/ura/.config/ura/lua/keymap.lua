@@ -122,10 +122,6 @@ ura.keymap.set({ "super+right" }, function()
 	ura.class.UraWindow:current():expand(0.1)
 end)
 
-ura.keymap.set({ "super+p" }, function()
-	ura.api.spawn("rmpc togglepause")
-end)
-
 ura.keymap.set({ "alt+a" }, function()
 	ura.api.spawn("screenshot")
 end)
@@ -135,7 +131,7 @@ ura.keymap.set({ "super+shift+o" }, function()
 end)
 
 ura.keymap.set({ "super+m" }, function()
-	ura.api.spawn("foot -a fzfmenu -e fzfmenu -q 'wi '")
+	ura.api.spawn("foot -a fzfmenu -e fzfmenu -q 'm '")
 end)
 
 ura.keymap.set({ "super+shift+m" }, function()

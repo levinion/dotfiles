@@ -1,5 +1,5 @@
 profile {
-  output DP-5 mode 3840x2160@119.879997Hz scale 2 position 0,0
+  output DP-5 mode 3840x2160@159.977005Hz scale 2 position 0,0
   output HDMI-A-3 mode 1920x1080@120.0Hz position 1920,0
 }
 
@@ -8,5 +8,5 @@ profile {
 }
 
 profile {
-  output DP-5 mode 3840x2160@119.879997Hz scale 2 position 0,0
+  output DP-5 mode 3840x2160@159.977005Hz scale 2 position 0,0
 }
