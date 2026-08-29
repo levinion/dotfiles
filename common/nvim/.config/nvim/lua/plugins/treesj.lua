@@ -1,17 +1,17 @@
 vim.pack.add({
-	{ src = "https://github.com/Wansmer/treesj" },
+  { src = "https://github.com/Wansmer/treesj" },
 })
 
 require("treesj").setup({
-	use_default_keymaps = false,
+  use_default_keymaps = false,
 })
 
 vim.keymap.set("n", "<leader>ct", function()
-	require("treesj").toggle()
+  require("treesj").toggle()
 end, { desc = "Toggle code block" })
 vim.keymap.set("n", "<leader>cs", function()
-	require("treesj").split()
+  require("treesj").split()
 end, { desc = "Split code block" })
 vim.keymap.set("n", "<leader>cj", function()
-	require("treesj").join()
+  require("treesj").join()
 end, { desc = "Join code block" })

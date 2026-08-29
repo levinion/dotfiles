@@ -26,6 +26,7 @@ require("which-key").setup({
 			{ "z", group = "fold" },
 			{ "<leader>b", group = "buffer" },
 			{ "<leader>w", group = "windows" },
+			{ "<leader>p", group = "pack" },
 		},
 	},
 })

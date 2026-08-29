@@ -25,6 +25,6 @@ vim.keymap.set("n", "<leader>wl", "<c-w>L", { desc = "Move to far right" })
 vim.keymap.set("n", "<leader>ww", "<cmd>w<CR>", { desc = "Save buffer" })
 
 vim.keymap.set("n", "<leader>o", function()
-	local cmd = vim.fn.has("mac") == 1 and "open %" or "xdg-open %"
-	vim.cmd("silent !" .. cmd .. " &")
+  local cmd = vim.fn.has("mac") == 1 and "open %" or "xdg-open %"
+  vim.cmd("silent !" .. cmd .. " &")
 end, { desc = "Open with system default application" })

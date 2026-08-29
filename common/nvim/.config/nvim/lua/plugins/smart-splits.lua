@@ -1,5 +1,5 @@
 vim.pack.add({
-	{ src = "https://github.com/mrjones2014/smart-splits.nvim" },
+  { src = "https://github.com/mrjones2014/smart-splits.nvim" },
 })
 
 vim.keymap.set("n", "<A-h>", require("smart-splits").resize_left)
