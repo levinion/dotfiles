@@ -1,7 +1,7 @@
-return {
-	"catgoose/nvim-colorizer.lua",
-	event = "BufReadPre",
-	opts = {
-		parsers = { css = true },
-	},
-}
+vim.pack.add({
+	{ src = "https://github.com/catgoose/nvim-colorizer.lua" },
+})
+
+require("colorizer").setup({
+	parsers = { css = true },
+})

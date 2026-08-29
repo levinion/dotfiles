@@ -1,12 +1,8 @@
-return {
-	"petertriho/nvim-scrollbar",
-	dependencies = { "lewis6991/gitsigns.nvim" },
-	opts = {
-		handle = {
-			color = "#7f849c",
-		},
-		handlers = {
-			gitsigns = true, -- Requires gitsigns
-		},
-	},
-}
+vim.pack.add({
+	{ src = "https://github.com/petertriho/nvim-scrollbar" },
+})
+
+require("scrollbar").setup({
+	handle = { color = "#7f849c" },
+	handlers = { gitsigns = true },
+})

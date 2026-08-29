@@ -1,60 +1,52 @@
-return {
-	"nvim-treesitter/nvim-treesitter",
-	lazy = false,
-	branch = "main",
-	build = ":TSUpdate",
-	dependencies = { "neovim-treesitter/treesitter-parser-registry" },
-	opts = {
-		ensure_installed = {
-			"bash",
-			"diff",
-			"lua",
-			"luadoc",
-			"luap",
-			"markdown",
-			"markdown_inline",
-			"printf",
-			"python",
-			"query",
-			"regex",
-			"javascript",
-			"jsdoc",
-			"html",
-			"tsx",
-			"typescript",
-			"vim",
-			"vimdoc",
-			"json",
-			"toml",
-			"xml",
-			"yaml",
-			"ini",
-			"c",
-			"cpp",
-			"rust",
-			"ron",
-			"go",
-			"gomod",
-			"gowork",
-			"gosum",
-			"ninja",
-			"rst",
-		},
-	},
-	config = function(_, opts)
-		require("nvim-treesitter").setup({})
-		require("nvim-treesitter").install(opts.ensure_installed)
-		vim.api.nvim_create_autocmd("FileType", {
-			pattern = opts.ensure_installed,
-			callback = function()
-				-- enable highlighting
-				vim.treesitter.start()
-				-- enable folds
-				vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-				vim.wo.foldmethod = "expr"
-				-- enable indentation
-				vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-			end,
-		})
-	end,
+vim.pack.add({
+	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
+	{ src = "https://github.com/neovim-treesitter/treesitter-parser-registry" },
+})
+
+local ensure_installed = {
+	"bash",
+	"diff",
+	"lua",
+	"luadoc",
+	"luap",
+	"markdown",
+	"markdown_inline",
+	"printf",
+	"python",
+	"query",
+	"regex",
+	"javascript",
+	"jsdoc",
+	"html",
+	"tsx",
+	"typescript",
+	"vim",
+	"vimdoc",
+	"json",
+	"toml",
+	"xml",
+	"yaml",
+	"ini",
+	"c",
+	"cpp",
+	"rust",
+	"ron",
+	"go",
+	"gomod",
+	"gowork",
+	"gosum",
+	"ninja",
+	"rst",
 }
+
+require("nvim-treesitter").setup({})
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = ensure_installed,
+	callback = function()
+		pcall(vim.treesitter.start)
+		vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+		vim.wo.foldmethod = "expr"
+		vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+	end,
+})

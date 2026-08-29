@@ -1,6 +1,6 @@
--- Options are automatically loaded before lazy.nvim startup
+-- Options are loaded before plugins (vim.pack)
 
--- needed by lazy.nvim
+-- leader must be set before plugins are loaded
 vim.g.mapleader = " " -- set leader with <Space>
 vim.g.maplocalleader = "\\"
 

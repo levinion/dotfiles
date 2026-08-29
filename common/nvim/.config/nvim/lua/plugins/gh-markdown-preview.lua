@@ -1,23 +1,9 @@
-return {
-  {
-    "levinion/gh-markdown-preview.nvim",
-    dependencies = { "selimacerbas/live-server.nvim" },
-    config = function()
-      require("gh_markdown_preview").setup({})
+vim.pack.add({
+	{ src = "https://github.com/levinion/gh-markdown-preview.nvim" },
+	{ src = "https://github.com/selimacerbas/live-server.nvim" },
+})
 
-      vim.keymap.set(
-        "n",
-        "<leader>mb",
-        "<cmd>GhMarkdownPreview<cr>",
-        { desc = "Render markdown in browser" }
-      )
+require("gh_markdown_preview").setup({})
 
-      vim.keymap.set(
-        "n",
-        "<leader>mt",
-        "<cmd>GhMarkdownPreviewThemeToggle<cr>",
-        { desc = "Toggle markdown theme" }
-      )
-    end,
-  },
-}
+vim.keymap.set("n", "<leader>mb", "<cmd>GhMarkdownPreview<cr>", { desc = "Render markdown in browser" })
+vim.keymap.set("n", "<leader>mt", "<cmd>GhMarkdownPreviewThemeToggle<cr>", { desc = "Toggle markdown theme" })

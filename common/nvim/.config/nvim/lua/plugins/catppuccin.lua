@@ -1,15 +1,9 @@
-return {
-	{
-		"catppuccin/nvim",
-		name = "catppuccin",
-		priority = 1000,
-		opts = {
-			flavour = "mocha",
-			term_colors = true,
-		},
-		config = function(_, opts)
-			require("catppuccin").setup(opts)
-			vim.cmd.colorscheme("catppuccin")
-		end,
-	},
-}
+vim.pack.add({
+	{ src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
+})
+
+require("catppuccin").setup({
+	flavour = "mocha",
+	term_colors = true,
+})
+vim.cmd.colorscheme("catppuccin")

@@ -1,11 +1,11 @@
-return {
-	"echasnovski/mini.surround",
-	version = "*",
-	opts = {
-		mappings = {
-			add = "sa", -- Add surrounding in Normal and Visual modes
-			delete = "sd", -- Delete surrounding
-			replace = "sr", -- Replace surrounding
-		},
+vim.pack.add({
+	{ src = "https://github.com/echasnovski/mini.surround", version = vim.version.range("*") },
+})
+
+require("mini.surround").setup({
+	mappings = {
+		add = "sa",
+		delete = "sd",
+		replace = "sr",
 	},
-}
+})

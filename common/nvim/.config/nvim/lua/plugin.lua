@@ -1,8 +1,5 @@
-require("lazy").setup({
-	spec = {
-		require("utils").require_all("plugins"),
-	},
-	checker = { enabled = false },
-})
+require("utils").require_all("plugins")
 
-vim.keymap.set("n", "<leader>l", "<cmd>Lazy<CR>", { desc = "lazy.nvim" })
+vim.keymap.set("n", "<leader>l", function()
+	vim.pack.update()
+end, { desc = "vim.pack update" })
