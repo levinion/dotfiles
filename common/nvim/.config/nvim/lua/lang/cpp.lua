@@ -1,5 +1,4 @@
 vim.lsp.config("clangd", {
-  filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
   cmd = {
     "clangd",
     "--clang-tidy",
@@ -24,3 +23,5 @@ vim.lsp.config("clangd", {
     clangdFileStatus = true,
   },
 })
+
+vim.lsp.enable("clangd")
