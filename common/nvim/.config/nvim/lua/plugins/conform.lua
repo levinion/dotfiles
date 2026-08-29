@@ -24,29 +24,7 @@ require("conform").setup({
 	end,
 })
 
-local function setup_format_toggle()
-	if _G.Snacks and Snacks.toggle then
-		Snacks.toggle
-			.new({
-				id = "Format on Save",
-				name = "Format on Save",
-				get = function()
-					return vim.g.autoformat
-				end,
-				set = function(_)
-					vim.g.autoformat = not vim.g.autoformat
-				end,
-			})
-			:map("<leader>cf")
-	end
-end
-
-if _G.Snacks then
-	setup_format_toggle()
-else
-	vim.api.nvim_create_autocmd("User", {
-		pattern = "VeryLazy",
-		once = true,
-		callback = setup_format_toggle,
-	})
-end
+vim.keymap.set("n", "<leader>cf", function()
+	vim.g.autoformat = not vim.g.autoformat
+	vim.notify("Format on Save: " .. (vim.g.autoformat and "ON" or "OFF"))
+end, { desc = "Toggle Format on Save" })

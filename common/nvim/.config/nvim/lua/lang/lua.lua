@@ -13,7 +13,7 @@ vim.lsp.config("lua_ls", {
       workspace = { library = library },
       telemetry = { enable = false },
       diagnostics = {
-        globals = { "vim", "ura", "Snacks", "hs" },
+        globals = { "vim", "ura", "hs" },
       },
       codeLens = {
         enable = true,

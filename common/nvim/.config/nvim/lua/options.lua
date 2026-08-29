@@ -4,8 +4,6 @@
 vim.g.mapleader = " " -- set leader with <Space>
 vim.g.maplocalleader = "\\"
 
-vim.g.snacks_animate = false -- disable animation provided by snacks
-
 vim.o.termguicolors = true
 
 local opt = vim.opt
@@ -27,6 +25,16 @@ opt.undolevels = 10000    -- set undo level to a big value
 opt.signcolumn = "yes"    -- always open signcolumn
 opt.showmode = false      -- don't show mode, since lualine already does that
 opt.smoothscroll = true
+opt.list = true
+opt.listchars = {
+	tab = "▏ ",
+	trail = "·",
+	multispace = "· ",
+	leadmultispace = "┊ ",
+	extends = "→",
+	precedes = "←",
+	nbsp = "␣",
+}
 opt.foldlevel = 99        -- enable fold
 opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 opt.foldmethod = "expr"
