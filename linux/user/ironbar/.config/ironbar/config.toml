@@ -31,16 +31,13 @@ class = "recording"
 label = "#recording"
 show_if = "#recording"
 
-# [[end]]
-# type = "music"
-# player_type = "mpris"
-# format = "{title}"
-# [end.truncate]
-# mode = "end"
-# max_length = 30
-# [end.icons]
-# play = ""
-# pause = ""
+[[end]]
+type = "music"
+player_type = "mpris"
+format = ""
+[end.icons]
+play = " "
+pause = " "
 
 [[end]]
 type = "sys_info"
