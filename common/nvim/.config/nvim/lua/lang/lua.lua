@@ -5,6 +5,7 @@ local library = {
 }
 
 vim.lsp.config("lua_ls", {
+  filetypes = { "lua" },
   settings = {
     Lua = {
       runtime = {

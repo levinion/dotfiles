@@ -1,4 +1,5 @@
 vim.lsp.config("cssls", {
+  filetypes = { "css", "scss", "less" },
   settings = {
     -- ignore warning when using tailwindcss
     css = {

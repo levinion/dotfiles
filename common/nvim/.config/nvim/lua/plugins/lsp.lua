@@ -1,69 +1,34 @@
-vim.pack.add({
-  { src = "https://github.com/mason-org/mason.nvim" },
-  { src = "https://github.com/mason-org/mason-lspconfig.nvim" },
-  { src = "https://github.com/neovim/nvim-lspconfig" },
-})
-
-require("mason").setup({
-  ensure_installed = {
-    "stylua",
-    "lua-language-server",
-    "shfmt",
-    "bash-language-server",
-    "ruff",
-    "ty",
-    "gofumpt",
-    "goimports",
-    "gopls",
-    "json-lsp",
-    "jsonlint",
-    "yaml-language-server",
-    "taplo",
-    "css-lsp",
-    "prettier",
-    "vtsls",
-    "tailwindcss-language-server",
-    "clangd",
-    "cmakelang",
-    "cmakelint",
-    "neocmakelsp",
-  },
-})
-vim.keymap.set("n", "<leader>cm", "<cmd>Mason<CR>", { desc = "Mason" })
-
-require("mason-lspconfig").setup({})
-
 vim.diagnostic.config({
-  update_in_insert = true,
-  virtual_text = true,
-  underline = true,
-  severity_sort = true,
-  signs = {
-    text = {
-      [vim.diagnostic.severity.ERROR] = "",
-      [vim.diagnostic.severity.WARN] = "",
-      [vim.diagnostic.severity.INFO] = "",
-      [vim.diagnostic.severity.HINT] = "",
-    },
-  },
+	update_in_insert = true,
+	virtual_text = true,
+	underline = true,
+	severity_sort = true,
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = "",
+			[vim.diagnostic.severity.WARN] = "",
+			[vim.diagnostic.severity.INFO] = "",
+			[vim.diagnostic.severity.HINT] = "",
+		},
+	},
 })
 
 vim.lsp.inlay_hint.enable(true)
 
 vim.keymap.set("n", "<leader>cl", function()
-  vim.cmd("checkhealth vim.lsp")
+	vim.cmd("checkhealth vim.lsp")
 end, { desc = "Lsp Info" })
 vim.keymap.set("n", "<leader>cd", function()
-  vim.diagnostic.open_float()
+	vim.diagnostic.open_float()
 end, { desc = "Code diagnostic" })
 vim.keymap.set("n", "<leader>ch", "<cmd>LspClangdSwitchSourceHeader<cr>", { desc = "Switch Source/Header (C/C++)" })
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
 
 local diagnostic_goto = function(next, severity)
-  severity = severity and vim.diagnostic.severity[severity] or nil
-  return function()
-    vim.diagnostic.jump({ count = next and 1 or -1, severity = severity })
-  end
+	severity = severity and vim.diagnostic.severity[severity] or nil
+	return function()
+		vim.diagnostic.jump({ count = next and 1 or -1, severity = severity })
+	end
 end
 
 vim.keymap.set("n", "]d", diagnostic_goto(true), { desc = "Next Diagnostic" })
@@ -74,3 +39,5 @@ vim.keymap.set("n", "]w", diagnostic_goto(true, "WARN"), { desc = "Next Warning"
 vim.keymap.set("n", "[w", diagnostic_goto(false, "WARN"), { desc = "Prev Warning" })
 
 require("utils").require_all("lang")
+
+vim.lsp.enable({ "bashls", "clangd", "cssls", "taplo", "yamlls", "lua_ls" })
