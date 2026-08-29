@@ -6,9 +6,7 @@ vim.pack.add({
 
 require('blink.pairs').download():pwait(60000)
 
-pcall(function()
-  require("vim._core.ui2").enable({})
-end)
+require("vim._core.ui2").enable({})
 
 require("blink.cmp").setup({
   completion = {
