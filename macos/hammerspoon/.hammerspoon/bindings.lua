@@ -77,3 +77,25 @@ end)
 hs.hotkey.bind({ "ctrl", "cmd", "alt" }, "k", function()
   hs.window.focusedWindow():focusWindowNorth()
 end)
+
+-- switch input source
+do
+  local ime = hs.keycodes
+
+  local sources = {}
+  local layoutNames, layoutIDs = ime.layouts(), ime.layouts(true)
+  local methodNames, methodIDs = ime.methods(), ime.methods(true)
+
+  for i = 1, math.min(#layoutNames, #layoutIDs) do
+    sources[#sources + 1] = { name = layoutNames[i], id = layoutIDs[i] }
+  end
+  for i = 1, math.min(#methodNames, #methodIDs) do
+    sources[#sources + 1] = { name = methodNames[i], id = methodIDs[i] }
+  end
+
+  for i = 1, #sources do
+    hs.hotkey.bind({ "ctrl", "cmd", "alt" }, tostring(i), function()
+      ime.currentSourceID(sources[i].id)
+    end)
+  end
+end
