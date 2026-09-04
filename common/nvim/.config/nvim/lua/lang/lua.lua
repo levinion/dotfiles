@@ -7,17 +7,11 @@ local library = {
 vim.lsp.config("lua_ls", {
   settings = {
     Lua = {
-      runtime = {
-        version = "LuaJIT",
-      },
+      runtime = { version = "LuaJIT" },
       workspace = { library = library },
       telemetry = { enable = false },
-      diagnostics = {
-        globals = { "vim", "ura", "hs" },
-      },
-      codeLens = {
-        enable = true,
-      },
+      diagnostics = { globals = { "vim", "ura", "hs" } },
+      codeLens = { enable = true },
     },
   },
 })

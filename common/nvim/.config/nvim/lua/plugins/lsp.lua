@@ -1,3 +1,4 @@
+---@diagnostic disable: need-check-nil, undefined-field, assign-type-mismatch, param-type-mismatch, cast-local-type, missing-fields, duplicate-set-field
 vim.pack.add({
   { src = "https://github.com/neovim/nvim-lspconfig" },
 })
@@ -42,43 +43,60 @@ vim.keymap.set("n", "[e", diagnostic_goto(false, "ERROR"), { desc = "Prev Error"
 vim.keymap.set("n", "]w", diagnostic_goto(true, "WARN"), { desc = "Next Warning" })
 vim.keymap.set("n", "[w", diagnostic_goto(false, "WARN"), { desc = "Prev Warning" })
 
--- overwrite vim.lsp.enable to info undownloaded lsp
+---@param s string
+---@return string|nil
+local function bin(s)
+  local cfg = vim.lsp.config[s]
+  local cmd = cfg and cfg.cmd
+  if type(cmd) == "table" then return cmd[1] end
+  if type(cmd) == "function" then
+    local cap
+    local o = vim.lsp.rpc.start
+    ---@diagnostic disable-next-line: assign-type-mismatch, duplicate-set-field
+    vim.lsp.rpc.start = function(c)
+      cap = c
+      return function() end
+    end
+    ---@diagnostic disable-next-line: missing-fields
+    pcall(cmd, {}, cfg or {})
+    ---@diagnostic disable-next-line: duplicate-set-field
+    vim.lsp.rpc.start = o
+    return cap and cap[1]
+  end
+end
+
 do
-  local enabled = {}
+  local missing = {}
   local orig_enable = vim.lsp.enable
   vim.lsp.enable = function(name)
-    if type(name) == "string" then
-      enabled[name] = true
-    elseif type(name) == "table" then
-      for _, n in ipairs(name) do enabled[n] = true end
+    local names = type(name) == "string" and { name } or name
+    local to_enable = {}
+    for _, srv in ipairs(names) do
+      local b = bin(srv)
+      if b and vim.fn.executable(b) == 0 then
+        missing[srv] = true
+      else
+        table.insert(to_enable, srv)
+      end
     end
-    return orig_enable(name)
+    if #to_enable > 0 then
+      return orig_enable(#to_enable == 1 and to_enable[1] or to_enable)
+    end
   end
+
   require("utils").require_all("lang")
+
   vim.lsp.enable = orig_enable
+
   vim.api.nvim_create_autocmd("FileType", {
     callback = function(args)
       local ft = vim.bo[args.buf].filetype
-      for server in pairs(enabled) do
+      for server in pairs(missing) do
         local cfg = vim.lsp.config[server]
-        if not cfg or not cfg.filetypes then
-          local ok, lspconfig = pcall(require, "lspconfig")
-          if ok and lspconfig[server] and lspconfig[server].document_config then
-            cfg = lspconfig[server].document_config.default_config
-          end
-        end
         local fts = cfg and cfg.filetypes
         if fts and vim.list_contains(fts, ft) then
-          local cmd = cfg and cfg.cmd
-          if type(cmd) == "function" then
-            local ok, res = pcall(cmd)
-            if ok and type(res) == "table" then cmd = res else cmd = nil end
-          end
-          local bin = cmd and cmd[1] or server
-          if type(bin) ~= "string" then bin = server end
-          if vim.fn.executable(bin) == 0 then
-            vim.notify(string.format("LSP '%s' not installed (%s)", server, bin), vim.log.levels.WARN)
-          end
+          local b = bin(server)
+          if b then vim.notify(string.format("LSP '%s' not installed (%s)", server, b), vim.log.levels.WARN) end
         end
       end
     end,
