@@ -15,7 +15,7 @@ require("blink.cmp").setup({
   },
   signature = { enabled = true },
   sources = { default = { "path", "snippets", "buffer", "lsp" } },
-  snippets = { preset = "luasnip" },
+  snippets = { preset = "default" },
   keymap = {
     preset = "super-tab",
     ["<C-y>"] = { "select_and_accept" },

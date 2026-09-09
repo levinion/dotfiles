@@ -1,0 +1,7 @@
+{
+  "header guard": {
+    "prefix": "ponce",
+    "body": ["#pragma once", "", "namespace ${1:identifier} {$0}"],
+    "description": "header guard"
+  }
+}
