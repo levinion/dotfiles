@@ -29,6 +29,7 @@ end, { desc = "Code diagnostic" })
 vim.keymap.set("n", "<leader>ch", "<cmd>LspClangdSwitchSourceHeader<cr>", { desc = "Switch Source/Header (C/C++)" })
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
 
+-- goto function
 local diagnostic_goto = function(next, severity)
   severity = severity and vim.diagnostic.severity[severity] or nil
   return function()
@@ -65,6 +66,7 @@ local function bin(s)
   end
 end
 
+-- enable and check for missing lsp binary
 do
   local missing = {}
   local orig_enable = vim.lsp.enable
@@ -102,3 +104,22 @@ do
     end,
   })
 end
+
+-- lsp format
+vim.g.autoformat = true
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  callback = function(args)
+    if not vim.g.autoformat then return end
+    vim.lsp.buf.format({ bufnr = args.buf, timeout_ms = 500 })
+  end,
+})
+
+vim.keymap.set("n", "<leader>cf", function()
+  vim.g.autoformat = not vim.g.autoformat
+  vim.notify("Format on Save: " .. (vim.g.autoformat and "ON" or "OFF"))
+end, { desc = "Toggle Format on Save" })
+
+vim.keymap.set("n", "<leader>cF", function()
+  vim.lsp.buf.format({ timeout_ms = 500 })
+end, { desc = "Format buffer" })
