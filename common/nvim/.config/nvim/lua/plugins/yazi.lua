@@ -5,7 +5,7 @@ vim.pack.add({
 vim.g.loaded_netrwPlugin = 1
 
 require("yazi").setup({
-  open_for_directories = true,
+  open_for_directories = false,
 })
 
-vim.keymap.set({ "n", "v", "o" }, "<leader>e", "<cmd>Yazi<cr>", { desc = "Toggle FileManager" })
+vim.keymap.set({ "n", "v", "o" }, "<leader>fy", "<cmd>Yazi<cr>", { desc = "Toggle Yazi" })
