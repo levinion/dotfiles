@@ -12,6 +12,10 @@ require("neo-tree").setup({
     width = 30,
   },
   filesystem = {
+    follow_current_file = {
+      enabled = true,
+      leave_dirs_open = true,
+    },
     filtered_items = {
       visible = false,
       hide_dotfiles = false,
@@ -28,5 +32,5 @@ require("neo-tree").setup({
 })
 
 vim.keymap.set({ "n", "v", "o" }, "<leader>e", function()
-  require("neo-tree.command").execute({ toggle = true })
+  require("neo-tree.command").execute({ toggle = true, reveal = true })
 end, { desc = "Toggle FileManager" })
