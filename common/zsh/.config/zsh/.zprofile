@@ -28,6 +28,11 @@ if [[ "$XDG_SESSION_TYPE" = "wayland" ]]; then
   export ELECTRON_OZONE_PLATFORM_HINT=auto
 fi
 
+
+if [[ $(uname) == "Darwin" ]]; then
+  export VK_DRIVER_FILES="/opt/homebrew/opt/mesa/share/vulkan/icd.d/kosmickrisp_mesa_icd.aarch64.json"
+fi
+
 # use portal instead of gtk-native filechooser
 export GTK_USE_PORTAL=1
 

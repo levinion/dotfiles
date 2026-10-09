@@ -1,6 +1,6 @@
 vim.pack.add({
+  { src = "https://github.com/selimacerbas/kitehost.nvim" },
   { src = "https://github.com/levinion/gh-markdown-preview.nvim" },
-  { src = "https://github.com/selimacerbas/live-server.nvim" },
 })
 
 require("gh_markdown_preview").setup({})

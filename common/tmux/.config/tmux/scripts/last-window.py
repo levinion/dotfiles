@@ -9,7 +9,7 @@ def main():
         .strip()
         .decode()
     )
-    subprocess.run(f"tmux select-window -t {index}", shell=True)
+    subprocess.run(f"tmux select-window -t :{index}", shell=True, check=False)
 
 
 if __name__ == "__main__":

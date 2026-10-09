@@ -1,5 +1,5 @@
 vim.pack.add({
-  { src = "https://github.com/gregorias/coerce.nvim", version = "v4.2.1" },
+  { src = "https://github.com/gregorias/coerce.nvim" },
   { src = "https://github.com/gregorias/coop.nvim" },
 })
 

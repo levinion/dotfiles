@@ -10,7 +10,9 @@ def main():
         .decode()
     )
     subprocess.run(
-        f"tmux select-window -t {int(index)+1} || tmux new-window", shell=True
+        f"tmux select-window -t :{int(index) + 1} || tmux new-window",
+        shell=True,
+        check=False,
     )
 
 

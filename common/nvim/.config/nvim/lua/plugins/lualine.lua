@@ -9,7 +9,7 @@ require("lualine").setup({
     component_separators = { left = "|", right = "|" },
     section_separators = { left = "", right = "" },
   },
-  extensions = { "nvim-tree" },
+  extensions = { "neo-tree" },
   sections = {
     lualine_b = { "branch", "diff" },
     lualine_x = {

@@ -4,6 +4,9 @@
 vim.g.mapleader = " " -- set leader with <Space>
 vim.g.maplocalleader = "\\"
 
+-- blink.pairs provides bracket matching; avoid the duplicate builtin matcher.
+vim.g.loaded_matchparen = 1
+
 vim.o.termguicolors = true
 
 local opt = vim.opt
@@ -35,9 +38,8 @@ opt.listchars = {
   precedes = "←",
   nbsp = "␣",
 }
-opt.foldlevel = 99 -- enable fold
-opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-opt.foldmethod = "expr"
+opt.foldlevel = 99 -- keep folds open by default
+opt.foldmethod = "manual" -- Treesitter enables expression folding only where supported.
 opt.foldtext = ""
 
 opt.title = true -- auto-change the title of TE

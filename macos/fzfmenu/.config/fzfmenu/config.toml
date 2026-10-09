@@ -3,7 +3,7 @@ name = "app_launcher"
 description = "Launch applications"
 prefix = ""
 picker = "fd -d2 -L '\\.app$' /Applications $HOME/Applications /System/Applications -x echo {/} | cut -d '.' -f1"
-runner = "open -a '{}'"
+runner = "open -na '{}'"
 background = true
 
 [[plugins]]
