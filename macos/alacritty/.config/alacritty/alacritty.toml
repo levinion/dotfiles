@@ -64,6 +64,8 @@ program = "/bin/zsh"
 args = ["-l"]
 
 [window]
+# Send Option combinations as Alt for terminal shortcuts (e.g. nvim smart-splits).
+option_as_alt = "Both"
 decorations = "Buttonless"
 dynamic_title = true
 opacity = 0.85
